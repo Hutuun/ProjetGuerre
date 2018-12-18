@@ -8,7 +8,7 @@ class Unite
         Unite(unsigned int prix, unsigned int pv, unsigned int pointAttaque): m_prix(prix), m_pv(pv), m_pointAttaque(pointAttaque) {};
         virtual ~Unite();
         void attaque(Unite &ennemi);
-        void prendDommage();
+        void prendDommage(unsigned int dommage);
         void mourir();
         virtual void choixCible() {};
 
