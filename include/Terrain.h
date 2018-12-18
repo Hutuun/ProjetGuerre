@@ -9,13 +9,13 @@ using namespace std;
 class Terrain
 {
     public:
-        Terrain();
+        Terrain(unsigned int taille): m_terrain(taille){};
         virtual ~Terrain();
 
     protected:
 
     private:
-        vector<Case> terrain;
+        vector<Case> m_terrain;
 };
 
 #endif // TERRAIN_H
