@@ -2,5 +2,12 @@
 
 Terrain::~Terrain()
 {
-    //dtor
+
+}
+
+std::vector<Case> Terrain::getTerrain()const
+{
+
+    return m_terrain;
+
 }

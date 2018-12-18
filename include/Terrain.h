@@ -4,18 +4,19 @@
 #include <vector>
 #include "../../include/Case.h"
 
-using namespace std;
-
 class Terrain
 {
     public:
         Terrain(unsigned int taille): m_terrain(taille){};
+
+        std::vector<Case> getTerrain()const;
+
         virtual ~Terrain();
 
     protected:
 
     private:
-        vector<Case> m_terrain;
+        std::vector<Case> m_terrain;
 };
 
 #endif // TERRAIN_H
