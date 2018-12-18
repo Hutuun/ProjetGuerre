@@ -1,5 +1,7 @@
 #include "../../include/Terrain.h"
 
+Terrain Terrain::m_instance=Terrain(11);
+
 Terrain::~Terrain()
 {
 
@@ -7,7 +9,5 @@ Terrain::~Terrain()
 
 Terrain& Terrain::getInstanTerrain()
 {
-    if(m_terrain==nullptr)
-        m_terrain = new Terrain(11);
-    return terrain;
+    return m_instance;
 }
