@@ -11,15 +11,17 @@ class Unite;
 class Case
 {
     public:
-        Case() : m_libre(true), occupant(nullptr) {};
+        Case() : m_libre(true), m_occupant(nullptr) {};
         virtual ~Case();
         Unite* getOccupant ()const;
+        void ajoutOccupant(Unite* const occupant);
         void tue();
+        void affiche()const;
     protected:
 
     private:
         bool m_libre;
-        Unite *occupant;
+        Unite *m_occupant;
 };
 
 #endif // CASE_H

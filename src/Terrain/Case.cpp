@@ -2,15 +2,28 @@
 
 Case::~Case()
 {
-    delete (occupant);
+    delete (m_occupant);
 }
 
 Unite* Case::getOccupant ()const
 {
-    return occupant;
+    return m_occupant;
 }
 
 void Case::tue()
 {
-    this->occupant=nullptr;
+    m_occupant=nullptr;
+}
+
+void Case::ajoutOccupant(Unite* const occupant)
+{
+    if(m_occupant==nullptr)
+        m_occupant=occupant;
+    else
+        std::cerr << "Il y a deja quelqu'un sur cette case";
+}
+
+void Case::affiche()const
+{
+
 }

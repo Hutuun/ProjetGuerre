@@ -16,3 +16,11 @@ std::vector<Case> Terrain::getCases()const
 {
     return m_terrain;
 }
+
+void Terrain::affiche()const
+{
+    for(unsigned int i=0;i<m_terrain.size();i++)
+    {
+
+    }
+}

@@ -54,7 +54,7 @@ int main( int argc, char* args[] )
 	//Quit SDL subsystems
 	SDL_Quit();*/
 
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+    /*sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
 
@@ -70,7 +70,11 @@ int main( int argc, char* args[] )
         window.clear();
         window.draw(shape);
         window.display();
-    }
+    }*/
+
+    Terrain centre = Terrain::getInstanTerrain();
+    std::vector<Case> cases = centre.getCases();
+
 
 	return 0;
 }

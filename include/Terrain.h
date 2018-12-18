@@ -10,6 +10,7 @@ class Terrain
         static Terrain& getInstanTerrain();
         std::vector<Case> getCases()const;
         virtual ~Terrain();
+        void affiche()const;
 
     protected:
 

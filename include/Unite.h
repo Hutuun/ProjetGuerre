@@ -14,6 +14,7 @@ class Unite
         bool prendDommage(unsigned int dommage);
         virtual void choixCible(unsigned int pos) {};
         bool getDir();
+        virtual void affiche()const;
 
     protected:
         bool m_dir;
