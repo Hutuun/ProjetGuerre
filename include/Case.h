@@ -11,7 +11,6 @@ class Case
     protected:
 
     private:
-        bool m_libre;
 };
 
 #endif // CASE_H
