@@ -14,6 +14,7 @@ class Archer : public Distance
     protected:
 
     private:
+
 };
 
 #endif // ARCHER_H

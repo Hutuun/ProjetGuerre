@@ -71,3 +71,64 @@
 
 1544620532 d:\etude\projetguerreetwar\projetguerre\include\soldat.h
 
+1545124315 source:c:\users\sulli\onedrive\bureau\c++\projetguerre\main.cpp
+	<iostream>
+
+1545124315 source:c:\users\sulli\onedrive\bureau\c++\projetguerre\src\joueur\unite\archer.cpp
+	"../../../include/Archer.h"
+
+1545124540 c:\users\sulli\onedrive\bureau\c++\projetguerre\include\archer.h
+	"Distance.h"
+
+1545124314 c:\users\sulli\onedrive\bureau\c++\projetguerre\include\distance.h
+	"Soldat.h"
+
+1545124721 c:\users\sulli\onedrive\bureau\c++\projetguerre\include\soldat.h
+
+1545124315 source:c:\users\sulli\onedrive\bureau\c++\projetguerre\src\joueur\unite\base.cpp
+	"Base.h"
+
+1545124314 c:\users\sulli\onedrive\bureau\c++\projetguerre\include\base.h
+	"Batiment.h"
+
+1545124314 c:\users\sulli\onedrive\bureau\c++\projetguerre\include\batiment.h
+	"Unite.h"
+
+1545124514 c:\users\sulli\onedrive\bureau\c++\projetguerre\include\unite.h
+
+1545124315 source:c:\users\sulli\onedrive\bureau\c++\projetguerre\src\joueur\unite\batiment.cpp
+	"Batiment.h"
+
+1545124315 source:c:\users\sulli\onedrive\bureau\c++\projetguerre\src\joueur\unite\catapulte.cpp
+	"../../../include/Catapulte.h"
+
+1545124314 c:\users\sulli\onedrive\bureau\c++\projetguerre\include\catapulte.h
+	"Distance.h"
+
+1545124315 source:c:\users\sulli\onedrive\bureau\c++\projetguerre\src\joueur\unite\corpsacorps.cpp
+	"../../../include/CorpsACorps.h"
+
+1545124314 c:\users\sulli\onedrive\bureau\c++\projetguerre\include\corpsacorps.h
+	"Soldat.h"
+
+1545124315 source:c:\users\sulli\onedrive\bureau\c++\projetguerre\src\joueur\unite\distance.cpp
+	"../../../include/Distance.h"
+
+1545124315 source:c:\users\sulli\onedrive\bureau\c++\projetguerre\src\joueur\unite\soldat.cpp
+	"Soldat.h"
+
+1545124315 source:c:\users\sulli\onedrive\bureau\c++\projetguerre\src\joueur\unite\unite.cpp
+	"../../../include/Unite.h"
+
+1545124315 source:c:\users\sulli\onedrive\bureau\c++\projetguerre\src\terrain\case.cpp
+	"../../include/Case.h"
+
+1545124314 c:\users\sulli\onedrive\bureau\c++\projetguerre\include\case.h
+
+1545124315 source:c:\users\sulli\onedrive\bureau\c++\projetguerre\src\terrain\terrain.cpp
+	"../../include/Terrain.h"
+
+1545124315 c:\users\sulli\onedrive\bureau\c++\projetguerre\include\terrain.h
+	<vector>
+	"../../include/Case.h"
+
