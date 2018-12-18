@@ -17,7 +17,7 @@ class Unite
     private:
         unsigned int prix;
         unsigned int pv;
-        unsigned int pa;
+        unsigned int pointAttaque;
 };
 
 #endif // UNITE_H

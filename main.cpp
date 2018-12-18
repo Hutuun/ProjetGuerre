@@ -11,7 +11,7 @@ const int SCREEN_HEIGHT = 480;
 
 int main( int argc, char* args[] )
 {
-	//The window we'll be rendering to
+	/*//The window we'll be rendering to
 	SDL_Window* window = NULL;
 
 	//The surface contained by the window
@@ -50,7 +50,7 @@ int main( int argc, char* args[] )
 	SDL_DestroyWindow( window );
 
 	//Quit SDL subsystems
-	SDL_Quit();
+	SDL_Quit();*/
 
 	return 0;
 }
