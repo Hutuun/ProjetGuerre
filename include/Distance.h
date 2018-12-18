@@ -10,7 +10,7 @@ class Distance : public Soldat
         Distance(unsigned int prix, unsigned int pv, unsigned int pointAttaque,unsigned int pm, unsigned int portee, bool dir) : Soldat(prix,pv,pointAttaque,pm, dir),m_portee(portee) {};
         virtual ~Distance();
         virtual void choixCible() {};
-        virtual void affiche()const;
+        virtual void affiche()const {};
     protected:
 
     private:

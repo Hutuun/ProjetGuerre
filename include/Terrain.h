@@ -2,7 +2,8 @@
 #define TERRAIN_H
 
 #include <vector>
-#include "../../include/Case.h"
+#include "Case.h"
+#include "Base.h"
 
 class Terrain
 {
@@ -11,6 +12,7 @@ class Terrain
         std::vector<Case> getCases()const;
         virtual ~Terrain();
         void affiche()const;
+        void ajoutBases();
 
     protected:
 

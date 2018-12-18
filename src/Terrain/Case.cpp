@@ -25,5 +25,8 @@ void Case::ajoutOccupant(Unite* const occupant)
 
 void Case::affiche()const
 {
-
+    if(m_occupant==nullptr)
+        std::cout << "0" << std::endl;
+    else
+        m_occupant->affiche();
 }
