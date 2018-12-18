@@ -8,7 +8,7 @@ Unite::~Unite()
 void Unite::prendDommage(unsigned int dommage)
 {
     if(dommage>m_pv)
-        this.mourir();
+        this->mourir();
     else
         m_pv-=dommage;
 }

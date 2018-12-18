@@ -10,6 +10,9 @@ class Base : public Batiment
         Base() : Batiment(0,100,0) {};
         virtual ~Base();
         void choixCible() {};
+
+
+
     protected:
 
     private:
