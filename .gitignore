@@ -2,6 +2,7 @@
 
 *.d
 
+*.depend
 
 
 # Compiled Object files
