@@ -2,7 +2,7 @@
 #define SOLDAT_H
 
 
-class Soldat
+class Soldat : public Unite
 {
     public:
         Soldat();
@@ -11,6 +11,7 @@ class Soldat
     protected:
 
     private:
+        unsigned int pm;
 };
 
 #endif // SOLDAT_H
