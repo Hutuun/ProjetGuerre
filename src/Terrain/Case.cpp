@@ -2,5 +2,15 @@
 
 Case::~Case()
 {
-    //dtor
+    delete (occupant);
+}
+
+Unite* Case::getOccupant ()const
+{
+    return occupant;
+}
+
+void Case::tue()
+{
+    this->occupant=nullptr;
 }

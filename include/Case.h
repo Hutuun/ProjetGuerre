@@ -13,7 +13,8 @@ class Case
     public:
         Case() : m_libre(true), occupant(nullptr) {};
         virtual ~Case();
-
+        Unite* getOccupant ()const;
+        void tue();
     protected:
 
     private:
