@@ -19,7 +19,7 @@ bool Unite::prendDommage(unsigned int dommage)
 void Unite::attaque(Case &ennemi)
 {
     if(ennemi.getOccupant()==nullptr)
-        std::cerr << "Il y a un soucis";
+        std::cerr << "Il y a un soucis, il y a personne sur la case choisie";
     else if(ennemi.getOccupant()->prendDommage(this->m_pointAttaque))
         ennemi.tue();
 }
