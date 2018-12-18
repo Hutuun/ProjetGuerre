@@ -12,7 +12,6 @@ class Base : public Batiment
         void choixCible() {};
 
 
-
     protected:
 
     private:

@@ -5,10 +5,11 @@ Unite::~Unite()
     //dtor
 }
 
-void Unite::prendDommage(unsigned int dommage)
+bool Unite::prendDommage(unsigned int dommage)
 {
     if(dommage>m_pv)
-        this->mourir();
+        return true;
     else
         m_pv-=dommage;
+    return false;
 }
