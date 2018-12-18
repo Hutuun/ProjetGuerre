@@ -1,6 +1,7 @@
 #ifndef SOLDAT_H
 #define SOLDAT_H
 
+#include "Unite.h"
 
 class Soldat : public Unite
 {
