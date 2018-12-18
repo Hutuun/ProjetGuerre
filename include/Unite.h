@@ -8,7 +8,7 @@ class Case;
 class Unite
 {
     public:
-        Unite(unsigned int prix, unsigned int pv, unsigned int pointAttaque): m_prix(prix), m_pv(pv), m_pointAttaque(pointAttaque) {mort=false;};
+        Unite(unsigned int prix, unsigned int pv, unsigned int pointAttaque): m_prix(prix), m_pv(pv), m_pointAttaque(pointAttaque) {};
         virtual ~Unite();
         void attaque(Case &ennemi);
         bool prendDommage(unsigned int dommage);
@@ -17,7 +17,6 @@ class Unite
     protected:
 
     private:
-        bool mort;
         unsigned int m_prix;
         unsigned int m_pv;
         unsigned int m_pointAttaque;
