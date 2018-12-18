@@ -10,7 +10,7 @@ class Unite
         void attaque(Unite &ennemi);
         void prendDommage();
         void mourir();
-        virtual void choixCible() {};
+        virtual void choixCible();
 
     protected:
 
