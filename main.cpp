@@ -9,7 +9,7 @@ const int SCREEN_HEIGHT = 480;
 
 int main( int argc, char* args[] )
 {
-    Terrain *terrain = Terrain::getInstanTerrain();
+    Terrain terrain = Terrain::getInstanTerrain();
 	/*//The window we'll be rendering to
 	SDL_Window* window = NULL;
 

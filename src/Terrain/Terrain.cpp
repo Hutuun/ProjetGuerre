@@ -5,7 +5,7 @@ Terrain::~Terrain()
 
 }
 
-Terrain* Terrain::getInstanTerrain()
+Terrain& Terrain::getInstanTerrain()
 {
     if(m_terrain==nullptr)
         m_terrain = new Terrain(11);
