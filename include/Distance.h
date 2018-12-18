@@ -7,7 +7,7 @@
 class Distance : public Soldat
 {
     public:
-        Distance();
+        Distance(unsigned int prix, unsigned int pv, unsigned int pointAttaque) : Soldat(prix,pv,pointAttaque) {};
         virtual ~Distance();
         virtual void choixCible() {};
     protected:

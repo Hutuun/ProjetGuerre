@@ -7,7 +7,7 @@
 class Archer : public Distance
 {
     public:
-        Archer();
+        Archer(unsigned int prix, unsigned int pv, unsigned int pointAttaque) : Distance(prix,pv,pointAttaque) {};
         virtual ~Archer();
         void choixCible() {};
     protected:

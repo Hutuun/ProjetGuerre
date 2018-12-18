@@ -13,7 +13,6 @@ class CorpsACorps : public Soldat
     protected:
 
     private:
-
 };
 
 #endif // CORPSACORPS_H
