@@ -1,0 +1,73 @@
+# depslib dependency file v1.0
+1544612289 source:d:\etude\projetguerreetwar\projetguerre\src\corpsacorps.cpp
+	"CorpsACorps.h"
+
+1544623037 d:\etude\projetguerreetwar\projetguerre\include\corpsacorps.h
+	"Soldat.h"
+
+1544613231 d:\etude\projetguerreetwar\projetguerre\include\unite.h
+
+1544612438 source:d:\etude\projetguerreetwar\projetguerre\src\distance.cpp
+	"Distance.h"
+
+1544623037 d:\etude\projetguerreetwar\projetguerre\include\distance.h
+	"Soldat.h"
+
+1544612178 source:d:\etude\projetguerreetwar\projetguerre\src\unite.cpp
+	"Unite.h"
+
+1544622096 source:d:\etude\projetguerreetwar\projetguerre\main.cpp
+	<iostream>
+
+1544612989 source:d:\etude\projetguerreetwar\projetguerre\src\archer.cpp
+	"Archer.h"
+
+1544613158 d:\etude\projetguerreetwar\projetguerre\include\archer.h
+	"Distance.h"
+
+1544612960 source:d:\etude\projetguerreetwar\projetguerre\src\catapulte.cpp
+	"Catapulte.h"
+
+1544613183 d:\etude\projetguerreetwar\projetguerre\include\catapulte.h
+	"Distance.h"
+
+1544619583 source:d:\etude\projetguerreetwar\projetguerre\src\joueur\unite\archer.cpp
+	"../../../include/Archer.h"
+
+1544619596 source:d:\etude\projetguerreetwar\projetguerre\src\joueur\unite\case.cpp
+	"../../../include/Case.h"
+
+1544619852 d:\etude\projetguerreetwar\projetguerre\include\case.h
+
+1544619606 source:d:\etude\projetguerreetwar\projetguerre\src\joueur\unite\catapulte.cpp
+	"../../../include/Catapulte.h"
+
+1544619620 source:d:\etude\projetguerreetwar\projetguerre\src\joueur\unite\corpsacorps.cpp
+	"../../../include/CorpsACorps.h"
+
+1544619650 source:d:\etude\projetguerreetwar\projetguerre\src\joueur\unite\distance.cpp
+	"../../../include/Distance.h"
+
+1544619650 source:d:\etude\projetguerreetwar\projetguerre\src\joueur\unite\unite.cpp
+	"../../../include/Unite.h"
+
+1544619966 source:d:\etude\projetguerreetwar\projetguerre\src\terrain\case.cpp
+	"../../include/Case.h"
+
+1544619813 source:d:\etude\projetguerreetwar\projetguerre\src\terrain\terrain.cpp
+	"../../include/Terrain.h"
+
+1544620215 d:\etude\projetguerreetwar\projetguerre\include\terrain.h
+	<vector>
+	"../../include/Case.h"
+
+1544620560 source:d:\etude\projetguerreetwar\projetguerre\src\joueur\unite\batiment.cpp
+	"Batiment.h"
+
+1544620560 d:\etude\projetguerreetwar\projetguerre\include\batiment.h
+
+1544620532 source:d:\etude\projetguerreetwar\projetguerre\src\joueur\unite\soldat.cpp
+	"Soldat.h"
+
+1544620532 d:\etude\projetguerreetwar\projetguerre\include\soldat.h
+
