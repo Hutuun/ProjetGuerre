@@ -5,9 +5,9 @@ Terrain::~Terrain()
 
 }
 
-Terrain* Terrain::getInstanTerrain()const
+Terrain* Terrain::getInstanTerrain()
 {
-
-    return this;
-
+    if(m_terrain==nullptr)
+        m_terrain = new Terrain(11);
+    return terrain;
 }
