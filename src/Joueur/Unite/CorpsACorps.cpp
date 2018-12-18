@@ -4,3 +4,8 @@ CorpsACorps::~CorpsACorps()
 {
     //dtor
 }
+
+void CorpsACorps::choixCible()
+{
+
+}
