@@ -11,3 +11,8 @@ Terrain& Terrain::getInstanTerrain()
 {
     return m_instance;
 }
+
+std::vector<Case> Terrain::getCases()const
+{
+    return m_terrain;
+}

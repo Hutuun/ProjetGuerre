@@ -34,7 +34,7 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add option="-std=c++11" />
+			<Add option="-std=c++14" />
 			<Add option="-fexceptions" />
 			<Add directory="SDL2-2.0.9/i686-w64-mingw32/include" />
 			<Add directory="SFML-2.5.1/include" />
@@ -45,10 +45,9 @@
 			<Add option="-lSDL2" />
 			<Add library="SDL2-2.0.9/i686-w64-mingw32/lib/libSDL2.a" />
 			<Add library="SDL2-2.0.9/i686-w64-mingw32/lib/libSDL2.dll.a" />
-			<Add library="sfml-graphics-2" />
-			<Add library="sfml-window-2" />
-			<Add library="sfml-system-2" />
-			<Add library="sfml-main-2" />
+			<Add library="sfml-graphics" />
+			<Add library="sfml-window" />
+			<Add library="sfml-system" />
 			<Add directory="SDL2-2.0.9/i686-w64-mingw32/lib" />
 			<Add directory="SFML-2.5.1/lib" />
 		</Linker>

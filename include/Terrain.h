@@ -8,7 +8,7 @@ class Terrain
 {
     public:
         static Terrain& getInstanTerrain();
-
+        std::vector<Case> getCases()const;
         virtual ~Terrain();
 
     protected:

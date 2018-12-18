@@ -23,3 +23,8 @@ void Unite::attaque(Case &ennemi)
     else if(ennemi.getOccupant()->prendDommage(this->m_pointAttaque))
         ennemi.tue();
 }
+
+bool Unite::getDir()
+{
+    return m_dir;
+}

@@ -7,7 +7,7 @@
 class Base : public Batiment
 {
     public:
-        Base() : Batiment(0,100,0) {};
+        Base(bool dir) : Batiment(0,100,0,dir) {};
         virtual ~Base();
         void choixCible() {};
 
