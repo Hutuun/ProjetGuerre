@@ -31,7 +31,6 @@
 
 *.dylib
 
-*.dll
 
 
 
@@ -57,11 +56,10 @@
 
 # Executables
 
-*.exe
 
 *.out
 
 *.app
-*.exe
+
 *.layout
-*.layout
+
