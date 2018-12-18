@@ -7,5 +7,5 @@ CorpsACorps::~CorpsACorps()
 
 void CorpsACorps::choixCible()
 {
-
+    return;
 }

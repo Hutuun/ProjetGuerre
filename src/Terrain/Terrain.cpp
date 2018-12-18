@@ -5,9 +5,9 @@ Terrain::~Terrain()
 
 }
 
-std::vector<Case> Terrain::getTerrain()const
+Terrain* Terrain::getInstanTerrain()const
 {
 
-    return m_terrain;
+    return this;
 
 }

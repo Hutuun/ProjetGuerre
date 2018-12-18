@@ -7,15 +7,14 @@
 class Terrain
 {
     public:
-        Terrain(unsigned int taille): m_terrain(taille){};
-
-        std::vector<Case> getTerrain()const;
+        Terrain* getInstanTerrain()const;
 
         virtual ~Terrain();
 
     protected:
 
     private:
+        Terrain(unsigned int taille): m_terrain(taille){};
         std::vector<Case> m_terrain;
 };
 
