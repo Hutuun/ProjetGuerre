@@ -71,6 +71,7 @@
 
 1544620532 d:\etude\projetguerreetwar\projetguerre\include\soldat.h
 
+<<<<<<< HEAD
 1545124315 source:c:\users\sulli\onedrive\bureau\c++\projetguerre\main.cpp
 	<iostream>
 
@@ -132,3 +133,77 @@
 	<vector>
 	"../../include/Case.h"
 
+=======
+1544622096 source:d:\etude\projetguerreetwar\projetguerre2\projetguerre\main.cpp
+	<iostream>
+
+1544619583 source:d:\etude\projetguerreetwar\projetguerre2\projetguerre\src\joueur\unite\archer.cpp
+	"../../../include/Archer.h"
+
+1544613158 d:\etude\projetguerreetwar\projetguerre2\projetguerre\include\archer.h
+	"Distance.h"
+
+1544623037 d:\etude\projetguerreetwar\projetguerre2\projetguerre\include\distance.h
+	"Soldat.h"
+
+1545121974 d:\etude\projetguerreetwar\projetguerre2\projetguerre\include\soldat.h
+	"Unite.h"
+
+1544623132 source:d:\etude\projetguerreetwar\projetguerre2\projetguerre\src\joueur\unite\base.cpp
+	"Base.h"
+
+1544623131 d:\etude\projetguerreetwar\projetguerre2\projetguerre\include\base.h
+	"Batiment.h"
+
+1544623085 d:\etude\projetguerreetwar\projetguerre2\projetguerre\include\batiment.h
+	"Unite.h"
+
+1545120862 d:\etude\projetguerreetwar\projetguerre2\projetguerre\include\unite.h
+
+1544623085 source:d:\etude\projetguerreetwar\projetguerre2\projetguerre\src\joueur\unite\batiment.cpp
+	"Batiment.h"
+
+1544619606 source:d:\etude\projetguerreetwar\projetguerre2\projetguerre\src\joueur\unite\catapulte.cpp
+	"../../../include/Catapulte.h"
+
+1544613183 d:\etude\projetguerreetwar\projetguerre2\projetguerre\include\catapulte.h
+	"Distance.h"
+
+1544619620 source:d:\etude\projetguerreetwar\projetguerre2\projetguerre\src\joueur\unite\corpsacorps.cpp
+	"../../../include/CorpsACorps.h"
+
+1544623037 d:\etude\projetguerreetwar\projetguerre2\projetguerre\include\corpsacorps.h
+	"Soldat.h"
+
+1544619650 source:d:\etude\projetguerreetwar\projetguerre2\projetguerre\src\joueur\unite\distance.cpp
+	"../../../include/Distance.h"
+
+1544620532 source:d:\etude\projetguerreetwar\projetguerre2\projetguerre\src\joueur\unite\soldat.cpp
+	"Soldat.h"
+
+1544619650 source:d:\etude\projetguerreetwar\projetguerre2\projetguerre\src\joueur\unite\unite.cpp
+	"../../../include/Unite.h"
+
+1544619966 source:d:\etude\projetguerreetwar\projetguerre2\projetguerre\src\terrain\case.cpp
+	"../../include/Case.h"
+
+1544619852 d:\etude\projetguerreetwar\projetguerre2\projetguerre\include\case.h
+
+1544619813 source:d:\etude\projetguerreetwar\projetguerre2\projetguerre\src\terrain\terrain.cpp
+	"../../include/Terrain.h"
+
+1544620215 d:\etude\projetguerreetwar\projetguerre2\projetguerre\include\terrain.h
+	<vector>
+	"../../include/Case.h"
+
+1544624084 source:d:\etude\projetguerreetwar\projetguerre2\projetguerre\src\joueur\epoque\epoque.cpp
+	"Epoque.h"
+
+1544624084 d:\etude\projetguerreetwar\projetguerre2\projetguerre\include\epoque.h
+
+1544623988 source:d:\etude\projetguerreetwar\projetguerre2\projetguerre\src\joueur\joueur.cpp
+	"Joueur.h"
+
+1544623988 d:\etude\projetguerreetwar\projetguerre2\projetguerre\include\joueur.h
+
+>>>>>>> d74090ef855ecefb95eaa6214b6a76f4fb94031c
