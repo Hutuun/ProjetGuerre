@@ -7,7 +7,7 @@
 class CorpsACorps : public Soldat
 {
     public:
-        CorpsACorps();
+        CorpsACorps(unsigned int prix, unsigned int pv, unsigned int pointAttaque) : Soldat(prix, pv, pointAttaque) {};
         virtual ~CorpsACorps();
         void choixCible() {};
     protected:

@@ -7,7 +7,7 @@ class Soldat : public Unite
 {
     public:
         virtual void choixCible() {};
-        Soldat();
+        Soldat(unsigned int prix, unsigned int pv, unsigned int pointAttaque) : Unite(prix, pv, pointAttaque) {};
         virtual ~Soldat();
     protected:
 

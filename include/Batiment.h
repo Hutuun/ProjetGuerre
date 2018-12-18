@@ -7,7 +7,7 @@
 class Batiment : public Unite
 {
     public:
-        Batiment();
+        Batiment(unsigned int prix, unsigned int pv, unsigned int pointAttaque):Unite(prix, pv, pointAttaque) {};
         virtual ~Batiment();
         virtual void choixCible() {};
     protected:
