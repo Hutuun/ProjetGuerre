@@ -8,16 +8,16 @@ class Case;
 class Unite
 {
     public:
-        Unite(unsigned int prix, unsigned int pv, unsigned int pointAttaque, bool dir): m_dir(dir), m_pv(pv), m_prix(prix), m_pointAttaque(pointAttaque){};
+        Unite(unsigned int prix, unsigned int pv, unsigned int pointAttaque, std::string dir): m_dir(dir), m_pv(pv), m_prix(prix), m_pointAttaque(pointAttaque){};
         virtual ~Unite();
         void attaque(Case &ennemi);
         bool prendDommage(unsigned int dommage);
         virtual void choixCible(unsigned int pos) {};
-        bool getDir();
+        std::string getDir();
         virtual void affiche()const {};
 
     protected:
-        bool m_dir;
+        std::string m_dir;
         unsigned int m_pv;
 
     private:

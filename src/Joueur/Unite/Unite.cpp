@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#include "Terrain.h"
+
 Unite::~Unite()
 {
     //dtor
@@ -24,7 +26,7 @@ void Unite::attaque(Case &ennemi)
         ennemi.tue();
 }
 
-bool Unite::getDir()
+std::string Unite::getDir()
 {
     return m_dir;
 }

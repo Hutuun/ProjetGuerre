@@ -2,6 +2,7 @@
 #include <SDL2/SDL.h>
 #include <stdio.h>
 #include "Terrain.h"
+#include "Joueur.h"
 
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
@@ -73,10 +74,9 @@ int main( int argc, char* args[] )
     }*/
 
     Terrain centre = Terrain::getInstanTerrain();
-    std::vector<Case> cases = centre.getCases();
+
     centre.affiche();
-    centre.ajoutBases();
-    centre.affiche();
+
 
 	return 0;
 }

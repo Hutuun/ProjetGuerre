@@ -8,7 +8,7 @@
 class Base : public Batiment
 {
     public:
-        Base(bool dir) : Batiment(0,100,0,dir) {};
+        Base(std::string  dir) : Batiment(0,100,0,dir) {};
         virtual ~Base();
         void choixCible() {};
         void affiche()const;

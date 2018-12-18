@@ -7,7 +7,7 @@
 class Distance : public Soldat
 {
     public:
-        Distance(unsigned int prix, unsigned int pv, unsigned int pointAttaque,unsigned int pm, unsigned int portee, bool dir) : Soldat(prix,pv,pointAttaque,pm, dir),m_portee(portee) {};
+        Distance(unsigned int prix, unsigned int pv, unsigned int pointAttaque,unsigned int pm, unsigned int portee, std::string dir) : Soldat(prix,pv,pointAttaque,pm, dir),m_portee(portee) {};
         virtual ~Distance();
         virtual void choixCible() {};
         virtual void affiche()const {};
