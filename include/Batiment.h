@@ -10,6 +10,7 @@ class Batiment : public Unite
         Batiment(unsigned int prix, unsigned int pv, unsigned int pointAttaque, bool dir):Unite(prix, pv, pointAttaque, dir) {};
         virtual ~Batiment();
         virtual void choixCible() {};
+        virtual void affiche()const;
     protected:
 
     private:

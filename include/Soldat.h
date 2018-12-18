@@ -9,6 +9,7 @@ class Soldat : public Unite
         virtual void choixCible() {};
         Soldat(unsigned int prix, unsigned int pv, unsigned int pointAttaque, unsigned int pm, bool dir) : Unite(prix, pv, pointAttaque,dir), m_pm(pm) {};
         virtual ~Soldat();
+        virtual void affiche()const;
     protected:
 
     private:

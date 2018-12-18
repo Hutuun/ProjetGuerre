@@ -1,8 +1,9 @@
 #ifndef BASE_H
 #define BASE_H
 
-#include "Batiment.h"
+#include <iostream>
 
+#include "Batiment.h"
 
 class Base : public Batiment
 {
@@ -10,7 +11,7 @@ class Base : public Batiment
         Base(bool dir) : Batiment(0,100,0,dir) {};
         virtual ~Base();
         void choixCible() {};
-
+        void affiche()const;
 
     protected:
 
