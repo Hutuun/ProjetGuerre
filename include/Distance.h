@@ -7,13 +7,13 @@
 class Distance : public Soldat
 {
     public:
-        Distance(unsigned int prix, unsigned int pv, unsigned int pointAttaque) : Soldat(prix,pv,pointAttaque) {};
+        Distance(unsigned int prix, unsigned int pv, unsigned int pointAttaque,unsigned int pm, unsigned int portee) : Soldat(prix,pv,pointAttaque,pm),m_portee(portee) {};
         virtual ~Distance();
         virtual void choixCible() {};
     protected:
 
     private:
-        int portee;
+        unsigned int m_portee;
 };
 
 #endif // DISTANCE_H

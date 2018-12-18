@@ -7,12 +7,12 @@ class Soldat : public Unite
 {
     public:
         virtual void choixCible() {};
-        Soldat(unsigned int prix, unsigned int pv, unsigned int pointAttaque) : Unite(prix, pv, pointAttaque) {};
+        Soldat(unsigned int prix, unsigned int pv, unsigned int pointAttaque, unsigned int pm) : Unite(prix, pv, pointAttaque), m_pm(pm) {};
         virtual ~Soldat();
     protected:
 
     private:
-        unsigned int pm;
+        unsigned int m_pm;
 };
 
 #endif // SOLDAT_H
