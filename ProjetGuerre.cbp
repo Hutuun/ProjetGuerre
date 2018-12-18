@@ -35,7 +35,12 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
+			<Add directory="../SDL2-2.0.9/i686-w64-mingw32/include/SDL2" />
 		</Compiler>
+		<Linker>
+			<Add option="-lmingw32 -lSDL2main -lSDL2" />
+			<Add directory="../SDL2-2.0.9/i686-w64-mingw32/lib" />
+		</Linker>
 		<Unit filename="include/Archer.h" />
 		<Unit filename="include/Base.h" />
 		<Unit filename="include/Batiment.h" />
@@ -60,7 +65,6 @@
 		<Unit filename="src/Joueur/Unite/Soldat.cpp" />
 		<Unit filename="src/Joueur/Unite/Unite.cpp" />
 		<Unit filename="src/Terrain/Case.cpp" />
-		<Unit filename="src/Terrain/Case.h" />
 		<Unit filename="src/Terrain/Terrain.cpp" />
 		<Extensions>
 			<code_completion />
