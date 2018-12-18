@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="ProjetGuerre" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/ProjetGuerre" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="src/Terrain" />
+					<Add directory="include" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/ProjetGuerre" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="src/Terrain" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add directory="../SDL2-2.0.9/i686-w64-mingw32/include/SDL2" />
+		</Compiler>
+		<Linker>
+			<Add option="-lmingw32 -lSDL2main -lSDL2" />
+			<Add directory="../SDL2-2.0.9/i686-w64-mingw32/lib" />
+		</Linker>
+		<Unit filename="include/Archer.h" />
+		<Unit filename="include/Base.h" />
+		<Unit filename="include/Batiment.h" />
+		<Unit filename="include/Case.h" />
+		<Unit filename="include/Catapulte.h" />
+		<Unit filename="include/CorpsACorps.h" />
+		<Unit filename="include/Distance.h" />
+		<Unit filename="include/Epoque.h" />
+		<Unit filename="include/Joueur.h" />
+		<Unit filename="include/Soldat.h" />
+		<Unit filename="include/Terrain.h" />
+		<Unit filename="include/Unite.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/Joueur/Epoque/Epoque.cpp" />
+		<Unit filename="src/Joueur/Joueur.cpp" />
+		<Unit filename="src/Joueur/Unite/Archer.cpp" />
+		<Unit filename="src/Joueur/Unite/Base.cpp" />
+		<Unit filename="src/Joueur/Unite/Batiment.cpp" />
+		<Unit filename="src/Joueur/Unite/Catapulte.cpp" />
+		<Unit filename="src/Joueur/Unite/CorpsACorps.cpp" />
+		<Unit filename="src/Joueur/Unite/Distance.cpp" />
+		<Unit filename="src/Joueur/Unite/Soldat.cpp" />
+		<Unit filename="src/Joueur/Unite/Unite.cpp" />
+		<Unit filename="src/Terrain/Case.cpp" />
+		<Unit filename="src/Terrain/Terrain.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
