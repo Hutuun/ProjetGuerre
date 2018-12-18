@@ -15,7 +15,7 @@ class Unite
     protected:
 
     private:
-        unsigned double prix;
+        unsigned int prix;
         unsigned int pv;
         unsigned int pa;
 };
