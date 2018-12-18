@@ -10,7 +10,6 @@ class Archer : public Distance
         Archer();
         virtual ~Archer();
         void choixCible() {};
-
     protected:
 
     private:

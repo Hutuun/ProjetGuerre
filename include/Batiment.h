@@ -9,7 +9,7 @@ class Batiment : public Unite
     public:
         Batiment();
         virtual ~Batiment();
-
+        virtual void choixCible() {};
     protected:
 
     private:

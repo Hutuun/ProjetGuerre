@@ -9,7 +9,7 @@ class Base : public Batiment
     public:
         Base();
         virtual ~Base();
-
+        void choixCible() {};
     protected:
 
     private:

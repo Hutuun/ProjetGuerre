@@ -6,9 +6,9 @@
 class Soldat : public Unite
 {
     public:
+        virtual void choixCible() {};
         Soldat();
         virtual ~Soldat();
-
     protected:
 
     private:

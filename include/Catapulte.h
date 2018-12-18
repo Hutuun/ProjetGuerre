@@ -10,7 +10,6 @@ class Catapulte : public Distance
         Catapulte();
         virtual ~Catapulte();
         void choixCible() {};
-
     protected:
 
     private:

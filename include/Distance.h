@@ -10,7 +10,6 @@ class Distance : public Soldat
         Distance();
         virtual ~Distance();
         virtual void choixCible() {};
-
     protected:
 
     private:

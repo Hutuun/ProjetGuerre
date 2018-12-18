@@ -10,7 +10,6 @@ class CorpsACorps : public Soldat
         CorpsACorps();
         virtual ~CorpsACorps();
         void choixCible() {};
-
     protected:
 
     private:
