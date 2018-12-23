@@ -59,12 +59,15 @@
 		<Unit filename="include/CorpsACorps.h" />
 		<Unit filename="include/Distance.h" />
 		<Unit filename="include/Epoque.h" />
+		<Unit filename="include/Fantassin.h" />
 		<Unit filename="include/Joueur.h" />
+		<Unit filename="include/Prehistoire.h" />
 		<Unit filename="include/Soldat.h" />
 		<Unit filename="include/Terrain.h" />
 		<Unit filename="include/Unite.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Joueur/Epoque/Epoque.cpp" />
+		<Unit filename="src/Joueur/Epoque/Prehistoire.cpp" />
 		<Unit filename="src/Joueur/Joueur.cpp" />
 		<Unit filename="src/Joueur/Unite/Archer.cpp" />
 		<Unit filename="src/Joueur/Unite/Base.cpp" />
@@ -72,6 +75,7 @@
 		<Unit filename="src/Joueur/Unite/Catapulte.cpp" />
 		<Unit filename="src/Joueur/Unite/CorpsACorps.cpp" />
 		<Unit filename="src/Joueur/Unite/Distance.cpp" />
+		<Unit filename="src/Joueur/Unite/Fantassin.cpp" />
 		<Unit filename="src/Joueur/Unite/Soldat.cpp" />
 		<Unit filename="src/Joueur/Unite/Unite.cpp" />
 		<Unit filename="src/Terrain/Case.cpp" />

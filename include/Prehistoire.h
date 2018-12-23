@@ -2,15 +2,18 @@
 #define PREHISTOIRE_H
 
 #include "Epoque.h"
+#include "Fantassin.h"
+#include "Archer.h"
+#include "Catapulte.h"
 
 class Prehistoire : public Epoque
 {
     public:
         Prehistoire();
         virtual ~Prehistoire();
-        int getPrixFantassin();
-        int getPrixArcher();
-        int getPrixCatapulte();
+        Fantassin& getFantassin();
+        Archer& getArcher();
+        Catapulte& getCatapulte();
 
     protected:
 
