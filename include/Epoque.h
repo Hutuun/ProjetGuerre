@@ -1,17 +1,18 @@
 #ifndef EPOQUE_H
 #define EPOQUE_H
 
+#include "Prehistoire.h"
 
 class Epoque
 {
     public:
         Epoque();
         virtual ~Epoque();
+        virtual int getPrixFantassin();
+        virtual int getPrixArcher();
+        virtual int getPrixCatapulte();
 
     protected:
-        static int m_prixFantassin;
-        static int m_prixArcher;
-        static int m_prixCatapulte;
 
     private:
 

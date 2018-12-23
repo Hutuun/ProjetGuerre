@@ -1,8 +1,10 @@
 #include "Joueur.h"
 
+using namespace std;
+
 Joueur::~Joueur()
 {
-    //dtor
+    delete(this->m_epoque);
 }
 
 void Joueur::ajoutUnite(Unite *troupe)
@@ -42,6 +44,6 @@ Unite& Joueur::acheter()
     switch(choix)
     {
     case 1:
-        if(this->m_or<Fantassin)
+        if(this->m_or<this->m_epoque.getPrixFantassin())
     }
 }

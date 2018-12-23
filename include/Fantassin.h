@@ -1,8 +1,9 @@
 #ifndef FANTASSIN_H
 #define FANTASSIN_H
 
+#include "CorpsACorps.h"
 
-class Fantassin
+class Fantassin : public CorpsACorps
 {
     public:
         Fantassin();
