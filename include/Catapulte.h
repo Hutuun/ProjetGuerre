@@ -11,6 +11,8 @@ class Catapulte : public Distance
         virtual ~Catapulte();
         void choixCible() {};
         void tour();
+        void affiche() const;
+
     protected:
 
     private:

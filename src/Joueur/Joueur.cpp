@@ -10,10 +10,16 @@ Joueur::~Joueur()
     }
 }
 
-void Joueur::ajoutUnite(Unite *troupe)
+void Joueur::ajoutUnite(Soldat *troupe)
 {
     if(troupe!=nullptr)
         m_troupes.push_back(troupe);
+}
+
+void Joueur::ajoutBatiment(Batiment* batiment)
+{
+    if(batiment!=nullptr)
+        m_batiments.push_back(batiment);
 }
 
 void Joueur::changeNom(std::string nom)
@@ -31,32 +37,44 @@ bool Joueur::getDir()const
     return m_dir;
 }
 
+bool Joueur::estVivant()
+{
+    if(this->m_base->estVivant())
+        return true;
+    else
+        return false;
+}
+
 void Joueur::tour()
 {
     ajoutUnite(acheter());
     for(unsigned int i=0; i<this->m_troupes.size(); i++)
     {
-
+        m_troupes[i]->avancer();
     }
 }
 
-Unite* Joueur::acheter()
+void Joueur::affiche()const
 {
-    Fantassin* fantassin;
-    Archer* archer;
-    Catapulte* catapulte;
+    std::cout << "Nom : " << this->m_nom << " Or : " << this->m_or << " Epoque : " << this->m_epoque->getNom() << "\n";
+}
+
+Soldat* Joueur::acheter()
+{
+    Fantassin* fantassin = this->m_epoque->getFantassin(m_nom,getPos());
+    Archer* archer = this->m_epoque->getArcher(m_nom,getPos());
+    Catapulte* catapulte = this->m_epoque->getCatapulte(m_nom,getPos());
     bool continu=true;
     while(continu)
     {
         continu=false;
         int choix;
-        cout << "Choisissez l'unite que vous voulez acheter\n1)Fantassin\n2)Archer\n3)Catapulte\n";
+        cout << "Choisissez l'unite que vous voulez acheter\n1)Fantassin : " << fantassin->getPrix() <<"\n2)Archer : " << archer->getPrix() << "\n3)Catapulte : " << catapulte->getPrix() <<"\n";
         cout << "Autre chose pour ne rien acheter" << endl;
         cin >> choix;
         switch(choix)
         {
         case 1:
-            fantassin = this->m_epoque->getFantassin(this->m_nom,this->getPos());
             if(this->m_or<fantassin->getPrix())
             {
                 continu=true;
@@ -70,7 +88,6 @@ Unite* Joueur::acheter()
             break;
 
         case 2:
-            archer = this->m_epoque->getArcher(this->m_nom,this->getPos());
             if(this->m_or<archer->getPrix())
             {
                 continu=true;
@@ -84,7 +101,6 @@ Unite* Joueur::acheter()
             break;
 
         case 3:
-            catapulte = this->m_epoque->getCatapulte(this->m_nom,this->getPos());
             if(this->m_or<catapulte->getPrix())
             {
                 continu=true;
@@ -101,7 +117,22 @@ Unite* Joueur::acheter()
     return nullptr;
 }
 
+Base* Joueur::getBase()
+{
+    return this->m_base;
+}
+
+void Joueur::ajoutOr(unsigned int argent)
+{
+    this->m_or+=argent;
+}
+
 unsigned int Joueur::getPos()const
 {
     return this->m_pos;
+}
+
+void Joueur::ajoutBase(Base* base)
+{
+    m_base=base;
 }

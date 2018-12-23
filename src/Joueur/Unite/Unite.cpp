@@ -26,6 +26,24 @@ void Unite::attaque(Case &ennemi)
         ennemi.tue();
 }
 
+void Unite::setPos(unsigned int i)
+{
+    m_pos=i;
+}
+
+bool Unite::estVivant()
+{
+    if(this->m_pv==0)
+        return false;
+    else
+        return true;
+}
+
+unsigned int Unite::getPos()
+{
+    return this->m_pos;
+}
+
 std::string Unite::getDir()
 {
     return m_dir;

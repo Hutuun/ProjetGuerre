@@ -62,7 +62,6 @@
 			<Option weight="100" />
 		</Unit>
 		<Unit filename="include/Fantassin.h" />
-		<Unit filename="include/Fantassin2.h" />
 		<Unit filename="include/Joueur.h" />
 		<Unit filename="include/Prehistoire.h" />
 		<Unit filename="include/Soldat.h" />
@@ -79,7 +78,6 @@
 		<Unit filename="src/Joueur/Unite/CorpsACorps.cpp" />
 		<Unit filename="src/Joueur/Unite/Distance.cpp" />
 		<Unit filename="src/Joueur/Unite/Fantassin.cpp" />
-		<Unit filename="src/Joueur/Unite/Fantassin2.cpp" />
 		<Unit filename="src/Joueur/Unite/Soldat.cpp" />
 		<Unit filename="src/Joueur/Unite/Unite.cpp" />
 		<Unit filename="src/Terrain/Case.cpp" />

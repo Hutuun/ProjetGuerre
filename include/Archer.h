@@ -11,6 +11,8 @@ class Archer : public Distance
         virtual ~Archer();
         void choixCible() {};
         void tour();
+        void affiche() const;
+
     protected:
 
     private:

@@ -11,9 +11,12 @@ class Soldat : public Unite
         virtual ~Soldat();
         virtual void affiche()const {};
         virtual void tour() {};
+        void avancer();
+
     protected:
 
     private:
+        unsigned int positionMax(int j);
         unsigned int m_pm;
 };
 

@@ -17,6 +17,8 @@ class Case
         void ajoutOccupant(Unite* const occupant);
         void tue();
         void affiche()const;
+        void videCase();
+
     protected:
 
     private:

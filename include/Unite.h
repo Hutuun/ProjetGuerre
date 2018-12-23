@@ -15,7 +15,11 @@ class Unite
         virtual void choixCible(unsigned int pos) {};
         std::string getDir();
         unsigned int getPrix();
+        unsigned int getPos();
         virtual void affiche()const {};
+        virtual void avancer() {};
+        void setPos(unsigned int i);
+        bool estVivant();
 
     protected:
         std::string m_dir;

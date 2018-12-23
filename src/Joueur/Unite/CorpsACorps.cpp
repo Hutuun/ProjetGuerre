@@ -8,19 +8,26 @@ CorpsACorps::~CorpsACorps()
 
 void CorpsACorps::choixCible()
 {
-    Terrain ter = Terrain::getInstanTerrain();
-    std::vector<Case> cases = ter.getCases();
-    bool dir=ter.getDir(this->m_dir);
-    if(dir)
+    Terrain* ter = Terrain::getInstanTerrain();
+    std::vector<Case*> cases = ter->getCases();
+    int i=0;
+    if(ter->getDir(this->m_dir))
     {
-        if(cases[m_pos+1].getOccupant()!=nullptr && m_dir!=cases[m_pos+1].getOccupant()->getDir())
-            this->attaque(cases[m_pos+1]);
+        i=1;
+        if(m_pos==MAX)
+        {
+            if(cases[m_pos+i]->getOccupant()==nullptr)
+            {
+
+            }
+        }
     }
     else
     {
-        if(cases[m_pos-1].getOccupant()!=nullptr && m_dir!=cases[m_pos-1].getOccupant()->getDir())
-            this->attaque(cases[m_pos-1]);
+        i=-1;
     }
+    if(cases[m_pos+i]->getOccupant()!=nullptr && m_dir!=cases[m_pos+i]->getOccupant()->getDir())
+            this->attaque(*cases[m_pos+i]);
     return;
 }
 

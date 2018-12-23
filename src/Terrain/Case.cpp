@@ -30,3 +30,8 @@ void Case::affiche()const
     else
         m_occupant->affiche();
 }
+
+void Case::videCase()
+{
+    this->m_occupant=nullptr;
+}

@@ -5,12 +5,12 @@ Fantassin::~Fantassin()
     //dtor
 }
 
-void Fantassin::affiche()const
+void Fantassin::tour()
 {
 
 }
 
-void Fantassin::tour()
+void Fantassin::affiche() const
 {
-
+    std::cout << "Fantassin : PV : " << m_pv << " Proprietaire : " << m_dir << std::endl;
 }
