@@ -13,8 +13,11 @@ Terrain::Terrain(unsigned int taille): m_terrain(taille),j1("j1",true),j2("j2",f
     std::cout << "Entrez le nom du premier joueur : ";
     std::cin >> nom;
     j1.changeNom(nom);
-    std::cout << "Entrez le nom du second joueur : ";
-    std::cin >> nom;
+    while(nom == j1.getNom())
+    {
+        std::cout << "Entrez le nom du second joueur : ";
+        std::cin >> nom;
+    }
     j2.changeNom(nom);
     this->ajoutBases();
 }
@@ -31,7 +34,7 @@ std::vector<Case> Terrain::getCases()const
 
 void Terrain::affiche()const
 {
-    for(unsigned int i=0;i<m_terrain.size();i++)
+    for(unsigned int i=0; i<m_terrain.size(); i++)
     {
         std::cout << i+1 << " : ";
         m_terrain[i].affiche();
@@ -56,4 +59,11 @@ bool Terrain::getDir(std::string const nom)const
         return j2.getDir();
     else
         std::cerr << "Ce joueur n'existe pas";
+        return false;
+}
+
+void Terrain::tour()
+{
+    j1.tour();
+    j2.tour();
 }

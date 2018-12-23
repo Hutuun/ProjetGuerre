@@ -1,13 +1,11 @@
 #ifndef FANTASSIN_H
 #define FANTASSIN_H
 
-#include <CorpsACorps.h>
 
-
-class Fantassin : public CorpsACorps
+class Fantassin
 {
     public:
-        Fantassin(unsigned int prix, unsigned int pv, unsigned int pointAttaque,unsigned int pm);
+        Fantassin();
         virtual ~Fantassin();
 
     protected:

@@ -14,7 +14,7 @@ class Terrain
         virtual ~Terrain();
         void affiche()const;
         bool getDir(std::string const nom)const;
-
+        void tour();
     protected:
 
     private:

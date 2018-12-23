@@ -5,6 +5,7 @@
 
 #include"Unite.h"
 #include "Base.h"
+#include "Epoque.h"
 
 class Unite;
 
@@ -17,7 +18,7 @@ class Joueur
         void changeNom(std::string nom);
         std::string getNom()const;
         bool getDir()const;
-
+        void tour();
         Unite& acheter();
 
     protected:
@@ -27,6 +28,7 @@ class Joueur
         unsigned int m_or;
         bool m_dir;
         std::vector<Unite*> m_troupes;
+        Epoque m_epoque;
 };
 
 #endif // JOUEUR_H
