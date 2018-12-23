@@ -9,11 +9,11 @@
 class Prehistoire : public Epoque
 {
     public:
-        Prehistoire();
+        Prehistoire() : Epoque("Prehistoire") {};
         virtual ~Prehistoire();
-        Fantassin& getFantassin();
-        Archer& getArcher();
-        Catapulte& getCatapulte();
+        Fantassin* getFantassin();
+        Archer* getArcher();
+        Catapulte* getCatapulte();
 
     protected:
 

@@ -2,7 +2,6 @@
 #define CORPSACORPS_H
 
 #include "Soldat.h"
-#include "Terrain.h"
 
 class CorpsACorps : public Soldat
 {

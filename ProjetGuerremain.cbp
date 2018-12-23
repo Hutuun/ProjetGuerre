@@ -34,7 +34,7 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add option="-std=c++14" />
+			<Add option="-std=c++1z" />
 			<Add option="-fexceptions" />
 			<Add directory="SDL2-2.0.9/i686-w64-mingw32/include" />
 			<Add directory="SFML-2.5.1/include" />
@@ -58,8 +58,11 @@
 		<Unit filename="include/Catapulte.h" />
 		<Unit filename="include/CorpsACorps.h" />
 		<Unit filename="include/Distance.h" />
-		<Unit filename="include/Epoque.h" />
+		<Unit filename="include/Epoque.h">
+			<Option weight="100" />
+		</Unit>
 		<Unit filename="include/Fantassin.h" />
+		<Unit filename="include/Fantassin2.h" />
 		<Unit filename="include/Joueur.h" />
 		<Unit filename="include/Prehistoire.h" />
 		<Unit filename="include/Soldat.h" />
@@ -76,6 +79,7 @@
 		<Unit filename="src/Joueur/Unite/CorpsACorps.cpp" />
 		<Unit filename="src/Joueur/Unite/Distance.cpp" />
 		<Unit filename="src/Joueur/Unite/Fantassin.cpp" />
+		<Unit filename="src/Joueur/Unite/Fantassin2.cpp" />
 		<Unit filename="src/Joueur/Unite/Soldat.cpp" />
 		<Unit filename="src/Joueur/Unite/Unite.cpp" />
 		<Unit filename="src/Terrain/Case.cpp" />

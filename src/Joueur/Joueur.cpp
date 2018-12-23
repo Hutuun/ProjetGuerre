@@ -4,7 +4,7 @@ using namespace std;
 
 Joueur::~Joueur()
 {
-    for(int i=0;i<this->m_troupes.size();i++)
+    for(unsigned int i=0;i<this->m_troupes.size();i++)
     {
         delete(m_troupes[i]);
     }
@@ -38,7 +38,7 @@ void Joueur::tour()
     }
 }
 
-Unite& Joueur::acheter()
+/*Unite& Joueur::acheter()
 {
     int choix;
     cout << "Choisissez l'unité que vous voulez acheter\n1)Fantassin\n2)Archer\n3)Catapulte\n";
@@ -47,9 +47,11 @@ Unite& Joueur::acheter()
     switch(choix)
     {
     case 1:
-        if(this->m_or<this->m_epoque.getPrixFantassin())
+        if(this->m_or<this->m_epoque.getFantassin().)
         {
-            return Fantassin(this->m_epoque.getPrixFantassin())
+            //return Fantassin(this->m_epoque.getPrixFantassin());
         }
+    default:
+        return new Archer(0,0,0,0,0,"rien");
     }
-}
+}*/

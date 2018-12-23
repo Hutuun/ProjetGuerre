@@ -1,4 +1,5 @@
-#include "../../../include/CorpsACorps.h"
+#include "CorpsACorps.h"
+#include "Terrain.h"
 
 CorpsACorps::~CorpsACorps()
 {

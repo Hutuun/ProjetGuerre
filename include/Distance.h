@@ -3,7 +3,6 @@
 
 #include "Soldat.h"
 
-
 class Distance : public Soldat
 {
     public:
