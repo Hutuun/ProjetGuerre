@@ -1,8 +1,6 @@
 #ifndef EPOQUE_H
 #define EPOQUE_H
 
-#include "Prehistoire.h"
-
 class Epoque
 {
     public:

@@ -6,7 +6,7 @@
 class Fantassin : public CorpsACorps
 {
     public:
-        Fantassin();
+        Fantassin(unsigned int prix, unsigned int pv, unsigned int pointAttaque,unsigned int pm, std::string dir) : Soldat(prix, pv, pointAttaque,pm, dir) {};;
         virtual ~Fantassin();
 
     protected:

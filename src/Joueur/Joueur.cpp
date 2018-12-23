@@ -4,7 +4,10 @@ using namespace std;
 
 Joueur::~Joueur()
 {
-    delete(this->m_epoque);
+    for(int i=0;i<this->m_troupes.size();i++)
+    {
+        delete(m_troupes[i]);
+    }
 }
 
 void Joueur::ajoutUnite(Unite *troupe)
@@ -45,5 +48,8 @@ Unite& Joueur::acheter()
     {
     case 1:
         if(this->m_or<this->m_epoque.getPrixFantassin())
+        {
+            return Fantassin(this->m_epoque.getPrixFantassin())
+        }
     }
 }

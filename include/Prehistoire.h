@@ -8,9 +8,9 @@ class Prehistoire : public Epoque
     public:
         Prehistoire();
         virtual ~Prehistoire();
-        static int getPrixFantassin();
-        static int getPrixArcher();
-        static int getPrixCatapulte();
+        int getPrixFantassin();
+        int getPrixArcher();
+        int getPrixCatapulte();
 
     protected:
 
