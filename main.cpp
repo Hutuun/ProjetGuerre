@@ -73,11 +73,16 @@ int main( int argc, char* args[] )
         window.display();
     }*/
 
+    bool fin = false;
+
     Terrain centre = Terrain::getInstanTerrain();
 
     centre.affiche();
 
-    centre.tour();
+    while(!fin)
+    {
+        centre.tour();
+    }
 
 	return 0;
 }

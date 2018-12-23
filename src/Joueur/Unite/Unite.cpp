@@ -30,3 +30,8 @@ std::string Unite::getDir()
 {
     return m_dir;
 }
+
+unsigned int Unite::getPrix()
+{
+    return this->m_prix;
+}

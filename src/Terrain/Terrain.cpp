@@ -7,7 +7,7 @@ Terrain::~Terrain()
 
 }
 
-Terrain::Terrain(unsigned int taille): m_terrain(taille),j1("j1",true),j2("j2",false)
+Terrain::Terrain(unsigned int taille): m_terrain(taille),j1("j1",true,0),j2("j2",false,taille-1)
 {
     std::string nom;
     std::cout << "Entrez le nom du premier joueur : ";
@@ -43,8 +43,8 @@ void Terrain::affiche()const
 
 void Terrain::ajoutBases()
 {
-    Base *base1=new Base(j1.getNom());
-    Base *base2=new Base(j2.getNom());
+    Base *base1=new Base(j1.getNom(),j1.getPos());
+    Base *base2=new Base(j2.getNom(),j1.getPos());
     j1.ajoutUnite(base1);
     j2.ajoutUnite(base2);
     m_terrain[0].ajoutOccupant(base1);

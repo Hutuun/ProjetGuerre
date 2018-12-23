@@ -10,9 +10,9 @@ class Epoque
     public:
         Epoque(std::string nom) : m_nom(nom) {};
         virtual ~Epoque();
-        virtual Fantassin* getFantassin() {return nullptr;};
-        virtual Archer* getArcher() {return nullptr;};
-        virtual Catapulte* getCatapulte() {return nullptr;};
+        virtual Fantassin* getFantassin(std::string nomJoueur, unsigned int pos) {return nullptr;};
+        virtual Archer* getArcher(std::string nomJoueur, unsigned int pos) {return nullptr;};
+        virtual Catapulte* getCatapulte(std::string nomJoueur, unsigned int pos) {return nullptr;};
 
     protected:
 

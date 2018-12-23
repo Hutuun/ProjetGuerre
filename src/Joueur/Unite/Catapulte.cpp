@@ -2,5 +2,10 @@
 
 Catapulte::~Catapulte()
 {
-    //dtor
+
+}
+
+void Catapulte::tour()
+{
+    this->choixCible();
 }

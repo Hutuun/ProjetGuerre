@@ -4,3 +4,8 @@ Archer::~Archer()
 {
     //dtor
 }
+
+void Archer::tour()
+{
+    this->choixCible();
+}

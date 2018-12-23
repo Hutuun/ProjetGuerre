@@ -9,3 +9,8 @@ void Fantassin::affiche()const
 {
 
 }
+
+void Fantassin::tour()
+{
+
+}
