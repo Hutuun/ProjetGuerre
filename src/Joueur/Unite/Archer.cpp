@@ -30,11 +30,16 @@ bool Archer::choixCible()
     {
         i=-1;
     }
-    for(unsigned int j=0; j<this->m_portee+1;j++)
+    for(unsigned int j=0; j<this->m_portee+1; j++)
     {
         if(cases[m_pos+(j*i)]->getOccupant()!=nullptr && m_dir!=cases[m_pos+(j*i)]->getOccupant()->getDir())
         {
-            this->attaque(cases[m_pos+(j*i)]);
+            this->attaque(cases[m_pos+(j*i)]->getOccupant());
+            return true;
+        }
+        else if(cases[m_pos+i]->getBatiment()!=nullptr&&m_dir!=cases[m_pos+i]->getBatiment()->getDir())
+        {
+            this->attaque(cases[m_pos+i]->getBatiment());
             return true;
         }
     }

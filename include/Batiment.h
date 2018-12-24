@@ -3,7 +3,6 @@
 
 #include "Unite.h"
 
-
 class Batiment : public Unite
 {
     public:

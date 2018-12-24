@@ -14,30 +14,19 @@ bool CorpsACorps::choixCible()
     if(ter->getDir(this->m_dir))
     {
         i=1;
-        if(m_pos==MAX)
-        {
-            if(cases[m_pos+i]->getOccupant()==nullptr)
-            {
-                this->attaque(cases[MAX+2]);
-                return true;
-            }
-        }
     }
     else
     {
         i=-1;
-        if(m_pos==MIN)
-        {
-            if(cases[m_pos+i]->getOccupant()==nullptr)
-            {
-                this->attaque(cases[MIN-2]);
-                return true;
-            }
-        }
     }
     if(cases[m_pos+i]->getOccupant()!=nullptr && m_dir!=cases[m_pos+i]->getOccupant()->getDir())
     {
-        this->attaque(cases[m_pos+i]);
+        this->attaque(cases[m_pos+i]->getOccupant());
+        return true;
+    }
+    else if(cases[m_pos+i]->getBatiment()!=nullptr&&m_dir!=cases[m_pos+i]->getBatiment()->getDir())
+    {
+        this->attaque(cases[m_pos+i]->getBatiment());
         return true;
     }
     return false;

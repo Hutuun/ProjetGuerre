@@ -1,9 +1,9 @@
 #ifndef TERRAIN_H
 #define TERRAIN_H
 
-#define MAX 11
-#define MIN 2
-#define TAILLE 14
+#define MAX 10
+#define MIN 1
+#define TAILLE 12
 
 #include <vector>
 #include "Case.h"
@@ -21,7 +21,8 @@ class Terrain
         void tour();
         void ajoutOccupant(Soldat* const occupant,unsigned int pos);
         bool fini();
-        void tue(Case* mort);
+        void tue(Soldat* mort);
+        void tue(Batiment* mort);
 
     protected:
 

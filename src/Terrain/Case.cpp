@@ -5,17 +5,41 @@ Case::~Case()
     delete (m_occupant);
 }
 
-Unite* Case::getOccupant ()const
+Soldat* Case::getOccupant ()const
 {
     return m_occupant;
 }
 
-void Case::tue()
+Batiment* Case::getBatiment ()const
 {
-    m_occupant=nullptr;
+    return this->m_batiment;
 }
 
-void Case::ajoutOccupant(Unite* const occupant)
+void Case::tue(Soldat*mort)
+{
+    if(m_occupant==mort)
+        m_occupant=nullptr;
+    else
+        std::cerr << "Il y a un soucis tu es perdu\n";
+}
+
+void Case::tue(Batiment*mort)
+{
+    if(m_batiment==mort)
+        m_batiment=nullptr;
+    else
+        std::cerr << "Il y a un soucis tu es perdu\n";
+}
+
+void Case::ajoutBatiment(Batiment* const batiment)
+{
+    if(m_batiment==nullptr)
+        m_batiment=batiment;
+    else
+        std::cerr << "Il y a deja quelqu'un sur cette case";
+}
+
+void Case::ajoutOccupant(Soldat* const occupant)
 {
     if(m_occupant==nullptr)
         m_occupant=occupant;

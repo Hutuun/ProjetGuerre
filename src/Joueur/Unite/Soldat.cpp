@@ -15,6 +15,10 @@ unsigned int Soldat::positionMax(int j)
         {
             return this->m_pos+((i-1)*j);
         }
+        else if(place->getCases()[m_pos+(i*j)]->getBatiment()!=nullptr && place->getCases()[m_pos+(i*j)]->getBatiment()->getDir()!=this->m_dir)
+        {
+            return this->m_pos+((i-1)*j);
+        }
     }
     return (m_pm*j)+m_pos;
 }

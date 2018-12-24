@@ -4,20 +4,25 @@
 #include <cstddef>
 #include <iostream>
 
-#include "Unite.h"
+#include "Soldat.h"
+#include "Batiment.h"
 
-class Unite;
+class Soldat;
+class Batiment;
 
 class Case
 {
     public:
         Case() : m_libre(true), m_occupant(nullptr) {};
         virtual ~Case();
-        Unite* getOccupant ()const;
+        Soldat* getOccupant ()const;
+        Batiment* getBatiment()const;
         void ajoutOccupant(Soldat* const occupant);
-        void tue();
+        void tue(Soldat*mort);
+        void tue(Batiment*mort);
         void affiche()const;
         void videCase();
+        void ajoutBatiment(Batiment* const batiment);
 
     protected:
 

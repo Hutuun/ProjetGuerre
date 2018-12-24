@@ -39,12 +39,25 @@ bool Catapulte::choixCible()
         {
             if(j<m_portee)
             {
-                this->attaque(cases[m_pos+((j+1)*i)]);
+                this->attaque(cases[m_pos+((j+1)*i)]->getOccupant());
                 return true;
             }
             else if(j==m_portee)
             {
-                this->attaque(cases[m_pos+((j+1)*i)]);
+                this->attaque(cases[m_pos+((j+1)*i)]->getOccupant());
+                return true;
+            }
+        }
+        else if(cases[m_pos+i]->getBatiment()!=nullptr&&m_dir!=cases[m_pos+i]->getBatiment()->getDir())
+        {
+            if(j<m_portee)
+            {
+                this->attaque(cases[m_pos+((j+1)*i)]->getBatiment());
+                return true;
+            }
+            else if(j==m_portee)
+            {
+                this->attaque(cases[m_pos+((j+1)*i)]->getBatiment());
                 return true;
             }
         }

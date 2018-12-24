@@ -54,8 +54,8 @@ void Terrain::ajoutBases()
     Base *base2=new Base(j2.getNom(),j1.getPos());
     j1.ajoutBase(base1);
     j2.ajoutBase(base2);
-    m_terrain[0]->ajoutOccupant(base1);
-    m_terrain[m_terrain.size()-1]->ajoutOccupant(base2);
+    m_terrain[0]->ajoutBatiment(base1);
+    m_terrain[m_terrain.size()-1]->ajoutBatiment(base2);
 }
 
 bool Terrain::fini()
@@ -74,11 +74,18 @@ bool Terrain::fini()
         return true;
 }
 
-void Terrain::tue(Case*ennemi)
+void Terrain::tue(Soldat*ennemi)
 {
-    j1.tue(ennemi->getOccupant());
-    j2.tue(ennemi->getOccupant());
-    ennemi->tue();
+    j1.tue(ennemi);
+    j2.tue(ennemi);
+    m_terrain[ennemi->getPos()]->tue(ennemi);
+}
+
+void Terrain::tue(Batiment*ennemi)
+{
+    j1.tue(ennemi);
+    j2.tue(ennemi);
+    m_terrain[ennemi->getPos()]->tue(ennemi);
 }
 
 bool Terrain::getDir(std::string const nom)const

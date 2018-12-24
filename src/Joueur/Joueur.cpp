@@ -66,6 +66,18 @@ void Joueur::tue(Soldat* mort)
     }
 }
 
+void Joueur::tue(Batiment* mort)
+{
+    for(unsigned int i=0;i<m_batiments.size();i++)
+    {
+        if(m_batiments[i]==mort)
+        {
+            m_batiments.erase(m_batiments.begin()+i);
+            return;
+        }
+    }
+}
+
 void Joueur::affiche()const
 {
     std::cout << "Nom : " << this->m_nom << " Or : " << this->m_or << " Epoque : " << this->m_epoque->getNom() << "\n";

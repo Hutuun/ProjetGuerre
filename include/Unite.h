@@ -1,16 +1,18 @@
 #ifndef UNITE_H
 #define UNITE_H
 
-#include "Case.h"
+#include <iostream>
 
-class Case;
+class Soldat;
+class Batiment;
 
 class Unite
 {
     public:
         Unite(unsigned int prix, unsigned int pv, unsigned int pointAttaque, std::string dir, unsigned int pos): m_dir(dir), m_pv(pv),m_pos(pos), m_prix(prix), m_pointAttaque(pointAttaque){};
         virtual ~Unite();
-        void attaque(Case *ennemi);
+        bool attaque(Soldat *ennemi);
+        bool attaque(Batiment *ennemi);
         bool prendDommage(unsigned int dommage);
         virtual bool choixCible() {return false;};
         std::string getDir();

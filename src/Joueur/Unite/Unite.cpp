@@ -21,12 +21,28 @@ bool Unite::prendDommage(unsigned int dommage)
     return false;
 }
 
-void Unite::attaque(Case *ennemi)
+bool Unite::attaque(Soldat *ennemi)
 {
-    if(ennemi->getOccupant()==nullptr)
+    if(ennemi==nullptr)
         std::cerr << "Il y a un soucis, il y a personne sur la case choisie";
-    else if(ennemi->getOccupant()->prendDommage(this->m_pointAttaque))
+    else if(ennemi->prendDommage(this->m_pointAttaque))
+    {
         Terrain::getInstanTerrain()->tue(ennemi);
+        return true;
+    }
+    return false;
+}
+
+bool Unite::attaque(Batiment*ennemi)
+{
+    if(ennemi==nullptr)
+        std::cerr << "Il y a un soucis, il y a pas de batiment sur la case choisie";
+    else if(ennemi->prendDommage(this->m_pointAttaque))
+    {
+        Terrain::getInstanTerrain()->tue(ennemi);
+        return true;
+    }
+    return false;
 }
 
 void Unite::setPos(unsigned int i)

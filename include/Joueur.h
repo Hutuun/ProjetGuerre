@@ -30,6 +30,7 @@ class Joueur
         void affiche()const;
         Base* getBase();
         void tue(Soldat*mort);
+        void tue(Batiment*mort);
 
     protected:
 
