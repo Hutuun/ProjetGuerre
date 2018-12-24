@@ -62,16 +62,23 @@ bool Terrain::fini()
 {
     if(!j1.estVivant())
     {
-        std::cout << j1.getNom() << " a gagne !" << std::endl;
+        std::cout << j2.getNom() << " a gagne !" << std::endl;
         return false;
     }
     else if(!j2.estVivant())
     {
-        std::cout << j2.getNom() << " a gagne !" << std::endl;
+        std::cout << j1.getNom() << " a gagne !" << std::endl;
         return false;
     }
     else
         return true;
+}
+
+void Terrain::tue(Case*ennemi)
+{
+    j1.tue(ennemi->getOccupant());
+    j2.tue(ennemi->getOccupant());
+    ennemi->tue();
 }
 
 bool Terrain::getDir(std::string const nom)const

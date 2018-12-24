@@ -8,7 +8,11 @@ Catapulte::~Catapulte()
 
 void Catapulte::tour()
 {
-    this->choixCible();
+    bool fait = this->choixCible();
+    if(!fait)
+    {
+        this->avancer();
+    }
 }
 
 void Catapulte::affiche() const
@@ -35,12 +39,12 @@ bool Catapulte::choixCible()
         {
             if(j<m_portee)
             {
-                this->attaque(*cases[m_pos+((j+1)*i)]);
+                this->attaque(cases[m_pos+((j+1)*i)]);
                 return true;
             }
             else if(j==m_portee)
             {
-                this->attaque(*cases[m_pos+((j+1)*i)]);
+                this->attaque(cases[m_pos+((j+1)*i)]);
                 return true;
             }
         }

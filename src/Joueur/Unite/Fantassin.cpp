@@ -7,7 +7,12 @@ Fantassin::~Fantassin()
 
 void Fantassin::tour()
 {
+    bool fait = this->choixCible();
     this->avancer();
+    if(!fait)
+    {
+        this->choixCible();
+    }
 }
 
 void Fantassin::affiche() const

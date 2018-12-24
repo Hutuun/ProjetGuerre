@@ -10,7 +10,7 @@ class Base : public Batiment
     public:
         Base(std::string  dir,unsigned int pos) : Batiment(0,100,0,dir,pos) {};
         virtual ~Base();
-        bool choixCible() {return false;};
+        virtual bool choixCible() {return false;};
         void affiche()const;
 
     protected:

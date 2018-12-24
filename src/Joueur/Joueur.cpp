@@ -54,6 +54,18 @@ void Joueur::tour()
     }
 }
 
+void Joueur::tue(Soldat* mort)
+{
+    for(unsigned int i=0;i<m_troupes.size();i++)
+    {
+        if(m_troupes[i]==mort)
+        {
+            m_troupes.erase(m_troupes.begin()+i);
+            return;
+        }
+    }
+}
+
 void Joueur::affiche()const
 {
     std::cout << "Nom : " << this->m_nom << " Or : " << this->m_or << " Epoque : " << this->m_epoque->getNom() << "\n";

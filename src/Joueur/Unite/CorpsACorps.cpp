@@ -18,7 +18,7 @@ bool CorpsACorps::choixCible()
         {
             if(cases[m_pos+i]->getOccupant()==nullptr)
             {
-                this->attaque(*cases[MAX+2]);
+                this->attaque(cases[MAX+2]);
                 return true;
             }
         }
@@ -30,14 +30,14 @@ bool CorpsACorps::choixCible()
         {
             if(cases[m_pos+i]->getOccupant()==nullptr)
             {
-                this->attaque(*cases[MIN-2]);
+                this->attaque(cases[MIN-2]);
                 return true;
             }
         }
     }
     if(cases[m_pos+i]->getOccupant()!=nullptr && m_dir!=cases[m_pos+i]->getOccupant()->getDir())
     {
-        this->attaque(*cases[m_pos+i]);
+        this->attaque(cases[m_pos+i]);
         return true;
     }
     return false;

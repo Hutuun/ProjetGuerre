@@ -21,6 +21,7 @@ class Terrain
         void tour();
         void ajoutOccupant(Soldat* const occupant,unsigned int pos);
         bool fini();
+        void tue(Case* mort);
 
     protected:
 

@@ -29,6 +29,7 @@ class Joueur
         void ajoutOr(unsigned int argent);
         void affiche()const;
         Base* getBase();
+        void tue(Soldat*mort);
 
     protected:
 

@@ -14,7 +14,7 @@ class Case
         Case() : m_libre(true), m_occupant(nullptr) {};
         virtual ~Case();
         Unite* getOccupant ()const;
-        void ajoutOccupant(Unite* const occupant);
+        void ajoutOccupant(Soldat* const occupant);
         void tue();
         void affiche()const;
         void videCase();
@@ -23,7 +23,8 @@ class Case
 
     private:
         bool m_libre;
-        Unite *m_occupant;
+        Soldat *m_occupant;
+        Batiment *m_batiment;
 };
 
 #endif // CASE_H

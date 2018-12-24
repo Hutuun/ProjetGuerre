@@ -10,9 +10,9 @@ class Unite
     public:
         Unite(unsigned int prix, unsigned int pv, unsigned int pointAttaque, std::string dir, unsigned int pos): m_dir(dir), m_pv(pv),m_pos(pos), m_prix(prix), m_pointAttaque(pointAttaque){};
         virtual ~Unite();
-        void attaque(Case &ennemi);
+        void attaque(Case *ennemi);
         bool prendDommage(unsigned int dommage);
-        virtual bool choixCible();
+        virtual bool choixCible() {return false;};
         std::string getDir();
         unsigned int getPrix();
         unsigned int getPos();

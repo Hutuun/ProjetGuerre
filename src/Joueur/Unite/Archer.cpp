@@ -9,6 +9,7 @@ Archer::~Archer()
 void Archer::tour()
 {
     this->choixCible();
+    this->avancer();
 }
 
 void Archer::affiche() const
@@ -33,7 +34,7 @@ bool Archer::choixCible()
     {
         if(cases[m_pos+(j*i)]->getOccupant()!=nullptr && m_dir!=cases[m_pos+(j*i)]->getOccupant()->getDir())
         {
-            this->attaque(*cases[m_pos+(j*i)]);
+            this->attaque(cases[m_pos+(j*i)]);
             return true;
         }
     }

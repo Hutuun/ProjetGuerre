@@ -12,18 +12,21 @@ Unite::~Unite()
 bool Unite::prendDommage(unsigned int dommage)
 {
     if(dommage>m_pv)
+    {
+        m_pv=0;
         return true;
+    }
     else
         m_pv-=dommage;
     return false;
 }
 
-void Unite::attaque(Case &ennemi)
+void Unite::attaque(Case *ennemi)
 {
-    if(ennemi.getOccupant()==nullptr)
+    if(ennemi->getOccupant()==nullptr)
         std::cerr << "Il y a un soucis, il y a personne sur la case choisie";
-    else if(ennemi.getOccupant()->prendDommage(this->m_pointAttaque))
-        ennemi.tue();
+    else if(ennemi->getOccupant()->prendDommage(this->m_pointAttaque))
+        Terrain::getInstanTerrain()->tue(ennemi);
 }
 
 void Unite::setPos(unsigned int i)
