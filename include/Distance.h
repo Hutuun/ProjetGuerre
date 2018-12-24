@@ -8,12 +8,13 @@ class Distance : public Soldat
     public:
         Distance(unsigned int prix, unsigned int pv, unsigned int pointAttaque,unsigned int pm, unsigned int portee, std::string dir,unsigned int pos) : Soldat(prix,pv,pointAttaque,pm, dir,pos),m_portee(portee) {};
         virtual ~Distance();
-        virtual void choixCible() {};
+        virtual bool choixCible();
         virtual void affiche()const {};
     protected:
+        unsigned int m_portee;
 
     private:
-        unsigned int m_portee;
+
 };
 
 #endif // DISTANCE_H

@@ -12,12 +12,11 @@ class Unite
         virtual ~Unite();
         void attaque(Case &ennemi);
         bool prendDommage(unsigned int dommage);
-        virtual void choixCible(unsigned int pos) {};
+        virtual bool choixCible();
         std::string getDir();
         unsigned int getPrix();
         unsigned int getPos();
         virtual void affiche()const {};
-        virtual void avancer() {};
         void setPos(unsigned int i);
         bool estVivant();
 

@@ -7,7 +7,7 @@ Fantassin::~Fantassin()
 
 void Fantassin::tour()
 {
-
+    this->avancer();
 }
 
 void Fantassin::affiche() const

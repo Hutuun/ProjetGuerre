@@ -9,7 +9,7 @@ class Archer : public Distance
     public:
         Archer(unsigned int prix, unsigned int pv, unsigned int pointAttaque, unsigned int pm, unsigned int portee,std::string dir,unsigned int pos) : Distance(prix,pv,pointAttaque,pm,portee, dir,pos) {};
         virtual ~Archer();
-        void choixCible() {};
+        bool choixCible();
         void tour();
         void affiche() const;
 

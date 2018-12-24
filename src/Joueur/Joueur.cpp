@@ -50,7 +50,7 @@ void Joueur::tour()
     ajoutUnite(acheter());
     for(unsigned int i=0; i<this->m_troupes.size(); i++)
     {
-        m_troupes[i]->avancer();
+        m_troupes[i]->tour();
     }
 }
 

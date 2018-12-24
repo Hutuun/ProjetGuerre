@@ -6,7 +6,7 @@ CorpsACorps::~CorpsACorps()
     //dtor
 }
 
-void CorpsACorps::choixCible()
+bool CorpsACorps::choixCible()
 {
     Terrain* ter = Terrain::getInstanTerrain();
     std::vector<Case*> cases = ter->getCases();
@@ -18,17 +18,29 @@ void CorpsACorps::choixCible()
         {
             if(cases[m_pos+i]->getOccupant()==nullptr)
             {
-
+                this->attaque(*cases[MAX+2]);
+                return true;
             }
         }
     }
     else
     {
         i=-1;
+        if(m_pos==MIN)
+        {
+            if(cases[m_pos+i]->getOccupant()==nullptr)
+            {
+                this->attaque(*cases[MIN-2]);
+                return true;
+            }
+        }
     }
     if(cases[m_pos+i]->getOccupant()!=nullptr && m_dir!=cases[m_pos+i]->getOccupant()->getDir())
-            this->attaque(*cases[m_pos+i]);
-    return;
+    {
+        this->attaque(*cases[m_pos+i]);
+        return true;
+    }
+    return false;
 }
 
 void CorpsACorps::tour()
