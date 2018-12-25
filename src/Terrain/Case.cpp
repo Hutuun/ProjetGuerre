@@ -36,7 +36,7 @@ void Case::ajoutBatiment(Batiment* const batiment)
     if(m_batiment==nullptr)
         m_batiment=batiment;
     else
-        std::cerr << "Il y a deja quelqu'un sur cette case";
+        std::cerr << "Il y a deja un batiment sur cette case";
 }
 
 void Case::ajoutOccupant(Soldat* const occupant)

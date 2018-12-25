@@ -33,13 +33,16 @@ int Archer::choixCible()
     }
     for(unsigned int j=0; j<this->m_portee+1; j++)
     {
-        if(cases[m_pos+(j*i)]->getOccupant()!=nullptr && m_dir!=cases[m_pos+(j*i)]->getOccupant()->getDir())
+        if(m_pos+(j*i)<=MAX+1&&m_pos+(j*i)>=MIN-1)
         {
-            return this->attaque(cases[m_pos+(j*i)]->getOccupant());
-        }
-        else if(cases[m_pos+i]->getBatiment()!=nullptr&&m_dir!=cases[m_pos+i]->getBatiment()->getDir())
-        {
-            return this->attaque(cases[m_pos+i]->getBatiment());
+            if(cases[m_pos+(j*i)]->getOccupant()!=nullptr && m_dir!=cases[m_pos+(j*i)]->getOccupant()->getDir())
+            {
+                return this->attaque(cases[m_pos+(j*i)]->getOccupant());
+            }
+            else if(cases[m_pos+(j*i)]->getBatiment()!=nullptr&&m_dir!=cases[m_pos+(j*i)]->getBatiment()->getDir())
+            {
+                return this->attaque(cases[m_pos+(j*i)]->getBatiment());
+            }
         }
     }
     return -1;

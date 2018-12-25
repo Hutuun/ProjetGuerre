@@ -37,43 +37,46 @@ int Catapulte::choixCible()
     }
     for(unsigned int j=0; j<this->m_portee+1; j++)
     {
-        if(cases[m_pos+(j*i)]->getOccupant()!=nullptr && m_dir!=cases[m_pos+(j*i)]->getOccupant()->getDir())
+        if(m_pos+(j*i)<=MAX+1&&m_pos+(j*i)>=MIN-1)
         {
-            res=this->attaque(cases[m_pos+(j*i)]->getOccupant());
-            if(j<m_portee)
+            if(cases[m_pos+(j*i)]->getOccupant()!=nullptr && m_dir!=cases[m_pos+(j*i)]->getOccupant()->getDir())
             {
-                if(cases[m_pos+((j+1)*i)]->getOccupant()!=nullptr)
-                    res+=this->attaque(cases[m_pos+((j+1)*i)]->getOccupant());
-                else if(cases[m_pos+((j+1)*i)]->getBatiment()!=nullptr)
-                    res+=this->attaque(cases[m_pos+((j+1)*i)]->getBatiment());
+                res=this->attaque(cases[m_pos+(j*i)]->getOccupant());
+                if(j<m_portee&&m_pos+((j+1)*i)<=MAX+1&&m_pos+((j+1)*i)>=MIN-1)
+                {
+                    if(cases[m_pos+((j+1)*i)]->getOccupant()!=nullptr)
+                        res+=this->attaque(cases[m_pos+((j+1)*i)]->getOccupant());
+                    else if(cases[m_pos+((j+1)*i)]->getBatiment()!=nullptr)
+                        res+=this->attaque(cases[m_pos+((j+1)*i)]->getBatiment());
+                }
+                else if(j==m_portee)
+                {
+                    if(cases[m_pos+((j-1)*i)]->getOccupant()!=nullptr)
+                        this->attaque(cases[m_pos+((j-1)*i)]->getOccupant());
+                    else if(cases[m_pos+((j-1)*i)]->getBatiment()!=nullptr)
+                        res+=this->attaque(cases[m_pos+((j-1)*i)]->getBatiment());
+                }
+                return res;
             }
-            else if(j==m_portee)
+            else if(cases[m_pos+(j*i)]->getBatiment()!=nullptr&&m_dir!=cases[m_pos+(j*i)]->getBatiment()->getDir())
             {
-                if(cases[m_pos+((j-1)*i)]->getOccupant()!=nullptr)
-                    this->attaque(cases[m_pos+((j-1)*i)]->getOccupant());
-                else if(cases[m_pos+((j-1)*i)]->getBatiment()!=nullptr)
-                    res+=this->attaque(cases[m_pos+((j-1)*i)]->getBatiment());
+                res=this->attaque(cases[m_pos+(j*i)]->getBatiment());
+                if(j<m_portee&&m_pos+((j+1)*i)<=MAX+1&&m_pos+((j+1)*i)>=MIN-1)
+                {
+                    if(cases[m_pos+((j+1)*i)]->getOccupant()!=nullptr)
+                        res+=this->attaque(cases[m_pos+((j+1)*i)]->getOccupant());
+                    else if(cases[m_pos+((j+1)*i)]->getBatiment()!=nullptr)
+                        res+=this->attaque(cases[m_pos+((j+1)*i)]->getBatiment());
+                }
+                else if(j==m_portee)
+                {
+                    if(cases[m_pos+((j-1)*i)]->getOccupant()!=nullptr)
+                        this->attaque(cases[m_pos+((j-1)*i)]->getOccupant());
+                    else if(cases[m_pos+((j-1)*i)]->getBatiment()!=nullptr)
+                        res+=this->attaque(cases[m_pos+((j-1)*i)]->getBatiment());
+                }
+                return res;
             }
-            return res;
-        }
-        else if(cases[m_pos+i]->getBatiment()!=nullptr&&m_dir!=cases[m_pos+i]->getBatiment()->getDir())
-        {
-            res=this->attaque(cases[m_pos+(j*i)]->getBatiment());
-            if(j<m_portee)
-            {
-                if(cases[m_pos+((j+1)*i)]->getOccupant()!=nullptr)
-                    res+=this->attaque(cases[m_pos+((j+1)*i)]->getOccupant());
-                else if(cases[m_pos+((j+1)*i)]->getBatiment()!=nullptr)
-                    res+=this->attaque(cases[m_pos+((j+1)*i)]->getBatiment());
-            }
-            else if(j==m_portee)
-            {
-                if(cases[m_pos+((j-1)*i)]->getOccupant()!=nullptr)
-                    this->attaque(cases[m_pos+((j-1)*i)]->getOccupant());
-                else if(cases[m_pos+((j-1)*i)]->getBatiment()!=nullptr)
-                    res+=this->attaque(cases[m_pos+((j-1)*i)]->getBatiment());
-            }
-            return res;
         }
     }
     return -1;

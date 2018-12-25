@@ -13,7 +13,7 @@ class Batiment;
 class Case
 {
     public:
-        Case() : m_libre(true), m_occupant(nullptr) {};
+        Case() : m_libre(true), m_occupant(nullptr),m_batiment(nullptr) {};
         virtual ~Case();
         Soldat* getOccupant ()const;
         Batiment* getBatiment()const;
