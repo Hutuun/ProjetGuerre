@@ -8,7 +8,7 @@ class Batiment : public Unite
     public:
         Batiment(unsigned int prix, unsigned int pv, unsigned int pointAttaque, std::string  dir,unsigned int pos):Unite(prix, pv, pointAttaque, dir,pos) {};
         virtual ~Batiment();
-        virtual bool choixCible() {return false;};
+        virtual int choixCible() {return false;};
         virtual void affiche()const {};
     protected:
 

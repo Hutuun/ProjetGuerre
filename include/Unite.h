@@ -11,14 +11,15 @@ class Unite
     public:
         Unite(unsigned int prix, unsigned int pv, unsigned int pointAttaque, std::string dir, unsigned int pos): m_dir(dir), m_pv(pv),m_pos(pos), m_prix(prix), m_pointAttaque(pointAttaque){};
         virtual ~Unite();
-        bool attaque(Soldat *ennemi);
-        bool attaque(Batiment *ennemi);
+        int attaque(Soldat *ennemi);
+        int attaque(Batiment *ennemi);
         bool prendDommage(unsigned int dommage);
-        virtual bool choixCible() {return false;};
+        virtual int choixCible() {return false;};
         std::string getDir();
         unsigned int getPrix();
         unsigned int getPos();
         virtual void affiche()const {};
+        virtual int tour() {return 0;};
         void setPos(unsigned int i);
         bool estVivant();
 

@@ -8,9 +8,9 @@ class CorpsACorps : public Soldat
     public:
         CorpsACorps(unsigned int prix, unsigned int pv, unsigned int pointAttaque,unsigned int pm, std::string dir,unsigned int pos) : Soldat(prix, pv, pointAttaque,pm, dir,pos) {};
         virtual ~CorpsACorps();
-        bool choixCible();
+        int choixCible();
         virtual void affiche()const {};
-        virtual void tour();
+        virtual int tour() {return 0;};
     protected:
 
     private:

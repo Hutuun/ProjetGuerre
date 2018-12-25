@@ -49,10 +49,12 @@ void Case::ajoutOccupant(Soldat* const occupant)
 
 void Case::affiche()const
 {
-    if(m_occupant==nullptr)
-        std::cout << "0" << std::endl;
-    else
+    if(m_occupant != nullptr)
         m_occupant->affiche();
+    else if(m_batiment != nullptr)
+        m_batiment->affiche();
+    else
+        std::cout << "0" << std::endl;
 }
 
 void Case::videCase()

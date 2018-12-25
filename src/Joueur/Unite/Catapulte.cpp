@@ -6,13 +6,14 @@ Catapulte::~Catapulte()
 
 }
 
-void Catapulte::tour()
+int Catapulte::tour()
 {
-    bool fait = this->choixCible();
-    if(!fait)
+    int fait = this->choixCible();
+    if(fait==-1)
     {
         this->avancer();
     }
+    return fait;
 }
 
 void Catapulte::affiche() const
@@ -20,11 +21,12 @@ void Catapulte::affiche() const
     std::cout << "Catapulte : PV : " << m_pv << " Proprietaire : " << m_dir << std::endl;
 }
 
-bool Catapulte::choixCible()
+int Catapulte::choixCible()
 {
     Terrain* ter = Terrain::getInstanTerrain();
     std::vector<Case*> cases = ter->getCases();
     int i=0;
+    int res = 0;
     if(ter->getDir(this->m_dir))
     {
         i=1;
@@ -37,30 +39,42 @@ bool Catapulte::choixCible()
     {
         if(cases[m_pos+(j*i)]->getOccupant()!=nullptr && m_dir!=cases[m_pos+(j*i)]->getOccupant()->getDir())
         {
+            res=this->attaque(cases[m_pos+(j*i)]->getOccupant());
             if(j<m_portee)
             {
-                this->attaque(cases[m_pos+((j+1)*i)]->getOccupant());
-                return true;
+                if(cases[m_pos+((j+1)*i)]->getOccupant()!=nullptr)
+                    res+=this->attaque(cases[m_pos+((j+1)*i)]->getOccupant());
+                else if(cases[m_pos+((j+1)*i)]->getBatiment()!=nullptr)
+                    res+=this->attaque(cases[m_pos+((j+1)*i)]->getBatiment());
             }
             else if(j==m_portee)
             {
-                this->attaque(cases[m_pos+((j+1)*i)]->getOccupant());
-                return true;
+                if(cases[m_pos+((j-1)*i)]->getOccupant()!=nullptr)
+                    this->attaque(cases[m_pos+((j-1)*i)]->getOccupant());
+                else if(cases[m_pos+((j-1)*i)]->getBatiment()!=nullptr)
+                    res+=this->attaque(cases[m_pos+((j-1)*i)]->getBatiment());
             }
+            return res;
         }
         else if(cases[m_pos+i]->getBatiment()!=nullptr&&m_dir!=cases[m_pos+i]->getBatiment()->getDir())
         {
+            res=this->attaque(cases[m_pos+(j*i)]->getBatiment());
             if(j<m_portee)
             {
-                this->attaque(cases[m_pos+((j+1)*i)]->getBatiment());
-                return true;
+                if(cases[m_pos+((j+1)*i)]->getOccupant()!=nullptr)
+                    res+=this->attaque(cases[m_pos+((j+1)*i)]->getOccupant());
+                else if(cases[m_pos+((j+1)*i)]->getBatiment()!=nullptr)
+                    res+=this->attaque(cases[m_pos+((j+1)*i)]->getBatiment());
             }
             else if(j==m_portee)
             {
-                this->attaque(cases[m_pos+((j+1)*i)]->getBatiment());
-                return true;
+                if(cases[m_pos+((j-1)*i)]->getOccupant()!=nullptr)
+                    this->attaque(cases[m_pos+((j-1)*i)]->getOccupant());
+                else if(cases[m_pos+((j-1)*i)]->getBatiment()!=nullptr)
+                    res+=this->attaque(cases[m_pos+((j-1)*i)]->getBatiment());
             }
+            return res;
         }
     }
-    return false;
+    return -1;
 }

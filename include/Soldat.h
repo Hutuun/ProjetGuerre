@@ -9,9 +9,9 @@ class Soldat : public Unite
         Soldat(unsigned int prix, unsigned int pv, unsigned int pointAttaque, unsigned int pm, std::string dir,unsigned int pos) : Unite(prix, pv, pointAttaque,dir,pos), m_pm(pm) {};
         virtual ~Soldat();
         virtual void affiche()const {};
-        virtual void tour() {};
+        virtual int tour() {return 0;};
         void avancer();
-        virtual bool choixCible() {return false;};
+        virtual int choixCible() {return false;};
 
     protected:
 

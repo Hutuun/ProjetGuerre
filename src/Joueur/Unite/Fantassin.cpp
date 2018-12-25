@@ -5,14 +5,15 @@ Fantassin::~Fantassin()
     //dtor
 }
 
-void Fantassin::tour()
+int Fantassin::tour()
 {
-    bool fait = this->choixCible();
+    int fait = this->choixCible();
     this->avancer();
-    if(!fait)
+    if(fait==-1)
     {
         this->choixCible();
     }
+    return fait;
 }
 
 void Fantassin::affiche() const

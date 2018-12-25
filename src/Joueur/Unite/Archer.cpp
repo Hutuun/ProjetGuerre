@@ -6,10 +6,11 @@ Archer::~Archer()
     //dtor
 }
 
-void Archer::tour()
+int Archer::tour()
 {
-    this->choixCible();
+    int gain = this->choixCible();
     this->avancer();
+    return gain;
 }
 
 void Archer::affiche() const
@@ -17,7 +18,7 @@ void Archer::affiche() const
     std::cout << "Archer : PV : " << m_pv << " Proprietaire : " << m_dir << std::endl;
 }
 
-bool Archer::choixCible()
+int Archer::choixCible()
 {
     Terrain* ter = Terrain::getInstanTerrain();
     std::vector<Case*> cases = ter->getCases();
@@ -34,14 +35,12 @@ bool Archer::choixCible()
     {
         if(cases[m_pos+(j*i)]->getOccupant()!=nullptr && m_dir!=cases[m_pos+(j*i)]->getOccupant()->getDir())
         {
-            this->attaque(cases[m_pos+(j*i)]->getOccupant());
-            return true;
+            return this->attaque(cases[m_pos+(j*i)]->getOccupant());
         }
         else if(cases[m_pos+i]->getBatiment()!=nullptr&&m_dir!=cases[m_pos+i]->getBatiment()->getDir())
         {
-            this->attaque(cases[m_pos+i]->getBatiment());
-            return true;
+            return this->attaque(cases[m_pos+i]->getBatiment());
         }
     }
-    return false;
+    return -1;
 }
