@@ -7,6 +7,7 @@
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 640;
@@ -14,46 +15,46 @@ const int SCREEN_HEIGHT = 480;
 
 int main( int argc, char* args[] )
 {
-	//The window we'll be rendering to
-	/*SDL_Window* window = NULL;
+    //The window we'll be rendering to
+    /*SDL_Window* window = NULL;
 
-	//The surface contained by the window
-	SDL_Surface* screenSurface = NULL;
+    //The surface contained by the window
+    SDL_Surface* screenSurface = NULL;
 
-	//Initialize SDL
-	if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
-	{
-		printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
-	}
-	else
-	{
-		//Create window
-		window = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
-		if( window == NULL )
-		{
-			printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
-		}
-		else
-		{
-			//Get window surface
-			screenSurface = SDL_GetWindowSurface( window );
+    //Initialize SDL
+    if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
+    {
+    	printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
+    }
+    else
+    {
+    	//Create window
+    	window = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
+    	if( window == NULL )
+    	{
+    		printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
+    	}
+    	else
+    	{
+    		//Get window surface
+    		screenSurface = SDL_GetWindowSurface( window );
 
-			//Fill the surface white
-			SDL_FillRect( screenSurface, NULL, SDL_MapRGB( screenSurface->format, 0xFF, 0xFF, 0xFF ) );
+    		//Fill the surface white
+    		SDL_FillRect( screenSurface, NULL, SDL_MapRGB( screenSurface->format, 0xFF, 0xFF, 0xFF ) );
 
-			//Update the surface
-			SDL_UpdateWindowSurface( window );
+    		//Update the surface
+    		SDL_UpdateWindowSurface( window );
 
-			//Wait two seconds
-			SDL_Delay( 2000 );
-		}
-	}
+    		//Wait two seconds
+    		SDL_Delay( 2000 );
+    	}
+    }
 
-	//Destroy window
-	SDL_DestroyWindow( window );
+    //Destroy window
+    SDL_DestroyWindow( window );
 
-	//Quit SDL subsystems
-	SDL_Quit();*/
+    //Quit SDL subsystems
+    SDL_Quit();*/
 
     /*sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
     sf::CircleShape shape(100.f);
@@ -73,14 +74,27 @@ int main( int argc, char* args[] )
         window.display();
     }*/
 
-    Terrain* centre = Terrain::getInstanTerrain();
+    sf::SoundBuffer buffer;
+    if (!buffer.loadFromFile("D:/Etude/ProjetGuerreEtWar/ProjetGuerre/src/Game_start.wav"))
+        return -1;
+    sf::Sound sound;
+    sound.setBuffer(buffer);
+    sound.play();
+
+    sf::Music music;
+    if (!music.openFromFile("D:/Etude/ProjetGuerreEtWar/ProjetGuerre/src/Game_start.wav"))
+        return -1; // erreur
+    music.setVolume(50);
+    music.play();
+
+    /*Terrain* centre = Terrain::getInstanTerrain();
 
     centre->affiche();
 
     while(centre->fini())
     {
         centre->tour();
-    }
+    }*/
 
-	return 0;
+    return 0;
 }

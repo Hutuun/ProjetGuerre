@@ -48,6 +48,7 @@
 			<Add library="sfml-graphics" />
 			<Add library="sfml-window" />
 			<Add library="sfml-system" />
+			<Add library="sfml-audio" />
 			<Add directory="SDL2-2.0.9/i686-w64-mingw32/lib" />
 			<Add directory="SFML-2.5.1/lib" />
 		</Linker>
