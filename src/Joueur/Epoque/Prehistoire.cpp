@@ -5,9 +5,9 @@ Prehistoire::~Prehistoire()
     //dtor
 }
 
-Fantassin* Prehistoire::getFantassin(std::string nomJoueur, unsigned int pos)
+SuperSoldat* Prehistoire::getFantassin(std::string nomJoueur, unsigned int pos)
 {
-    return new Fantassin(10,10,4,1,nomJoueur,pos);
+    return new SuperSoldat(10,10,4,1,nomJoueur,pos);
 }
 
 Archer* Prehistoire::getArcher(std::string nomJoueur, unsigned int pos)

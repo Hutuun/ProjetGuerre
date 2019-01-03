@@ -12,6 +12,7 @@ class Base : public Batiment
         virtual ~Base();
         virtual int choixCible() {return false;};
         void affiche()const;
+        virtual int tour(){return 0;}
 
     protected:
 

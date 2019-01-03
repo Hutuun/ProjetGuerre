@@ -41,3 +41,8 @@ void Soldat::avancer()
     }
     place->ajoutOccupant(this,positionMax(j));
 }
+
+unsigned int Soldat::getMouvement()
+{
+    return this->m_pm;
+}

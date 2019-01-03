@@ -11,6 +11,7 @@ class Soldat : public Unite
         virtual void affiche()const {};
         virtual int tour() {return 0;};
         void avancer();
+        unsigned int getMouvement();
         virtual int choixCible() {return false;};
 
     protected:

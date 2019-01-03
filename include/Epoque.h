@@ -1,7 +1,7 @@
 #ifndef EPOQUE_H
 #define EPOQUE_H
 
-#include "Fantassin.h"
+#include "SuperSoldat.h"
 #include "Archer.h"
 #include "Catapulte.h"
 
@@ -11,7 +11,7 @@ class Epoque
         Epoque(std::string nom) : m_nom(nom) {};
         virtual ~Epoque();
         std::string getNom()const;
-        virtual Fantassin* getFantassin(std::string nomJoueur, unsigned int pos) {return nullptr;};
+        virtual SuperSoldat* getFantassin(std::string nomJoueur, unsigned int pos) {return nullptr;};
         virtual Archer* getArcher(std::string nomJoueur, unsigned int pos) {return nullptr;};
         virtual Catapulte* getCatapulte(std::string nomJoueur, unsigned int pos) {return nullptr;};
 

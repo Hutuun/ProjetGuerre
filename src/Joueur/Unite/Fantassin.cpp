@@ -1,4 +1,5 @@
 #include "Fantassin.h"
+#include "SuperSoldat.h"
 
 Fantassin::~Fantassin()
 {
@@ -11,7 +12,7 @@ int Fantassin::tour()
     this->avancer();
     if(fait==-1)
     {
-        this->choixCible();
+        return this->choixCible();
     }
     return fait;
 }

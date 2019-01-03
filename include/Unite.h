@@ -18,6 +18,7 @@ class Unite
         std::string getDir();
         unsigned int getPrix();
         unsigned int getPos();
+        unsigned int getDegat();
         virtual void affiche()const {};
         virtual int tour() {return 0;};
         void setPos(unsigned int i);

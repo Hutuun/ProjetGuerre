@@ -65,6 +65,7 @@
 		<Unit filename="include/Joueur.h" />
 		<Unit filename="include/Prehistoire.h" />
 		<Unit filename="include/Soldat.h" />
+		<Unit filename="include/SuperSoldat.h" />
 		<Unit filename="include/Terrain.h" />
 		<Unit filename="include/Unite.h" />
 		<Unit filename="main.cpp" />
@@ -79,6 +80,7 @@
 		<Unit filename="src/Joueur/Unite/Distance.cpp" />
 		<Unit filename="src/Joueur/Unite/Fantassin.cpp" />
 		<Unit filename="src/Joueur/Unite/Soldat.cpp" />
+		<Unit filename="src/Joueur/Unite/SuperSoldat.cpp" />
 		<Unit filename="src/Joueur/Unite/Unite.cpp" />
 		<Unit filename="src/Terrain/Case.cpp" />
 		<Unit filename="src/Terrain/Terrain.cpp" />

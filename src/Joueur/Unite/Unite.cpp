@@ -72,3 +72,8 @@ unsigned int Unite::getPrix()
 {
     return this->m_prix;
 }
+
+unsigned int Unite::getDegat()
+{
+    return this->m_pointAttaque;
+}
