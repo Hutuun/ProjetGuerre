@@ -12,10 +12,26 @@
 #include <time.h>
 #include <thread>
 #include <mutex>
+#include <fstream>
+//#include <experimental/filesystem>
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
+
+void lireFichierSon()
+{
+    /*sf::FileInputStream dossier;
+    std::cout << dossier.open("D:/Etude/ProjetGuerreEtWar/ProjetGuerre/Donnees") << dossier.getSize();
+    if(dossier.open("D:/Etude/ProjetGuerreEtWar/ProjetGuerre/Donnees"))
+    {
+
+    }
+    else
+    {
+        std::cout << "Erreur a l'ouverture du fichier son" << std::endl;
+    }*/
+}
 
 void music(bool *fin)
 {
@@ -79,87 +95,16 @@ void jouer(bool *fin,std::mutex *finMutex)
 
 int main( int argc, char* args[] )
 {
-    //The window we'll be rendering to
-    /*SDL_Window* window = NULL;
+    lireFichierSon();
 
-    //The surface contained by the window
-    SDL_Surface* screenSurface = NULL;
-
-    //Initialize SDL
-    if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
-    {
-    	printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
-    }
-    else
-    {
-    	//Create window
-    	window = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
-    	if( window == NULL )
-    	{
-    		printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
-    	}
-    	else
-    	{
-    		//Get window surface
-    		screenSurface = SDL_GetWindowSurface( window );
-
-    		//Fill the surface white
-    		SDL_FillRect( screenSurface, NULL, SDL_MapRGB( screenSurface->format, 0xFF, 0xFF, 0xFF ) );
-
-    		//Update the surface
-    		SDL_UpdateWindowSurface( window );
-
-    		//Wait two seconds
-    		SDL_Delay( 2000 );
-    	}
-    }
-
-    //Destroy window
-    SDL_DestroyWindow( window );
-
-    //Quit SDL subsystems
-    SDL_Quit();*/
-
-    /*sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
-
-    while (window.isOpen())
-    {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
-
-        window.clear();
-        window.draw(shape);
-        window.display();
-    }*/
-
-    /*sf::SoundBuffer buffer;
-    if (!buffer.loadFromFile("D:/Etude/ProjetGuerreEtWar/ProjetGuerre/src/Game_start.wav"))
-        return -1;
-    sf::Sound sound;
-    sound.setBuffer(buffer);
-    sound.play();*/
-
-    /*sf::Music music1;
-    if (!music1.openFromFile("D:/Etude/ProjetGuerreEtWar/ProjetGuerre/src/Les_Aigles_Triomphales.wav"))
-        return -1; // erreur
-    music1.setVolume(50);
-    music1.setLoop(true);
-    music1.play();*/
-
-    bool fin(false);
+    /*bool fin(false);
     std::mutex finMutex;
 
     std::thread musiqueThread(music,&fin);
     std::thread jeuThread(jouer,&fin,&finMutex);
 
     musiqueThread.join();
-    jeuThread.join();
+    jeuThread.join();*/
 
     return 0;
 }
