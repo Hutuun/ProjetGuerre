@@ -179,16 +179,18 @@ void Joueur::ajoutBase(Base* base)
     m_base=base;
 }
 
-void Joueur::sauvegarde(std::ofstream fsauvegarde)
+std::string Joueur::sauvegarde()
 {
-    fsauvegarde << this->m_nom << endl << this->m_epoque->getNom() << endl << this->m_or << endl << this->m_pos;
-    this->m_base->sauvegarde(fsauvegarde);
-    for(int i=0;i<m_batiments.size();i++)
+    std::string res;
+    res = this->m_nom + "\n" + this->m_epoque->getNom() + "\n"+ convertIntToString(this->m_or) + "\n"+ convertIntToString(this->m_pos) + "\n";
+    res += this->m_base->sauvegarde();
+    for(unsigned int i=0;i<m_batiments.size();i++)
     {
-        m_batiments[i].sauvegarde(fsauvegarde);
+        res += m_batiments[i]->sauvegarde();
     }
-    for(int i=0;i<m_troupes.size();i++)
+    for(unsigned int i=0;i<m_troupes.size();i++)
     {
-        m_troupes[i].sauvegarde(fsauvegarde);
+        res += m_troupes[i]->sauvegarde();
     }
+    return res;
 }

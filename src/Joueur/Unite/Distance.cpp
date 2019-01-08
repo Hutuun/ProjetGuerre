@@ -5,8 +5,10 @@ Distance::~Distance()
     //dtor
 }
 
-void Distance::sauvegarde(std::ofstream fsauvegarde)
+std::string Distance::sauvegarde()
 {
-    fsauvegarde << m_portee << "\n";
-    Soldat::sauvegarde(fsauvegarde);
+    std::string res;
+    res = m_portee + "\n";
+    res += Soldat::sauvegarde();
+    return res;
 }

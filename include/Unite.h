@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include <fstream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <cstdlib>
 
 class Soldat;
 class Batiment;

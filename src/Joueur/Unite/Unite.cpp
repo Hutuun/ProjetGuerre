@@ -78,7 +78,9 @@ unsigned int Unite::getDegat()
     return this->m_pointAttaque;
 }
 
-void Unite::sauvegarde(std::ofstream sauvegarde)
+std::string Unite::sauvegarde()
 {
-    sauvegarde << m_pos << std::endl << m_pointAttaque << std::endl << m_pv << std::endl << m_prix << std::endl;
+    std::string res;
+    res = convertIntToString(m_pos) + "\n" + convertIntToString(m_pointAttaque) + "\n"+ convertIntToString(m_pv) + "\n"+ convertIntToString(m_prix) + "\n";
+    return res;
 }

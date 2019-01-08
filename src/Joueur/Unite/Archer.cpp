@@ -18,10 +18,12 @@ void Archer::affiche() const
     std::cout << "Archer : PV : " << m_pv << " Proprietaire : " << m_dir << std::endl;
 }
 
-void Archer::sauvegarde(std::ofstream sauvegarde)
+std::string Archer::sauvegarde()
 {
-    sauvegarde << "Archer" << std::endl;
-    Distance::sauvegarde(sauvegarde);
+    std::string res;
+    res = "Archer\n";
+    res += Distance::sauvegarde();
+    return res;
 }
 
 int Archer::choixCible()

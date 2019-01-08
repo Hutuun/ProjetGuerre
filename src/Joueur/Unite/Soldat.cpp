@@ -23,10 +23,12 @@ unsigned int Soldat::positionMax(int j)
     return (m_pm*j)+m_pos;
 }
 
-void Soldat::sauvegarde(std::ofstream sauvegarde)
+std::string Soldat::sauvegarde()
 {
-    sauvegarde << m_pm << std::endl;
-    Unite::sauvegarde(sauvegarde);
+    std::string res;
+    res= convertIntToString(m_pm) + "\n";
+    res+=Unite::sauvegarde();
+    return res;
 }
 
 void Soldat::avancer()

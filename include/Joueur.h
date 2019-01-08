@@ -2,12 +2,14 @@
 #define JOUEUR_H
 
 #include <vector>
-#include <fstream>
+#include <iostream>
+#include <string>
 
 #include "Unite.h"
 #include "Base.h"
 #include "Epoque.h"
 #include "Prehistoire.h"
+#include "Autre.h"
 
 class Unite;
 
@@ -32,7 +34,7 @@ class Joueur
         void tue(Soldat*mort);
         void tue(Batiment*mort);
         virtual void tourJoueur();
-        void sauvegarde(std::ofstream fsauvegarde);
+        std::string sauvegarde();
 
     protected:
         unsigned int m_or;
