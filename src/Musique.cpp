@@ -43,7 +43,7 @@ bool estWav(std::string fichier)
 sf::Music* wavJouable(std::string fichier)
 {
     sf::Music* music = new sf::Music();
-    if (!music->openFromFile("Donnees/" + fichier))
+    if (!music->openFromFile("Donnees/Musique/" + fichier))
     {
         std::cout << "Il y a une erreur dans le chargement des musiques" << std::endl;
         return nullptr;

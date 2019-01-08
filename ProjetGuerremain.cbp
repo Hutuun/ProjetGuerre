@@ -63,9 +63,9 @@
 			<Option weight="100" />
 		</Unit>
 		<Unit filename="include/Fantassin.h" />
+		<Unit filename="include/IA.h" />
 		<Unit filename="include/Joueur.h" />
 		<Unit filename="include/Musique.h" />
-		<Unit filename="include/Musique2.h" />
 		<Unit filename="include/Prehistoire.h" />
 		<Unit filename="include/Soldat.h" />
 		<Unit filename="include/SuperSoldat.h" />
@@ -74,8 +74,8 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Joueur/Epoque/Epoque.cpp" />
 		<Unit filename="src/Joueur/Epoque/Prehistoire.cpp" />
+		<Unit filename="src/Joueur/IA.cpp" />
 		<Unit filename="src/Joueur/Joueur.cpp" />
-		<Unit filename="src/Joueur/Musique2.cpp" />
 		<Unit filename="src/Joueur/Unite/Archer.cpp" />
 		<Unit filename="src/Joueur/Unite/Base.cpp" />
 		<Unit filename="src/Joueur/Unite/Batiment.cpp" />

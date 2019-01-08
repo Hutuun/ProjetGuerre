@@ -1,14 +1,14 @@
 #ifndef TERRAIN_H
 #define TERRAIN_H
 
-#define MAX 10
-#define MIN 1
 #define TAILLE 12
+#define MAX TAILLE-2
+#define MIN 1
 
 #include <vector>
 #include "Case.h"
 #include "Base.h"
-#include "Joueur.h"
+#include "IA.h"
 
 class Terrain
 {
@@ -27,10 +27,12 @@ class Terrain
     protected:
 
     private:
+        void initJoueur(Joueur* j,bool dir, unsigned int pos);
         static Terrain* m_instance;
         std::vector<Case*> m_terrain;
-        Joueur j1, j2;
-        Terrain(unsigned int taille);
+        Joueur* j1;
+        Joueur* j2;
+        Terrain();
         void ajoutBases();
 };
 

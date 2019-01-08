@@ -45,6 +45,17 @@ bool Joueur::estVivant()
         return false;
 }
 
+void Joueur::tourJoueur()
+{
+    this->ajoutOr(8);
+    std::cout << "C'est a " << this->getNom() << " de jouer\n";
+    this->affiche();
+    if(this->estVivant())
+    {
+        this->tour();
+    }
+}
+
 void Joueur::tour()
 {
     ajoutUnite(acheter());

@@ -22,7 +22,7 @@ class Joueur
         void changeNom(std::string nom);
         std::string getNom()const;
         bool getDir()const;
-        void tour();
+        virtual void tour();
         unsigned int getPos()const;
         Soldat* acheter();
         bool estVivant();
@@ -31,17 +31,18 @@ class Joueur
         Base* getBase();
         void tue(Soldat*mort);
         void tue(Batiment*mort);
+        virtual void tourJoueur();
 
     protected:
+        unsigned int m_or;
+        Epoque* m_epoque;
 
     private:
         std::string m_nom;
-        unsigned int m_or;
         bool m_dir;
         Base* m_base;
         std::vector<Soldat*> m_troupes;
         std::vector<Batiment*> m_batiments;
-        Epoque* m_epoque;
         unsigned int m_pos;
 };
 
