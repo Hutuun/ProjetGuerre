@@ -11,6 +11,7 @@ class Fantassin : public CorpsACorps
         virtual ~Fantassin();
         void affiche()const;
         virtual int tour();
+        virtual std::string sauvegarde();
 
     protected:
 

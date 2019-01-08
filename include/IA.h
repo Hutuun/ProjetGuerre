@@ -6,10 +6,9 @@
 class IA : public Joueur
 {
     public:
-        IA(std::string nom,bool dir, unsigned int pos) : Joueur(nom,dir,pos) {};
+        IA(std::string nom, unsigned int pos) : Joueur(nom,pos) {};
         virtual ~IA();
         virtual void tourJoueur();
-        virtual void tour();
 
     protected:
 

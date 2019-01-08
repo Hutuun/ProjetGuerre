@@ -11,6 +11,8 @@ class Batiment : public Unite
         virtual int choixCible() {return false;};
         virtual void affiche()const {};
         virtual int tour() {return 0;};
+        virtual std::string sauvegarde();
+
     protected:
 
     private:

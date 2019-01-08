@@ -11,6 +11,8 @@ class CorpsACorps : public Soldat
         int choixCible();
         virtual void affiche()const {};
         virtual int tour() {return 0;};
+        virtual std::string sauvegarde();
+
     protected:
 
     private:

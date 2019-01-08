@@ -34,7 +34,10 @@ std::string Joueur::getNom()const
 
 bool Joueur::getDir()const
 {
-    return m_dir;
+    if(m_pos==0)
+        return true;
+    else
+        return false;
 }
 
 bool Joueur::estVivant()
@@ -52,13 +55,13 @@ void Joueur::tourJoueur()
     this->affiche();
     if(this->estVivant())
     {
+        ajoutUnite(acheter());
         this->tour();
     }
 }
 
 void Joueur::tour()
 {
-    ajoutUnite(acheter());
     for(unsigned int i=0; i<this->m_troupes.size(); i++)
     {
         int res = m_troupes[i]->tour();
@@ -109,7 +112,7 @@ Soldat* Joueur::acheter()
         continu=false;
         int choix;
         cout << "Choisissez l'unite que vous voulez acheter\n1)Fantassin : " << fantassin->getPrix() <<"\n2)Archer : " << archer->getPrix() << "\n3)Catapulte : " << catapulte->getPrix() <<"\n";
-        cout << "Autre chose pour ne rien acheter" << endl;
+        cout << "Un autre nombre pour ne rien acheter" << endl;
         cin >> choix;
         switch(choix)
         {
@@ -174,4 +177,18 @@ unsigned int Joueur::getPos()const
 void Joueur::ajoutBase(Base* base)
 {
     m_base=base;
+}
+
+void Joueur::sauvegarde(std::ofstream fsauvegarde)
+{
+    fsauvegarde << this->m_nom << endl << this->m_epoque->getNom() << endl << this->m_or << endl << this->m_pos;
+    this->m_base->sauvegarde(fsauvegarde);
+    for(int i=0;i<m_batiments.size();i++)
+    {
+        m_batiments[i].sauvegarde(fsauvegarde);
+    }
+    for(int i=0;i<m_troupes.size();i++)
+    {
+        m_troupes[i].sauvegarde(fsauvegarde);
+    }
 }

@@ -2,6 +2,7 @@
 #define UNITE_H
 
 #include <iostream>
+#include <fstream>
 
 class Soldat;
 class Batiment;
@@ -23,6 +24,7 @@ class Unite
         virtual int tour() {return 0;};
         void setPos(unsigned int i);
         bool estVivant();
+        virtual std::string sauvegarde();
 
     protected:
         std::string m_dir;

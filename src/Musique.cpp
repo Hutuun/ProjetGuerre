@@ -5,7 +5,7 @@ std::vector<std::string> lireFichierSon()
     std::vector<std::string> res;
     DIR* fichier = nullptr;
     dirent* dossier = nullptr;
-    fichier = opendir("Donnees/");
+    fichier = opendir("Donnees/Musique/");
     if(fichier!=nullptr)
     {
         dossier = readdir(fichier);

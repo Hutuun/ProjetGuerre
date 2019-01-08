@@ -12,6 +12,7 @@ class Catapulte : public Distance
         int choixCible();
         int tour();
         void affiche() const;
+        virtual std::string sauvegarde();
 
     protected:
 

@@ -12,6 +12,7 @@ class Archer : public Distance
         virtual int choixCible();
         int tour();
         void affiche() const;
+        virtual std::string sauvegarde();
 
     protected:
 

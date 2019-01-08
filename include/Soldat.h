@@ -13,6 +13,7 @@ class Soldat : public Unite
         void avancer();
         unsigned int getMouvement();
         virtual int choixCible() {return false;};
+        virtual std::string sauvegarde();
 
     protected:
 

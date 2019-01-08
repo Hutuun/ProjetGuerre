@@ -2,6 +2,7 @@
 #define JOUEUR_H
 
 #include <vector>
+#include <fstream>
 
 #include "Unite.h"
 #include "Base.h"
@@ -9,12 +10,11 @@
 #include "Prehistoire.h"
 
 class Unite;
-//class Prehistoire;
 
 class Joueur
 {
     public:
-        Joueur(std::string nom, bool dir, unsigned int pos) : m_nom(nom), m_or(0), m_dir(dir),m_base(nullptr), m_epoque(new Prehistoire()),m_pos(pos) {};
+        Joueur(std::string nom, unsigned int pos) : m_or(0), m_epoque(new Prehistoire()), m_nom(nom), m_base(nullptr), m_pos(pos) {};
         void ajoutUnite(Soldat *troupe);
         void ajoutBatiment(Batiment *batiment);
         void ajoutBase(Base* base);
@@ -32,14 +32,14 @@ class Joueur
         void tue(Soldat*mort);
         void tue(Batiment*mort);
         virtual void tourJoueur();
+        void sauvegarde(std::ofstream fsauvegarde);
 
     protected:
         unsigned int m_or;
         Epoque* m_epoque;
+        std::string m_nom;
 
     private:
-        std::string m_nom;
-        bool m_dir;
         Base* m_base;
         std::vector<Soldat*> m_troupes;
         std::vector<Batiment*> m_batiments;

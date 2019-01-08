@@ -4,38 +4,40 @@ Terrain* Terrain::m_instance=new Terrain();
 
 Terrain::~Terrain()
 {
-    for(unsigned int i=0;i<this->m_terrain.size();i++)
+    for(unsigned int i=0; i<this->m_terrain.size(); i++)
     {
         delete(m_terrain[i]);
     }
+    delete(j1);
+    delete(j2);
 }
 
-void Terrain::initJoueur(Joueur* j,bool dir, unsigned int pos)
+void Terrain::initJoueur(Joueur** j, unsigned int pos)
 {
     std::string nom;
-    std::cout << "Entrez le nom du premier joueur : ";
+    std::cout << "Entrez le nom du joueur : ";
     std::cin >> nom;
-    char c;
-    while(c!='O'||c!='o'||c!='N'||c!='n')
+    char c(0);
+    while(c!='O'&&c!='o'&&c!='N'&&c!='n')
     {
         std::cout << "Est-ce une ia ? O/N\n";
         std::cin >> c;
     }
     if(c=='o'||c=='O')
     {
-        j = new IA(nom,dir,pos);
+        *j = new IA(nom,pos);
     }
     else
     {
-        j = new Joueur(nom,dir,pos);
+        *j = new Joueur(nom,pos);
     }
 }
 
 Terrain::Terrain(): m_terrain(TAILLE),j1(nullptr),j2(nullptr)
 {
-    initJoueur(j1,true,MIN-1);
-    initJoueur(j2,false,MAX+1);
-    for(unsigned int i=0;i<this->m_terrain.size();i++)
+    initJoueur(&j1,MIN-1);
+    initJoueur(&j2,MAX+1);
+    for(unsigned int i=0; i<this->m_terrain.size(); i++)
     {
         m_terrain[i]=new Case();
     }
@@ -125,4 +127,70 @@ void Terrain::tour()
     this->affiche();
     j2->tourJoueur();
     this->affiche();
+    char choix;
+    while(choix!='O'&&choix!='o'&&choix!='N'&&choix!='n')
+    {
+        std::cout << "Voulez-vous sauvegarder ? O/N\n";
+        std::cin >> choix;
+    }
+    if(choix=='o'||choix=='O')
+    {
+        sauvegarde();
+    }
+
+}
+
+void Terrain::sauvegarde()
+{
+    std::string adresse("Donnees/Sauvegarde/");
+    std::string nom;
+    std::cout << "Entrez le nom de votre sauvegarde : ";
+    std::cin >> nom;
+    DIR* fichier = nullptr;
+    dirent* dossier = nullptr;
+    fichier = opendir(adresse.c_str());
+    bool ok(true);
+    if(fichier!=nullptr)
+    {
+        dossier = readdir(fichier);
+        dossier = readdir(fichier);
+        dossier = readdir(fichier);
+    }
+    else
+    {
+        std::cout << "Soucis fichier\n";
+    }
+    while(dossier!=nullptr)
+    {
+        if(nom.compare(dossier->d_name)==0)
+        {
+            char choix;
+            while(choix!='O'&&choix!='o'&&choix!='N'&&choix!='n')
+            {
+                std::cout << "Il y a deja un fichier qui porte ce nom\nVoulez-vous le supprimer ? O/N\n";
+                std::cin >> choix;
+            }
+            if(choix=='n'||choix=='N')
+            {
+                ok=false;
+            }
+        }
+        dossier = readdir(fichier);
+    }
+    if(!ok)
+    {
+        std::cout << "La partie n'a pas pu être sauvegarder\n";
+        return;
+    }
+    std::string tempo = adresse+nom+".txt";
+    std::ofstream sauvegarde(tempo.c_str());
+    if(sauvegarde)
+    {
+
+    }
+    else
+    {
+        std::cout << "Erreur dans la sauvegarde\n";
+    }
+    closedir(fichier);
 }

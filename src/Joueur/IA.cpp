@@ -12,12 +12,12 @@ void IA::tourJoueur()
     this->affiche();
     if(this->estVivant())
     {
+        Fantassin* fantassin = this->m_epoque->getFantassin(m_nom,getPos());
+        if(m_or>=fantassin->getPrix())
+        {
+            m_or-=fantassin->getPrix();
+            ajoutUnite(fantassin);
+        }
         this->tour();
     }
-}
-
-void IA::tour()
-{
-    Terrain place = Terrain::getInstanTerrain();
-    if(m_or>this)
 }

@@ -11,6 +11,7 @@ class SuperSoldat : public Fantassin
         virtual ~SuperSoldat();
         virtual int tour();
         void affiche()const;
+        virtual std::string sauvegarde();
 
     protected:
 

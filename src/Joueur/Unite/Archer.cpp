@@ -18,6 +18,12 @@ void Archer::affiche() const
     std::cout << "Archer : PV : " << m_pv << " Proprietaire : " << m_dir << std::endl;
 }
 
+void Archer::sauvegarde(std::ofstream sauvegarde)
+{
+    sauvegarde << "Archer" << std::endl;
+    Distance::sauvegarde(sauvegarde);
+}
+
 int Archer::choixCible()
 {
     Terrain* ter = Terrain::getInstanTerrain();

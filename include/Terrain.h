@@ -6,6 +6,9 @@
 #define MIN 1
 
 #include <vector>
+#include <dirent.h>
+#include <fstream>
+
 #include "Case.h"
 #include "Base.h"
 #include "IA.h"
@@ -23,11 +26,12 @@ class Terrain
         bool fini();
         void tue(Soldat* mort);
         void tue(Batiment* mort);
+        void sauvegarde();
 
     protected:
 
     private:
-        void initJoueur(Joueur* j,bool dir, unsigned int pos);
+        void initJoueur(Joueur** j, unsigned int pos);
         static Terrain* m_instance;
         std::vector<Case*> m_terrain;
         Joueur* j1;

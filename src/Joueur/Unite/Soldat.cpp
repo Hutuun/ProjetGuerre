@@ -23,6 +23,12 @@ unsigned int Soldat::positionMax(int j)
     return (m_pm*j)+m_pos;
 }
 
+void Soldat::sauvegarde(std::ofstream sauvegarde)
+{
+    sauvegarde << m_pm << std::endl;
+    Unite::sauvegarde(sauvegarde);
+}
+
 void Soldat::avancer()
 {
     Terrain* place = Terrain::getInstanTerrain();
