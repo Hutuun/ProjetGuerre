@@ -33,6 +33,8 @@ class Terrain
     protected:
 
     private:
+        Epoque* chargeEpoque(std::string epoque);
+        Unite* chargeUnite(std::string unite);
         void initJoueur(Joueur** j, unsigned int pos);
         static Terrain* m_instance;
         std::vector<Case*> m_terrain;
