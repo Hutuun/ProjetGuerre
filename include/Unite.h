@@ -32,6 +32,7 @@ class Unite
         void setPos(unsigned int i);
         bool estVivant();
         virtual std::string sauvegarde();
+        void setPv(unsigned int pv);
 
     protected:
         std::string m_dir;

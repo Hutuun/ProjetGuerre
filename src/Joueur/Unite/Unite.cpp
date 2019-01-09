@@ -55,6 +55,11 @@ void Unite::setPos(unsigned int i)
     m_pos=i;
 }
 
+void Unite::setPv(unsigned int pv)
+{
+    m_pv = pv;
+}
+
 bool Unite::estVivant()
 {
     if(this->m_pv==0)
