@@ -35,6 +35,16 @@ void Terrain::initJoueur(Joueur** j, unsigned int pos)
 
 Terrain::Terrain(): m_terrain(TAILLE),j1(nullptr),j2(nullptr)
 {
+    char c(0);
+    while(c!='O'&&c!='o'&&c!='N'&&c!='n')
+    {
+        std::cout << "Voulez-vous charger une sauvegarde ? O/N\n";
+        std::cin >> c;
+    }
+    if(c=='o'||c=='O')
+    {
+        this->chargement();
+    }
     initJoueur(&j1,MIN-1);
     initJoueur(&j2,MAX+1);
     for(unsigned int i=0; i<this->m_terrain.size(); i++)
@@ -168,9 +178,12 @@ void Terrain::chargement()
     std::ifstream sauvegarde(tempo.c_str());
     if(sauvegarde)
     {
-        char* c;
-        sauvegarde.getline(c,0);
-        std::cout << c;
+        while(1)
+        {
+            char* c;
+            sauvegarde.getline(c,0);
+            std::cout << c;
+        }
     }
     else
     {
