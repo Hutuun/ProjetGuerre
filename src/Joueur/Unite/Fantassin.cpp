@@ -8,7 +8,7 @@ Fantassin::~Fantassin()
 std::string Fantassin::sauvegarde()
 {
     std::string res;
-    if(!super)
+    if(!m_super)
         res = "Fantassin\n";
     else
         res = "SuperSoldat\n";
@@ -19,7 +19,7 @@ std::string Fantassin::sauvegarde()
 int Fantassin::tour()
 {
     int gain(0);
-    if(!super)
+    if(!m_super)
     {
         gain= this->choixCible();
         this->avancer();
@@ -38,14 +38,14 @@ int Fantassin::tour()
     }
     if(gain > 0)
     {
-        super=true;
+        m_super=true;
     }
     return gain;
 }
 
 void Fantassin::affiche() const
 {
-    if(!super)
+    if(!m_super)
         std::cout << "Fantassin : PV : " << m_pv << " Proprietaire : " << m_dir << std::endl;
     else
         std::cout << "Super soldat : PV : " << m_pv << " Proprietaire : " << m_dir << std::endl;
