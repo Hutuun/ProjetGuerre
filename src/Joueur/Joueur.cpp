@@ -5,6 +5,13 @@ using namespace std;
 
 Joueur::~Joueur()
 {
+    delete (m_base);
+
+    for(unsigned int i=0; i<this->m_batiments.size();i++)
+    {
+        delete(m_batiments[i]);
+    }
+
     for(unsigned int i=0; i<this->m_troupes.size(); i++)
     {
         delete(m_troupes[i]);
