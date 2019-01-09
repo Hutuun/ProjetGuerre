@@ -1,4 +1,4 @@
-Jules
+$Jules
 Prehistoire
 90
 0
@@ -21,7 +21,7 @@ Catapulte
 12
 20
 
-Susu
+$Susu
 Prehistoire
 92
 11

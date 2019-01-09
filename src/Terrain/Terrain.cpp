@@ -195,8 +195,28 @@ void Terrain::chargement()
             if(str.find("$")==0)
             {
 
+                std::cout<< "COUCOPUIC"<<std::endl;
+                char* j =(char *)malloc(128);
                 std::string nom = str.substr(1);
+                std::string epoque;
+                std::string DElor;
+                std::string ai;
 
+                std::cout<< "COUCOPUIC"<<std::endl;
+
+                sauvegarde.getline(j,128);
+                epoque = j;
+
+                std::cout<< "COUCOPUIC123542552"<<std::endl;
+                std::cout<< epoque<< std::endl;
+
+                sauvegarde.getline(j,128);
+                DElor = j;
+
+                sauvegarde.getline(j,128);
+                ai = j;
+
+                delete(j);
             }
 
             if(sauvegarde.eof())
