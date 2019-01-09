@@ -187,9 +187,22 @@ void Terrain::chargement()
     {
         while(1)
         {
-            char* c;
-            sauvegarde.getline(c,0);
-            std::cout << c;
+            char* c =(char *)malloc(128);
+            sauvegarde.getline(c,128);
+
+            std::string str = c;
+
+            if(str.find("$")==0)
+            {
+
+                std::string nom = str.substr(1);
+
+            }
+
+            if(sauvegarde.eof())
+            {
+                break;
+            }
         }
     }
     else
