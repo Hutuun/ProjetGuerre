@@ -159,9 +159,15 @@ Epoque* Terrain::chargeEpoque(std::string epoque)
 Unite* Terrain::chargeUnite(std::string unite, std::string dir, unsigned int pv, unsigned int pm, unsigned int porte, unsigned int pos, unsigned int prix, unsigned int pa)
 {
     if(unite.compare("Fantassin"))
-        return new Fantassin(prix,pv,pa,pm,dir,pos);
+        return new Fantassin(prix,pv,pa,pm,dir,pos,false);
     if(unite.compare("Archer"))
         return new Archer(prix,pv,pa,pm,porte,dir,pos);
+    if(unite.compare("Catapulte"))
+        return new Catapulte(prix,pv,pa,pm,porte,dir,pos);
+    if(unite.compare("SuperSoldat"))
+        return new Fantassin(prix,pv,pa,pm,dir,pos,true);
+
+    return nullptr;
 }
 
 
