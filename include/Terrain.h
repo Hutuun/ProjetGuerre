@@ -23,6 +23,7 @@ class Terrain
         bool getDir(std::string const nom)const;
         void tour();
         void ajoutOccupant(Soldat* const occupant,unsigned int pos);
+        void ajoutOccupant(Batiment* const occupant,unsigned int pos);
         bool fini();
         void tue(Soldat* mort);
         void tue(Batiment* mort);

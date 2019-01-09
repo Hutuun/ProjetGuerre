@@ -22,7 +22,7 @@ class Case
         void tue(Batiment*mort);
         void affiche()const;
         void videCase();
-        void ajoutBatiment(Batiment* const batiment);
+        void ajoutOccupant(Batiment* const batiment);
 
     protected:
 

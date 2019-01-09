@@ -32,7 +32,7 @@ void Case::tue(Batiment*mort)
         std::cerr << "Il y a un soucis tu es perdu\n";
 }
 
-void Case::ajoutBatiment(Batiment* const batiment)
+void Case::ajoutOccupant(Batiment* const batiment)
 {
     if(m_batiment==nullptr)
         m_batiment=batiment;

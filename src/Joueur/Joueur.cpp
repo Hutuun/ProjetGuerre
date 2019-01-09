@@ -9,7 +9,7 @@ Joueur::~Joueur()
 {
     delete (m_base);
 
-    for(unsigned int i=0; i<this->m_batiments.size();i++)
+    for(unsigned int i=0; i<this->m_batiments.size(); i++)
     {
         delete(m_batiments[i]);
     }
@@ -22,12 +22,14 @@ Joueur::~Joueur()
 
 void Joueur::ajoutUnite(Soldat *troupe)
 {
+    Terrain::getInstanTerrain()->ajoutOccupant(troupe,troupe->getPos());
     if(troupe!=nullptr)
         m_troupes.push_back(troupe);
 }
 
 void Joueur::ajoutBatiment(Batiment* batiment)
 {
+    Terrain::getInstanTerrain()->ajoutOccupant(batiment,batiment->getPos());
     if(batiment!=nullptr)
         m_batiments.push_back(batiment);
 }
@@ -65,7 +67,12 @@ void Joueur::tourJoueur()
     this->affiche();
     if(this->estVivant())
     {
-        ajoutUnite(acheter());
+        if(Terrain::getInstanTerrain()->getCases()[m_pos]->getOccupant()!=nullptr)
+        {
+            ajoutUnite(acheter());
+        }
+        else
+            cout << "Il y a déjà quelqu'un sur votre base\n";
         this->tour();
     }
 }
@@ -84,7 +91,7 @@ void Joueur::tour()
 
 void Joueur::tue(Soldat* mort)
 {
-    for(unsigned int i=0;i<m_troupes.size();i++)
+    for(unsigned int i=0; i<m_troupes.size(); i++)
     {
         if(m_troupes[i]==mort)
         {
@@ -96,7 +103,7 @@ void Joueur::tue(Soldat* mort)
 
 void Joueur::tue(Batiment* mort)
 {
-    for(unsigned int i=0;i<m_batiments.size();i++)
+    for(unsigned int i=0; i<m_batiments.size(); i++)
     {
         if(m_batiments[i]==mort)
         {
@@ -207,11 +214,11 @@ std::string Joueur::sauvegarde()
     else
         res += "1\n";
     res += this->m_base->sauvegarde();
-    for(unsigned int i=0;i<m_batiments.size();i++)
+    for(unsigned int i=0; i<m_batiments.size(); i++)
     {
         res += m_batiments[i]->sauvegarde();
     }
-    for(unsigned int i=0;i<m_troupes.size();i++)
+    for(unsigned int i=0; i<m_troupes.size(); i++)
     {
         res += m_troupes[i]->sauvegarde();
     }
