@@ -87,6 +87,10 @@ void Joueur::tour()
     for(unsigned int i=0; i<this->m_troupes.size(); i++)
     {
         gold[i]=0;
+    }
+    for(unsigned int i=0; i<this->m_troupes.size(); i++)
+    {
+        gold[i]=0;
         int res = m_troupes[i]->etape1();
         if(res > 0)
         {
@@ -109,7 +113,7 @@ void Joueur::tour()
             gold[i]+=res;
         }
     }
-    int thune;
+    int thune=0;
     for(unsigned int i=0;i<this->m_troupes.size();i++)
     {
         thune += gold[i];
