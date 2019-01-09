@@ -121,7 +121,7 @@ Soldat* Joueur::acheter()
     {
         continu=false;
         int choix;
-        cout << "Choisissez l'unite que vous voulez acheter\n0)Sauvegarder\n1)Fantassin : " << fantassin->getPrix() <<"\n2)Archer : " << archer->getPrix() << "\n3)Catapulte : " << catapulte->getPrix() <<"\n";
+        cout << "Choisissez l'unite que vous voulez acheter\n0" << ")Sauvegarder\n1)Fantassin : " << fantassin->getPrix() <<"\n2)Archer : " << archer->getPrix() << "\n3)Catapulte : " << catapulte->getPrix() <<"\n";
         cout << "Un autre nombre pour ne rien acheter" << endl;
         cin >> choix;
         switch(choix)
