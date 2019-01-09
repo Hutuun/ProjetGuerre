@@ -121,7 +121,7 @@ Soldat* Joueur::acheter()
     {
         continu=false;
         int choix;
-        cout << "Choisissez l'unite que vous voulez acheter\n0)Sauvegarder\n1)Fantassin : " << fantassin->getPrix() <<"\n2)Archer : " << archer->getPrix() << "\n3)Catapulte : " << catapulte->getPrix() <<"\n";
+        cout << "Choisissez l'unite que vous voulez acheter\n0)Sauvegarder\n1)Charger une sauvegarde2)Fantassin : " << fantassin->getPrix() <<"\n3)Archer : " << archer->getPrix() << "\n4)Catapulte : " << catapulte->getPrix() <<"\n";
         cout << "Un autre nombre pour ne rien acheter" << endl;
         cin >> choix;
         switch(choix)
@@ -131,6 +131,10 @@ Soldat* Joueur::acheter()
             Terrain::getInstanTerrain()->sauvegarde();
             break;
         case 1:
+            continu = true;
+            Terrain::getInstanTerrain()->chargement();
+            break;
+        case 2:
             if(this->m_or<fantassin->getPrix())
             {
                 continu=true;
@@ -143,7 +147,7 @@ Soldat* Joueur::acheter()
             }
             break;
 
-        case 2:
+        case 3:
             if(this->m_or<archer->getPrix())
             {
                 continu=true;
@@ -156,7 +160,7 @@ Soldat* Joueur::acheter()
             }
             break;
 
-        case 3:
+        case 4:
             if(this->m_or<catapulte->getPrix())
             {
                 continu=true;

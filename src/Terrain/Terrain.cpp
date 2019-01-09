@@ -170,6 +170,7 @@ void Terrain::chargement()
     {
         char* c;
         sauvegarde.getline(c,0);
+        std::cout << c;
     }
     else
     {
