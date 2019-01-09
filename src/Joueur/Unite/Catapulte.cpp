@@ -42,7 +42,7 @@ int Catapulte::choixCible()
     {
         i=-1;
     }
-    for(unsigned int j=1; j<this->m_portee+1; j++)
+    for(unsigned int j=2; j<this->m_portee+1; j++)
     {
         if((m_pos+(j*i) <= MAX+1) && (m_pos+(j*i) >= MIN-1))
         {

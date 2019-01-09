@@ -22,16 +22,20 @@ Joueur::~Joueur()
 
 void Joueur::ajoutUnite(Soldat *troupe)
 {
-    Terrain::getInstanTerrain()->ajoutOccupant(troupe,troupe->getPos());
     if(troupe!=nullptr)
+    {
+        Terrain::getInstanTerrain()->ajoutOccupant(troupe,troupe->getPos());
         m_troupes.push_back(troupe);
+    }
 }
 
 void Joueur::ajoutBatiment(Batiment* batiment)
 {
-    Terrain::getInstanTerrain()->ajoutOccupant(batiment,batiment->getPos());
     if(batiment!=nullptr)
+    {
+        Terrain::getInstanTerrain()->ajoutOccupant(batiment,batiment->getPos());
         m_batiments.push_back(batiment);
+    }
 }
 
 void Joueur::changeNom(std::string nom)
@@ -67,7 +71,7 @@ void Joueur::tourJoueur()
     this->affiche();
     if(this->estVivant())
     {
-        if(Terrain::getInstanTerrain()->getCases()[m_pos]->getOccupant()!=nullptr)
+        if(Terrain::getInstanTerrain()->getCases()[m_pos]->getOccupant()==nullptr)
         {
             ajoutUnite(acheter());
         }
