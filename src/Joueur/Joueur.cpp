@@ -1,6 +1,8 @@
 #include "Joueur.h"
 #include "Terrain.h"
 
+#define TROU true
+
 using namespace std;
 
 Joueur::~Joueur()
@@ -125,6 +127,7 @@ Soldat* Joueur::acheter()
         switch(choix)
         {
         case 0:
+            continu = true;
             Terrain::getInstanTerrain()->sauvegarde();
             break;
         case 1:
