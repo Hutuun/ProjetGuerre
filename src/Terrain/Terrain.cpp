@@ -76,7 +76,7 @@ void Terrain::affiche()const
 void Terrain::ajoutBases()
 {
     Base *base1=new Base(j1->getNom(),j1->getPos());
-    Base *base2=new Base(j2->getNom(),j1->getPos());
+    Base *base2=new Base(j2->getNom(),j2->getPos());
     j1->ajoutBase(base1);
     j2->ajoutBase(base2);
     m_terrain[0]->ajoutOccupant(base1);
@@ -251,6 +251,8 @@ void Terrain::chargement()
                         j1->ajoutOr(DElor);
                         j1->setEpoque(chargeEpoque(epoque));
                         sauvegarde.getline(c,128);
+
+
 
 
                     }
