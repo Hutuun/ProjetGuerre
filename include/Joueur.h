@@ -35,6 +35,7 @@ class Joueur
         void tue(Batiment*mort);
         virtual void tourJoueur();
         std::string sauvegarde();
+        virtual bool isIA();
 
     protected:
         unsigned int m_or;

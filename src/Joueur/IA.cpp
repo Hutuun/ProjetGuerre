@@ -24,3 +24,8 @@ void IA::tourJoueur()
         this->tour();
     }
 }
+
+bool IA::isIA()
+{
+    return true;
+}

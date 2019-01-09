@@ -179,10 +179,19 @@ void Joueur::ajoutBase(Base* base)
     m_base=base;
 }
 
+bool Joueur::isIA()
+{
+    return false;
+}
+
 std::string Joueur::sauvegarde()
 {
     std::string res;
     res = this->m_nom + "\n" + this->m_epoque->getNom() + "\n"+ convertIntToString(this->m_or) + "\n"+ convertIntToString(this->m_pos) + "\n";
+    if(isIA())
+        res += '0' + "\n";
+    else
+        res += '1' + "\n";
     res += this->m_base->sauvegarde();
     for(unsigned int i=0;i<m_batiments.size();i++)
     {
