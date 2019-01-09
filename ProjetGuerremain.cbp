@@ -53,6 +53,7 @@
 			<Add directory="SFML-2.5.1/lib" />
 		</Linker>
 		<Unit filename="include/Archer.h" />
+		<Unit filename="include/Autre.h" />
 		<Unit filename="include/Base.h" />
 		<Unit filename="include/Batiment.h" />
 		<Unit filename="include/Case.h" />
@@ -68,10 +69,10 @@
 		<Unit filename="include/Musique.h" />
 		<Unit filename="include/Prehistoire.h" />
 		<Unit filename="include/Soldat.h" />
-		<Unit filename="include/SuperSoldat.h" />
 		<Unit filename="include/Terrain.h" />
 		<Unit filename="include/Unite.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Autre.cpp" />
 		<Unit filename="src/Joueur/Epoque/Epoque.cpp" />
 		<Unit filename="src/Joueur/Epoque/Prehistoire.cpp" />
 		<Unit filename="src/Joueur/IA.cpp" />
@@ -84,7 +85,6 @@
 		<Unit filename="src/Joueur/Unite/Distance.cpp" />
 		<Unit filename="src/Joueur/Unite/Fantassin.cpp" />
 		<Unit filename="src/Joueur/Unite/Soldat.cpp" />
-		<Unit filename="src/Joueur/Unite/SuperSoldat.cpp" />
 		<Unit filename="src/Joueur/Unite/Unite.cpp" />
 		<Unit filename="src/Musique.cpp" />
 		<Unit filename="src/Terrain/Case.cpp" />

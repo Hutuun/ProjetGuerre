@@ -16,7 +16,7 @@ class Unite;
 class Joueur
 {
     public:
-        Joueur(std::string nom, unsigned int pos) : m_or(0), m_epoque(new Prehistoire()), m_nom(nom), m_base(nullptr), m_pos(pos) {};
+        Joueur(std::string nom, unsigned int pos) : m_or(0), m_epoque(new Prehistoire()), m_nom(nom), m_pos(pos), m_base(nullptr) {};
         void ajoutUnite(Soldat *troupe);
         void ajoutBatiment(Batiment *batiment);
         void ajoutBase(Base* base);
@@ -40,12 +40,12 @@ class Joueur
         unsigned int m_or;
         Epoque* m_epoque;
         std::string m_nom;
+        unsigned int m_pos;
 
     private:
         Base* m_base;
         std::vector<Soldat*> m_troupes;
         std::vector<Batiment*> m_batiments;
-        unsigned int m_pos;
 };
 
 #endif // JOUEUR_H

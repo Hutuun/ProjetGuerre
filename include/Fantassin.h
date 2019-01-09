@@ -6,7 +6,7 @@
 class Fantassin : public CorpsACorps
 {
     public:
-        Fantassin(unsigned int prix, unsigned int pv, unsigned int pointAttaque,unsigned int pm, std::string dir,unsigned int pos) : CorpsACorps(prix, pv, pointAttaque,pm, dir,pos) {};
+        Fantassin(unsigned int prix, unsigned int pv, unsigned int pointAttaque,unsigned int pm, std::string dir,unsigned int pos) : CorpsACorps(prix, pv, pointAttaque,pm, dir,pos),super(false) {};
         //Fantassin(Fantassin& fantassin) : Fantassin(fantassin.getPrix(),fantassin.m_pv,fantassin.getDegat(),fantassin.getMouvement(),fantassin.m_dir,fantassin.m_pos) {};
         virtual ~Fantassin();
         void affiche()const;
@@ -16,7 +16,7 @@ class Fantassin : public CorpsACorps
     protected:
 
     private:
-        void transformation();
+        bool super;
 };
 
 #endif // FANTASSIN_H

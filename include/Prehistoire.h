@@ -11,7 +11,7 @@ class Prehistoire : public Epoque
     public:
         Prehistoire() : Epoque("Prehistoire") {};
         virtual ~Prehistoire();
-        SuperSoldat* getFantassin(std::string nomJoueur, unsigned int pos);
+        Fantassin* getFantassin(std::string nomJoueur, unsigned int pos);
         Archer* getArcher(std::string nomJoueur, unsigned int pos);
         Catapulte* getCatapulte(std::string nomJoueur, unsigned int pos);
 

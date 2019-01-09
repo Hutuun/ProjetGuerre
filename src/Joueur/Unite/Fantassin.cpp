@@ -1,23 +1,52 @@
 #include "Fantassin.h"
-#include "SuperSoldat.h"
 
 Fantassin::~Fantassin()
 {
     //dtor
 }
 
+std::string Fantassin::sauvegarde()
+{
+    std::string res;
+    if(!super)
+        res = "Fantassin\n";
+    else
+        res = "SuperSoldat\n";
+    res += CorpsACorps::sauvegarde();
+    return res;
+}
+
 int Fantassin::tour()
 {
-    int fait = this->choixCible();
-    this->avancer();
-    if(fait==-1)
+    int gain(0);
+    if(!super)
     {
-        return this->choixCible();
+        gain= this->choixCible();
+        this->avancer();
+        if(gain==-1)
+        {
+            return this->choixCible();
+        }
     }
-    return fait;
+    else
+    {
+        gain = this->choixCible();
+        this->avancer();
+        if(gain==-1)
+            gain++;
+        gain += this->choixCible();
+    }
+    if(gain > 0)
+    {
+        super=true;
+    }
+    return gain;
 }
 
 void Fantassin::affiche() const
 {
-    std::cout << "Fantassin : PV : " << m_pv << " Proprietaire : " << m_dir << std::endl;
+    if(!super)
+        std::cout << "Fantassin : PV : " << m_pv << " Proprietaire : " << m_dir << std::endl;
+    else
+        std::cout << "Super soldat : PV : " << m_pv << " Proprietaire : " << m_dir << std::endl;
 }

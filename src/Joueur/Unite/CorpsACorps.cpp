@@ -29,3 +29,8 @@ int CorpsACorps::choixCible()
     }
     return -1;
 }
+
+std::string CorpsACorps::sauvegarde()
+{
+    return Soldat::sauvegarde();
+}

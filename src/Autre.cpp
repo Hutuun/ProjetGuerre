@@ -22,10 +22,13 @@ char convertNbtoChar(int i)
         return '8';
     else if(i==9)
         return '9';
+    return ' ';
 }
 
 std::string convertIntToString(int i)
 {
+    if(i==0)
+        return "0";
     std::string tempo,res;
     while(i!=0)
     {
@@ -33,7 +36,7 @@ std::string convertIntToString(int i)
         i = i/10;
         tempo += convertNbtoChar(c);
     }
-    for(int i=0;i<tempo.size();i++)
+    for(unsigned int i=tempo.size()-1;i<tempo.size();i--)
     {
         res += tempo[i];
     }

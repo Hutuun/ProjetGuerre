@@ -6,6 +6,13 @@ Catapulte::~Catapulte()
 
 }
 
+std::string Catapulte::sauvegarde()
+{
+    std::string res("Catapulte\n");
+    res+=Distance::sauvegarde();
+    return res;
+}
+
 int Catapulte::tour()
 {
     int fait = this->choixCible();

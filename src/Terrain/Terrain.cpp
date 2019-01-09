@@ -146,6 +146,7 @@ void Terrain::sauvegarde()
     std::string nom;
     std::cout << "Entrez le nom de votre sauvegarde : ";
     std::cin >> nom;
+    nom +=".txt";
     DIR* fichier = nullptr;
     dirent* dossier = nullptr;
     fichier = opendir(adresse.c_str());
@@ -182,11 +183,11 @@ void Terrain::sauvegarde()
         std::cout << "La partie n'a pas pu être sauvegarder\n";
         return;
     }
-    std::string tempo = adresse+nom+".txt";
+    std::string tempo = adresse+nom;
     std::ofstream sauvegarde(tempo.c_str());
     if(sauvegarde)
     {
-
+        sauvegarde << j1->sauvegarde() << "\n" << j2->sauvegarde();
     }
     else
     {
