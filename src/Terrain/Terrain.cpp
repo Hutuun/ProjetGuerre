@@ -156,7 +156,7 @@ Epoque* Terrain::chargeEpoque(std::string epoque)
     return nullptr;
 }
 
-Unite* Terrain::chargeUnite(std::string unite, std::string dir, unsigned int pv, unsigned int pm, unsigned int porte, unsigned int pos, unsigned int prix, unsigned int pa)
+Soldat* Terrain::chargeUnite(std::string unite, std::string dir, unsigned int pv, unsigned int pm, unsigned int porte, unsigned int pos, unsigned int prix, unsigned int pa)
 {
     if(unite.compare("Fantassin"))
         return new Fantassin(prix,pv,pa,pm,dir,pos,false);
@@ -250,7 +250,7 @@ void Terrain::chargement()
                         j1 = new IA(nom,pos);
                         j1->ajoutOr(DElor);
                         j1->setEpoque(chargeEpoque(epoque));
-                        sauvegarde.getline(c,128);
+                        sauvegarde.getline(c,128); // ICI c'est la base donc pas interessant
 
 
 
@@ -261,7 +261,30 @@ void Terrain::chargement()
                         j2 = new IA(nom,pos);
                         j2->ajoutOr(DElor);
                         j2->setEpoque(chargeEpoque(epoque));
-                        sauvegarde.getline(c,128);
+                        sauvegarde.getline(c,128);  // ICI c'est la base donc pas interessant
+                    }
+
+                }
+                else
+                {
+
+                    if(pos == 0)
+                    {
+                        j1 = new Joueur(nom,pos);
+                        j1->ajoutOr(DElor);
+                        j1->setEpoque(chargeEpoque(epoque));
+                        sauvegarde.getline(c,128); // ICI c'est la base donc pas interessant
+
+
+
+
+                    }
+                    else
+                    {
+                        j2 = new Joueur(nom,pos);
+                        j2->ajoutOr(DElor);
+                        j2->setEpoque(chargeEpoque(epoque));
+                        sauvegarde.getline(c,128);  // ICI c'est la base donc pas interessant
                     }
 
                 }
