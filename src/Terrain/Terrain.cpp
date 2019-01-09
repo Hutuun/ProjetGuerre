@@ -251,7 +251,13 @@ void Terrain::chargement()
                         j1->ajoutOr(DElor);
                         j1->setEpoque(chargeEpoque(epoque));
                         sauvegarde.getline(c,128); // ICI c'est la base donc pas interessant
-
+                        sauvegarde.getline(c,128);
+                        sauvegarde.getline(c,128);
+                        sauvegarde.getline(c,128);
+                        int pv = atoi(c);
+                        j1->ajoutBase(new Base(nom,pos));
+                        j1->getBase()->setPv(pv);
+                        sauvegarde.getline(c,128);//fin chargement de la base
 
 
 
@@ -261,7 +267,14 @@ void Terrain::chargement()
                         j2 = new IA(nom,pos);
                         j2->ajoutOr(DElor);
                         j2->setEpoque(chargeEpoque(epoque));
-                        sauvegarde.getline(c,128);  // ICI c'est la base donc pas interessant
+                        sauvegarde.getline(c,128);  // ICI c'est la base (le nom Base) donc pas interessant
+                        sauvegarde.getline(c,128);
+                        sauvegarde.getline(c,128);
+                        sauvegarde.getline(c,128);
+                        int pv = atoi(c);
+                        j2->ajoutBase(new Base(nom,pos));
+                        j2->getBase()->setPv(pv);
+                        sauvegarde.getline(c,128);//fin chargement de la base
                     }
 
                 }
@@ -274,6 +287,13 @@ void Terrain::chargement()
                         j1->ajoutOr(DElor);
                         j1->setEpoque(chargeEpoque(epoque));
                         sauvegarde.getline(c,128); // ICI c'est la base donc pas interessant
+                        sauvegarde.getline(c,128);
+                        sauvegarde.getline(c,128);
+                        sauvegarde.getline(c,128);
+                        int pv = atoi(c);
+                        j1->ajoutBase(new Base(nom,pos));
+                        j1->getBase()->setPv(pv);
+                        sauvegarde.getline(c,128);//fin chargement de la base
 
 
 
@@ -285,6 +305,13 @@ void Terrain::chargement()
                         j2->ajoutOr(DElor);
                         j2->setEpoque(chargeEpoque(epoque));
                         sauvegarde.getline(c,128);  // ICI c'est la base donc pas interessant
+                        sauvegarde.getline(c,128);
+                        sauvegarde.getline(c,128);
+                        sauvegarde.getline(c,128);
+                        int pv = atoi(c);
+                        j2->ajoutBase(new Base(nom,pos));
+                        j2->getBase()->setPv(pv);
+                        sauvegarde.getline(c,128); //fin chargement de la base
                     }
 
                 }
