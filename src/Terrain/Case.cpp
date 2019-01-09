@@ -3,6 +3,7 @@
 Case::~Case()
 {
     delete (m_occupant);
+    delete (m_batiment);
 }
 
 Soldat* Case::getOccupant ()const
