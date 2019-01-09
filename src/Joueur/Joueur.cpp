@@ -209,6 +209,13 @@ bool Joueur::isIA()
     return false;
 }
 
+void Joueur::setEpoque(Epoque* epo)
+{
+    Epoque e = *epo;
+    m_epoque = &e;
+
+}
+
 std::string Joueur::sauvegarde()
 {
     std::string res;

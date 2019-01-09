@@ -195,25 +195,46 @@ void Terrain::chargement()
             if(str.find("$")==0)
             {
 
-
-                char* j =(char *)malloc(128);
                 std::string nom = str.substr(1);
                 std::string epoque;
-                std::string DElor;
-                std::string ai;
+                int DElor;
+
+                int pos;
+                int ia;
 
 
 
-                sauvegarde.getline(j,128);
-                epoque = j;
+                sauvegarde.getline(c,128);
+                epoque = c;
 
-                sauvegarde.getline(j,128);
-                DElor = j;
+                sauvegarde.getline(c,128);
+                DElor = atoi(c);
 
-                sauvegarde.getline(j,128);
-                ai = j;
+                sauvegarde.getline(c,128);
 
-                delete(j);
+                pos = atoi(c);
+
+                sauvegarde.getline(c,128);
+
+                ia = atoi(c);
+
+                if(ia==0)
+                {
+                    if(pos == 0)
+                    {
+                        j1 = new IA(nom,pos);
+                        j1->ajoutOr(DElor);
+
+
+
+                    }
+                    else
+                    {
+                        j2 = new IA(nom,pos);
+                        j2->ajoutOr(DElor);
+                    }
+
+                }
             }
 
             if(sauvegarde.eof())
