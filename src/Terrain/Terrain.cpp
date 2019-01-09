@@ -127,17 +127,6 @@ void Terrain::tour()
     this->affiche();
     j2->tourJoueur();
     this->affiche();
-    char choix = 'k';
-    while(choix!='O'&&choix!='o'&&choix!='N'&&choix!='n')
-    {
-        std::cout << "Voulez-vous sauvegarder ? O/N\n";
-        std::cin >> choix;
-    }
-    if(choix=='o'||choix=='O')
-    {
-        sauvegarde();
-    }
-
 }
 
 void Terrain::sauvegarde()
