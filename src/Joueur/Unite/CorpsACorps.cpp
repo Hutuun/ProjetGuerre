@@ -32,5 +32,5 @@ int CorpsACorps::choixCible()
 
 std::string CorpsACorps::sauvegarde()
 {
-    return Soldat::sauvegarde();
+    return convertIntToString(0)+ "\n" + Soldat::sauvegarde();
 }
