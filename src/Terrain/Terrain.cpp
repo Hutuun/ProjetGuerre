@@ -250,6 +250,7 @@ void Terrain::chargement()
                         j1 = new IA(nom,pos);
                         j1->ajoutOr(DElor);
                         j1->setEpoque(chargeEpoque(epoque));
+                        sauvegarde.getline(c,128);
 
 
                     }
@@ -258,6 +259,7 @@ void Terrain::chargement()
                         j2 = new IA(nom,pos);
                         j2->ajoutOr(DElor);
                         j2->setEpoque(chargeEpoque(epoque));
+                        sauvegarde.getline(c,128);
                     }
 
                 }
