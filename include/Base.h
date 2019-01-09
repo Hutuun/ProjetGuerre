@@ -12,7 +12,10 @@ class Base : public Batiment
         virtual ~Base();
         virtual int choixCible() {return false;};
         void affiche()const;
-        virtual int tour(){return 0;}
+        virtual int etape1() {return -1;};
+        virtual int etape2() {return -1;};
+        virtual int etape3(int val) {return -1;};
+        //virtual int tour(){return 0;}
         virtual std::string sauvegarde();
 
     protected:

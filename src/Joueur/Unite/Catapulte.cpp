@@ -13,7 +13,24 @@ std::string Catapulte::sauvegarde()
     return res;
 }
 
-int Catapulte::tour()
+int Catapulte::etape1()
+{
+    return choixCible();
+}
+
+int Catapulte::etape2()
+{
+    return -1;
+}
+
+int Catapulte::etape3(int val)
+{
+    if(val==-1)
+        avancer();
+    return -1;
+}
+
+/*int Catapulte::tour()
 {
     int fait = this->choixCible();
     if(fait==-1)
@@ -21,7 +38,7 @@ int Catapulte::tour()
         this->avancer();
     }
     return fait;
-}
+}*/
 
 void Catapulte::affiche() const
 {

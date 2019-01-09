@@ -11,7 +11,10 @@ class Fantassin : public CorpsACorps
         //Fantassin(Fantassin& fantassin) : Fantassin(fantassin.getPrix(),fantassin.m_pv,fantassin.getDegat(),fantassin.getMouvement(),fantassin.m_dir,fantassin.m_pos) {};
         virtual ~Fantassin();
         void affiche()const;
-        virtual int tour();
+        //virtual int tour();
+        virtual int etape1();
+        virtual int etape2();
+        virtual int etape3(int val);
         virtual std::string sauvegarde();
 
     protected:

@@ -6,11 +6,27 @@ Archer::~Archer()
     //dtor
 }
 
-int Archer::tour()
+/*int Archer::tour()
 {
     int gain = this->choixCible();
     this->avancer();
     return gain;
+}*/
+
+int Archer::etape1()
+{
+    return choixCible();
+}
+
+int Archer::etape2()
+{
+    avancer();
+    return -1;
+}
+
+int Archer::etape3(int val)
+{
+    return -1;
 }
 
 void Archer::affiche() const

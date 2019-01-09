@@ -12,6 +12,9 @@ class Distance : public Soldat
         virtual void affiche()const {};
         unsigned int getPortee() {return m_portee;};
         virtual std::string sauvegarde();
+        virtual int etape1() {return -1;};
+        virtual int etape2() {return -1;};
+        virtual int etape3(int val) {return -1;};
 
     protected:
         unsigned int m_portee;

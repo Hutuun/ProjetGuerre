@@ -83,14 +83,38 @@ void Joueur::tourJoueur()
 
 void Joueur::tour()
 {
+    vector<int> gold(m_troupes.size());
     for(unsigned int i=0; i<this->m_troupes.size(); i++)
     {
-        int res = m_troupes[i]->tour();
+        gold[i]=0;
+        int res = m_troupes[i]->etape1();
         if(res > 0)
         {
-            this->m_or+=res;
+            gold[i]=res;
         }
     }
+    for(unsigned int i=0; i<this->m_troupes.size(); i++)
+    {
+        int res = m_troupes[i]->etape2();
+        if(res > 0)
+        {
+            gold[i]+=res;
+        }
+    }
+    for(unsigned int i=0; i<this->m_troupes.size(); i++)
+    {
+        int res = m_troupes[i]->etape3(gold[i]);
+        if(res > 0)
+        {
+            gold[i]+=res;
+        }
+    }
+    int thune;
+    for(unsigned int i=0;i<this->m_troupes.size();i++)
+    {
+        thune += gold[i];
+    }
+    this->m_or += thune;
 }
 
 void Joueur::tue(Soldat* mort)

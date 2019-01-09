@@ -16,7 +16,52 @@ std::string Fantassin::sauvegarde()
     return res;
 }
 
-int Fantassin::tour()
+int Fantassin::etape1()
+{
+    int gain(0);
+    if(!m_super)
+    {
+        gain= this->choixCible();
+    }
+    else
+    {
+        gain = this->choixCible();
+    }
+    if(gain > 0)
+    {
+        m_super=true;
+    }
+    return gain;
+}
+
+int Fantassin::etape2()
+{
+        this->avancer();
+    return -1;
+}
+
+int Fantassin::etape3(int val)
+{
+    int gain(0);
+    if(!m_super)
+    {
+        if(val==-1)
+        {
+            return this->choixCible();
+        }
+    }
+    else
+    {
+        gain += this->choixCible();
+    }
+    if(gain > 0)
+    {
+        m_super=true;
+    }
+    return gain;
+}
+
+/*int Fantassin::tour()
 {
     int gain(0);
     if(!m_super)
@@ -41,7 +86,7 @@ int Fantassin::tour()
         m_super=true;
     }
     return gain;
-}
+}*/
 
 void Fantassin::affiche() const
 {
