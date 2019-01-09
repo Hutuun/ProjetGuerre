@@ -10,6 +10,7 @@ class Distance : public Soldat
         virtual ~Distance();
         virtual int choixCible() {return false;};
         virtual void affiche()const {};
+        unsigned int getPortee() {return m_portee;};
         virtual std::string sauvegarde();
 
     protected:

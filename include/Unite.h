@@ -23,6 +23,7 @@ class Unite
         unsigned int getPrix();
         unsigned int getPos();
         unsigned int getDegat();
+        unsigned int getPV();
         virtual void affiche()const {};
         virtual int tour() {return 0;};
         void setPos(unsigned int i);

@@ -21,6 +21,11 @@ bool Unite::prendDommage(unsigned int dommage)
     return true;
 }
 
+unsigned int Unite::getPV()
+{
+    return m_pv;
+}
+
 int Unite::attaque(Soldat *ennemi)
 {
     if(ennemi==nullptr)
