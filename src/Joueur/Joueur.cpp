@@ -121,7 +121,7 @@ Soldat* Joueur::acheter()
     {
         continu=false;
         int choix;
-        cout << "Choisissez l'unite que vous voulez acheter\n0" << ")Sauvegarder\n1)Fantassin : " << fantassin->getPrix() <<"\n2)Archer : " << archer->getPrix() << "\n3)Catapulte : " << catapulte->getPrix() <<"\n";
+        cout << "Choisissez l'unite que vous voulez acheter\n0)Sauvegarder\n1)Fantassin : " << fantassin->getPrix() <<"\n2)Archer : " << archer->getPrix() << "\n3)Catapulte : " << catapulte->getPrix() <<"\n";
         cout << "Un autre nombre pour ne rien acheter" << endl;
         cin >> choix;
         switch(choix)
@@ -203,9 +203,9 @@ std::string Joueur::sauvegarde()
     std::string res;
     res = this->m_nom + "\n" + this->m_epoque->getNom() + "\n"+ convertIntToString(this->m_or) + "\n"+ convertIntToString(this->m_pos) + "\n";
     if(isIA())
-        res += '0' + "\n";
+        res += "0\n";
     else
-        res += '1' + "\n";
+        res += "1\n";
     res += this->m_base->sauvegarde();
     for(unsigned int i=0;i<m_batiments.size();i++)
     {

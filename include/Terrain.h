@@ -27,6 +27,7 @@ class Terrain
         void tue(Soldat* mort);
         void tue(Batiment* mort);
         void sauvegarde();
+        void chargement();
 
     protected:
 

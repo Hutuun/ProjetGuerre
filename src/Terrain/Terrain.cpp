@@ -129,6 +129,55 @@ void Terrain::tour()
     this->affiche();
 }
 
+void Terrain::chargement()
+{
+    std::string adresse("Donnees/Sauvegarde/");
+    std::string nom;
+    std::cout << "Entrez le nom de votre sauvegarde : ";
+    std::cin >> nom;
+    nom +=".txt";
+    DIR* fichier = nullptr;
+    dirent* dossier = nullptr;
+    fichier = opendir(adresse.c_str());
+    bool existe(false);
+    if(fichier!=nullptr)
+    {
+        dossier = readdir(fichier);
+        dossier = readdir(fichier);
+        dossier = readdir(fichier);
+    }
+    else
+    {
+        std::cout << "Soucis fichier\n";
+    }
+    while(dossier!=nullptr&&!existe)
+    {
+        if(nom.compare(dossier->d_name)==0)
+        {
+            existe=true;
+        }
+        dossier = readdir(fichier);
+    }
+    if(!existe)
+    {
+        closedir(fichier);
+        std::cout << "La partie n'a pas pu être trouvée\n";
+        return;
+    }
+    std::string tempo = adresse+nom;
+    std::ifstream sauvegarde(tempo.c_str());
+    if(sauvegarde)
+    {
+        char* c;
+        sauvegarde.getline(c,0);
+    }
+    else
+    {
+        std::cout << "Erreur dans la sauvegarde\n";
+    }
+    closedir(fichier);
+}
+
 void Terrain::sauvegarde()
 {
     std::string adresse("Donnees/Sauvegarde/");
@@ -169,6 +218,7 @@ void Terrain::sauvegarde()
     }
     if(!ok)
     {
+        closedir(fichier);
         std::cout << "La partie n'a pas pu être sauvegarder\n";
         return;
     }
