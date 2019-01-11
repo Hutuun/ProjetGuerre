@@ -335,6 +335,51 @@ void Terrain::chargement()
                         j2->ajoutBase(new Base(nom,pos));
                         j2->getBase()->setPv(pv);
                         sauvegarde.getline(c,128);//fin chargement de la base
+                        while(1)
+                        {
+                            sauvegarde.getline(c,128);
+                            if(*c == '$')
+                            {
+                                break;
+                            }
+                            std::string bat = c;
+                            sauvegarde.getline(c,128);
+                            pos = atoi(c);
+                            sauvegarde.getline(c,128);
+                            unsigned int pa = atoi(c);
+                            sauvegarde.getline(c,128);
+                            pv = atoi(c);
+                            sauvegarde.getline(c,128);
+                            unsigned int pp = atoi(c);
+
+
+                            j2->ajoutBatiment(chargeBatiment(bat,nom,pv,pos,pp,pa));
+                        }
+                        while(1)
+                        {
+                            sauvegarde.getline(c,128);
+                            if(*c == '$')
+                            {
+                                break;
+                            }
+                            std::string unite = c;
+
+                            sauvegarde.getline(c,128);
+                            unsigned int porte = atoi(c);
+                            sauvegarde.getline(c,128);
+                            unsigned int pm = atoi(c);
+                            sauvegarde.getline(c,128);
+                            pos = atoi(c);
+                            sauvegarde.getline(c,128);
+                            unsigned int pa = atoi(c);
+                            sauvegarde.getline(c,128);
+                            pv = atoi(c);
+                            sauvegarde.getline(c,128);
+                            unsigned int pp = atoi(c);
+
+
+                            j2->ajoutUnite(chargeUnite(unite,nom,pv,pm,porte,pos,pp,pa));
+                        }
                     }
 
                 }
@@ -354,7 +399,51 @@ void Terrain::chargement()
                         j1->ajoutBase(new Base(nom,pos));
                         j1->getBase()->setPv(pv);
                         sauvegarde.getline(c,128);//fin chargement de la base
+                        while(1)
+                        {
+                            sauvegarde.getline(c,128);
+                            if(*c == '$')
+                            {
+                                break;
+                            }
+                            std::string bat = c;
+                            sauvegarde.getline(c,128);
+                            pos = atoi(c);
+                            sauvegarde.getline(c,128);
+                            unsigned int pa = atoi(c);
+                            sauvegarde.getline(c,128);
+                            pv = atoi(c);
+                            sauvegarde.getline(c,128);
+                            unsigned int pp = atoi(c);
 
+
+                            j1->ajoutBatiment(chargeBatiment(bat,nom,pv,pos,pp,pa));
+                        }
+                        while(1)
+                        {
+                            sauvegarde.getline(c,128);
+                            if(*c == '$')
+                            {
+                                break;
+                            }
+                            std::string unite = c;
+
+                            sauvegarde.getline(c,128);
+                            unsigned int porte = atoi(c);
+                            sauvegarde.getline(c,128);
+                            unsigned int pm = atoi(c);
+                            sauvegarde.getline(c,128);
+                            pos = atoi(c);
+                            sauvegarde.getline(c,128);
+                            unsigned int pa = atoi(c);
+                            sauvegarde.getline(c,128);
+                            pv = atoi(c);
+                            sauvegarde.getline(c,128);
+                            unsigned int pp = atoi(c);
+
+
+                            j1->ajoutUnite(chargeUnite(unite,nom,pv,pm,porte,pos,pp,pa));
+                        }
 
 
 
@@ -373,6 +462,51 @@ void Terrain::chargement()
                         j2->ajoutBase(new Base(nom,pos));
                         j2->getBase()->setPv(pv);
                         sauvegarde.getline(c,128); //fin chargement de la base
+                        while(1)
+                        {
+                            sauvegarde.getline(c,128);
+                            if(*c == '$')
+                            {
+                                break;
+                            }
+                            std::string bat = c;
+                            sauvegarde.getline(c,128);
+                            pos = atoi(c);
+                            sauvegarde.getline(c,128);
+                            unsigned int pa = atoi(c);
+                            sauvegarde.getline(c,128);
+                            pv = atoi(c);
+                            sauvegarde.getline(c,128);
+                            unsigned int pp = atoi(c);
+
+
+                            j2->ajoutBatiment(chargeBatiment(bat,nom,pv,pos,pp,pa));
+                        }
+                        while(1)
+                        {
+                            sauvegarde.getline(c,128);
+                            if(*c == '$')
+                            {
+                                break;
+                            }
+                            std::string unite = c;
+
+                            sauvegarde.getline(c,128);
+                            unsigned int porte = atoi(c);
+                            sauvegarde.getline(c,128);
+                            unsigned int pm = atoi(c);
+                            sauvegarde.getline(c,128);
+                            pos = atoi(c);
+                            sauvegarde.getline(c,128);
+                            unsigned int pa = atoi(c);
+                            sauvegarde.getline(c,128);
+                            pv = atoi(c);
+                            sauvegarde.getline(c,128);
+                            unsigned int pp = atoi(c);
+
+
+                            j2->ajoutUnite(chargeUnite(unite,nom,pv,pm,porte,pos,pp,pa));
+                        }
                     }
 
                 }
