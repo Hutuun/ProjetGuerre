@@ -30,7 +30,7 @@ int main( int argc, char* args[] )
     std::string adresse("Prehistoire");
     std::mutex finMutex;
 
-    std::thread musiqueThread(music,&fin,&chgAge,&adresse);
+    std::thread musiqueThread(music(&fin,&chgAge,&adresse));
     std::thread jeuThread(jouer,&fin,&finMutex,&chgAge,&adresse);
 
     musiqueThread.join();

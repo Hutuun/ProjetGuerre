@@ -20,6 +20,6 @@
 std::vector<std::string> lireFichierSon();
 bool estWav(std::string fichier);
 sf::Music* wavJouable(std::string fichier);
-void music(bool *fin);
+void music(bool *fin,bool *chgAge,std::string *adresse);
 
 #endif // MUSIQUE_H_INCLUDED
