@@ -35,7 +35,7 @@ class Terrain
     private:
         Epoque* chargeEpoque(std::string epoque);
         Soldat* chargeUnite(std::string unite, std::string dir, unsigned int pv, unsigned int pm, unsigned int porte, unsigned int pos, unsigned int prix, unsigned int pa);
-        Batiment* chargeBatiment(std::string batiment, std::string dir);
+        Batiment* chargeBatiment(std::string batiment, std::string dir, unsigned int pv, unsigned int pos, unsigned int prix, unsigned int pa);
         void initJoueur(Joueur** j, unsigned int pos);
         static Terrain* m_instance;
         std::vector<Case*> m_terrain;

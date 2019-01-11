@@ -149,7 +149,7 @@ void Terrain::tour()
 Epoque* Terrain::chargeEpoque(std::string epoque)
 {
 
-    if(epoque.compare("Prehistoire"))
+    if(epoque.compare("Prehistoire")==0)
         return new Prehistoire();
     //Ajouter ici plus d'epoque
 
@@ -158,16 +158,31 @@ Epoque* Terrain::chargeEpoque(std::string epoque)
 
 Soldat* Terrain::chargeUnite(std::string unite, std::string dir, unsigned int pv, unsigned int pm, unsigned int porte, unsigned int pos, unsigned int prix, unsigned int pa)
 {
-    if(unite.compare("Fantassin"))
+    if(unite.compare("Fantassin")==0)
         return new Fantassin(prix,pv,pa,pm,dir,pos,false);
-    if(unite.compare("Archer"))
+    if(unite.compare("Archer")==0)
         return new Archer(prix,pv,pa,pm,porte,dir,pos);
-    if(unite.compare("Catapulte"))
+    if(unite.compare("Catapulte")==0)
         return new Catapulte(prix,pv,pa,pm,porte,dir,pos);
-    if(unite.compare("SuperSoldat"))
+    if(unite.compare("SuperSoldat")==0)
         return new Fantassin(prix,pv,pa,pm,dir,pos,true);
 
     return nullptr;
+}
+
+Batiment* Terrain::chargeBatiment(std::string batiment, std::string dir, unsigned int pv, unsigned int pos, unsigned int prix, unsigned int pa)
+{
+
+    if(batiment.compare("Base")==0)
+    {
+        Base* b = new Base(dir,pos);
+        b->setPv(pv);
+        return b;
+    }
+
+
+    return nullptr;
+
 }
 
 
@@ -222,9 +237,9 @@ void Terrain::chargement()
 
                 std::string nom = str.substr(1);
                 std::string epoque;
-                int DElor;
+                unsigned int DElor;
 
-                int pos;
+                unsigned int pos;
                 int ia;
 
 
@@ -254,10 +269,55 @@ void Terrain::chargement()
                         sauvegarde.getline(c,128);
                         sauvegarde.getline(c,128);
                         sauvegarde.getline(c,128);
-                        int pv = atoi(c);
+                        unsigned int pv = atoi(c);
                         j1->ajoutBase(new Base(nom,pos));
                         j1->getBase()->setPv(pv);
                         sauvegarde.getline(c,128);//fin chargement de la base
+                        while(1)
+                        {
+                            sauvegarde.getline(c,128);
+                            if(*c == '$')
+                            {
+                                break;
+                            }
+                            std::string bat = c;
+                            sauvegarde.getline(c,128);
+                            pos = atoi(c);
+                            sauvegarde.getline(c,128);
+                            unsigned int pa = atoi(c);
+                            sauvegarde.getline(c,128);
+                            pv = atoi(c);
+                            sauvegarde.getline(c,128);
+                            unsigned int pp = atoi(c);
+
+
+                            j1->ajoutBatiment(chargeBatiment(bat,nom,pv,pos,pp,pa));
+                        }
+                        while(1)
+                        {
+                            sauvegarde.getline(c,128);
+                            if(*c == '$')
+                            {
+                                break;
+                            }
+                            std::string unite = c;
+
+                            sauvegarde.getline(c,128);
+                            unsigned int porte = atoi(c);
+                            sauvegarde.getline(c,128);
+                            unsigned int pm = atoi(c);
+                            sauvegarde.getline(c,128);
+                            pos = atoi(c);
+                            sauvegarde.getline(c,128);
+                            unsigned int pa = atoi(c);
+                            sauvegarde.getline(c,128);
+                            pv = atoi(c);
+                            sauvegarde.getline(c,128);
+                            unsigned int pp = atoi(c);
+
+
+                            j1->ajoutUnite(chargeUnite(unite,nom,pv,pm,porte,pos,pp,pa));
+                        }
 
 
 
@@ -286,17 +346,15 @@ void Terrain::chargement()
                         j1 = new Joueur(nom,pos);
                         j1->ajoutOr(DElor);
                         j1->setEpoque(chargeEpoque(epoque));
-                        while(1)
-                        {
-                            sauvegarde.getline(c,128); // ICI c'est la base donc pas interessant
-                            sauvegarde.getline(c,128);
-                            sauvegarde.getline(c,128);
-                            sauvegarde.getline(c,128);
-                            int pv = atoi(c);
-                            j1->ajoutBase(new Base(nom,pos));
-                            j1->getBase()->setPv(pv);
-                            sauvegarde.getline(c,128);//fin chargement de la base
-                        }
+                        sauvegarde.getline(c,128); // ICI c'est la base donc pas interessant
+                        sauvegarde.getline(c,128);
+                        sauvegarde.getline(c,128);
+                        sauvegarde.getline(c,128);
+                        int pv = atoi(c);
+                        j1->ajoutBase(new Base(nom,pos));
+                        j1->getBase()->setPv(pv);
+                        sauvegarde.getline(c,128);//fin chargement de la base
+
 
 
 
