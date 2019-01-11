@@ -36,21 +36,21 @@
 			<Add option="-Wall" />
 			<Add option="-std=c++1z" />
 			<Add option="-fexceptions" />
-			<Add directory="SDL2-2.0.9/i686-w64-mingw32/include" />
-			<Add directory="SFML-2.5.1/include" />
+			<Add directory="SDL2/i686-w64-mingw32/include" />
+			<Add directory="SFML/include" />
 		</Compiler>
 		<Linker>
 			<Add option="-lmingw32" />
 			<Add option="-lSDL2main" />
 			<Add option="-lSDL2" />
-			<Add library="SDL2-2.0.9/i686-w64-mingw32/lib/libSDL2.a" />
-			<Add library="SDL2-2.0.9/i686-w64-mingw32/lib/libSDL2.dll.a" />
+			<Add library="SDL2/i686-w64-mingw32/lib/libSDL2.a" />
+			<Add library="SDL2/i686-w64-mingw32/lib/libSDL2.dll.a" />
 			<Add library="sfml-graphics" />
 			<Add library="sfml-window" />
 			<Add library="sfml-system" />
 			<Add library="sfml-audio" />
-			<Add directory="SDL2-2.0.9/i686-w64-mingw32/lib" />
-			<Add directory="SFML-2.5.1/lib" />
+			<Add directory="SDL2/i686-w64-mingw32/lib" />
+			<Add directory="SFML/lib" />
 		</Linker>
 		<Unit filename="include/Archer.h" />
 		<Unit filename="include/Autre.h" />
