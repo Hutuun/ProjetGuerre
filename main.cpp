@@ -1,5 +1,4 @@
 //Using SDL and standard IO
-#include <SDL2/SDL.h>
 #include "Terrain.h"
 #include "Joueur.h"
 #include "Musique.h"

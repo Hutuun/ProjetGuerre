@@ -1,11 +1,11 @@
 #include "Musique.h"
 
-std::vector<std::string> lireFichierSon()
+std::vector<std::string> lireFichierSon(std::string adresse)
 {
     std::vector<std::string> res;
     DIR* fichier = nullptr;
     dirent* dossier = nullptr;
-    fichier = opendir("Donnees/Musique/");
+    fichier = opendir(adresse.c_str());
     if(fichier!=nullptr)
     {
         dossier = readdir(fichier);
@@ -61,9 +61,9 @@ void laFinDuMonde(bool *fin,sf::Time *duree)
     return;
 }
 
-void music(bool *fin)
+void music(bool *fin,bool *chgAge,std::string *adresse)
 {
-    std::vector<std::string> listeMusique(lireFichierSon());
+    std::vector<std::string> listeMusique(lireFichierSon(adresse));
     std::vector<sf::Music*> listeJouable;
     for(unsigned int i=0; i<listeMusique.size(); i++)
     {
@@ -80,6 +80,20 @@ void music(bool *fin)
 
     while(!*fin)
     {
+        if(chgAge)
+        {
+            std::vector<std::string> listeMusique(lireFichierSon(adresse));
+            std::vector<sf::Music*> listeJouable;
+            for(unsigned int i=0; i<listeMusique.size(); i++)
+            {
+                if(estWav(listeMusique[i]))
+                {
+                    sf::Music* music = wavJouable(listeMusique[i]);
+                    if(music != nullptr)
+                        listeJouable.push_back(music);
+                }
+            }
+        }
         nombre_aleatoire = rand()%listeJouable.size();
         listeJouable[nombre_aleatoire]->play();
         sf::Time time(listeJouable[nombre_aleatoire]->getDuration());
