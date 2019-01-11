@@ -36,7 +36,7 @@ class Joueur
         virtual void tourJoueur();
         std::string sauvegarde();
         virtual bool isIA();
-        void setEpoque(Epoque* epo);
+        void setEpoque(Epoque* epo,bool* chgAge,std::string* adresse);
 
     protected:
         unsigned int m_or;

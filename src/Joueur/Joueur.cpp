@@ -237,11 +237,11 @@ bool Joueur::isIA()
     return false;
 }
 
-void Joueur::setEpoque(Epoque* epo)
+void Joueur::setEpoque(Epoque* epo,bool *chgAge,std::string* adresse)
 {
-    Epoque e = *epo;
-    m_epoque = &e;
-
+    *adresse = epo->getNom();
+    *chgAge = true;
+    m_epoque = epo;
 }
 
 std::string Joueur::sauvegarde()
