@@ -77,7 +77,8 @@ void Joueur::tourJoueur()
         }
         else
             cout << "Il y a déjà quelqu'un sur votre base\n";
-        this->tour();
+        if(m_troupes.size()!=0)
+            this->tour();
     }
 }
 
@@ -86,13 +87,12 @@ void Joueur::tour()
     vector<int> gold(m_troupes.size());
     for(unsigned int i=0; i<this->m_troupes.size(); i++)
     {
-        gold[i]=0;
+        gold[i]=-1;
     }
     for(unsigned int i=0; i<this->m_troupes.size(); i++)
     {
-        gold[i]=0;
         int res = m_troupes[i]->etape1();
-        if(res > 0)
+        if(res > -1)
         {
             gold[i]=res;
         }
@@ -100,7 +100,7 @@ void Joueur::tour()
     for(unsigned int i=0; i<this->m_troupes.size(); i++)
     {
         int res = m_troupes[i]->etape2();
-        if(res > 0)
+        if(res > -1)
         {
             gold[i]+=res;
         }
@@ -108,7 +108,7 @@ void Joueur::tour()
     for(unsigned int i=0; i<this->m_troupes.size(); i++)
     {
         int res = m_troupes[i]->etape3(gold[i]);
-        if(res > 0)
+        if(res > -1)
         {
             gold[i]+=res;
         }
@@ -116,7 +116,8 @@ void Joueur::tour()
     int thune=0;
     for(unsigned int i=0;i<this->m_troupes.size();i++)
     {
-        thune += gold[i];
+        if(gold[i]>-1)
+            thune += gold[i];
     }
     this->m_or += thune;
 }

@@ -50,7 +50,7 @@ int Catapulte::choixCible()
     Terrain* ter = Terrain::getInstanTerrain();
     std::vector<Case*> cases = ter->getCases();
     int i=0;
-    int res = 0;
+    int res = -1;
     if(ter->getDir(this->m_dir))
     {
         i=1;
