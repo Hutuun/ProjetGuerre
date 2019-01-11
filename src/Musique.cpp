@@ -40,10 +40,10 @@ bool estWav(std::string fichier)
     return false;
 }
 
-sf::Music* wavJouable(std::string fichier)
+sf::Music* wavJouable(std::string fichier,std::string adresse)
 {
     sf::Music* music = new sf::Music();
-    if (!music->openFromFile("Donnees/Musique/" + fichier))
+    if (!music->openFromFile("Donnees/Musique/" + adresse + "/" + fichier))
     {
         std::cout << "Il y a une erreur dans le chargement des musiques" << std::endl;
         return nullptr;
@@ -70,7 +70,7 @@ void music(bool *fin,bool *chgAge,std::string *adresse)
     {
         if(estWav(listeMusique[i]))
         {
-            sf::Music* music = wavJouable(listeMusique[i]);
+            sf::Music* music = wavJouable(listeMusique[i],*adresse);
             if(music != nullptr)
                 listeJouable.push_back(music);
         }
@@ -81,7 +81,7 @@ void music(bool *fin,bool *chgAge,std::string *adresse)
 
     while(!*fin)
     {
-        if(chgAge)
+        if(*chgAge)
         {
             std::vector<std::string> listeMusique(lireFichierSon("Donnees/Musique/" + *adresse));
             std::vector<sf::Music*> listeJouable;
@@ -89,11 +89,12 @@ void music(bool *fin,bool *chgAge,std::string *adresse)
             {
                 if(estWav(listeMusique[i]))
                 {
-                    sf::Music* music = wavJouable(listeMusique[i]);
+                    sf::Music* music = wavJouable(listeMusique[i],*adresse);
                     if(music != nullptr)
                         listeJouable.push_back(music);
                 }
             }
+            *chgAge=false;
         }
         nombre_aleatoire = rand()%listeJouable.size();
         listeJouable[nombre_aleatoire]->play();
