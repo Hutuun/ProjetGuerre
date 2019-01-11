@@ -40,7 +40,7 @@ void Epoque::lireFichier()
     if(!existe)
     {
         closedir(fichier);
-        std::cout << "La partie n'a pas pu être trouvée\n";
+        std::cout << "La partie n'a pas pu être trouvee\n";
         return;
     }
     std::string tempo = adresse+nom;

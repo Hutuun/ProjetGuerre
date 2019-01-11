@@ -27,7 +27,7 @@ void jouer(bool *fin,std::mutex *finMutex,bool *chgAge,std::string *adresse)
 int main( int argc, char* args[] )
 {
     bool fin(false),chgAge(false);
-    std::string adresse("Prehistoire");
+    std::string adresse("Prehistoire/");
     std::mutex finMutex;
 
     std::thread musiqueThread(music,&fin,&chgAge,&adresse);
