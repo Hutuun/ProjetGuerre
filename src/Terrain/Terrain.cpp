@@ -286,14 +286,17 @@ void Terrain::chargement()
                         j1 = new Joueur(nom,pos);
                         j1->ajoutOr(DElor);
                         j1->setEpoque(chargeEpoque(epoque));
-                        sauvegarde.getline(c,128); // ICI c'est la base donc pas interessant
-                        sauvegarde.getline(c,128);
-                        sauvegarde.getline(c,128);
-                        sauvegarde.getline(c,128);
-                        int pv = atoi(c);
-                        j1->ajoutBase(new Base(nom,pos));
-                        j1->getBase()->setPv(pv);
-                        sauvegarde.getline(c,128);//fin chargement de la base
+                        while(1)
+                        {
+                            sauvegarde.getline(c,128); // ICI c'est la base donc pas interessant
+                            sauvegarde.getline(c,128);
+                            sauvegarde.getline(c,128);
+                            sauvegarde.getline(c,128);
+                            int pv = atoi(c);
+                            j1->ajoutBase(new Base(nom,pos));
+                            j1->getBase()->setPv(pv);
+                            sauvegarde.getline(c,128);//fin chargement de la base
+                        }
 
 
 
