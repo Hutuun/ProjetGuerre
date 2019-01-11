@@ -63,7 +63,8 @@ void laFinDuMonde(bool *fin,sf::Time *duree)
 
 void music(bool *fin,bool *chgAge,std::string *adresse)
 {
-    std::vector<std::string> listeMusique(lireFichierSon(adresse));
+
+    std::vector<std::string> listeMusique(lireFichierSon("Donnees/Musique/" + *adresse));
     std::vector<sf::Music*> listeJouable;
     for(unsigned int i=0; i<listeMusique.size(); i++)
     {
@@ -82,7 +83,7 @@ void music(bool *fin,bool *chgAge,std::string *adresse)
     {
         if(chgAge)
         {
-            std::vector<std::string> listeMusique(lireFichierSon(adresse));
+            std::vector<std::string> listeMusique(lireFichierSon("Donnees/Musique/" + *adresse));
             std::vector<sf::Music*> listeJouable;
             for(unsigned int i=0; i<listeMusique.size(); i++)
             {

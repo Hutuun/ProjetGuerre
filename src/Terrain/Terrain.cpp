@@ -61,7 +61,6 @@ Terrain* Terrain::getInstanTerrain(bool *chgAge,std::string *adresse)
     return m_instance;
 }
 
-
 Terrain* Terrain::getInstanTerrain()
 {
     return m_instance;
@@ -272,7 +271,7 @@ void Terrain::chargement()
                     {
                         j1 = new IA(nom,pos);
                         j1->ajoutOr(DElor);
-                        j1->setEpoque(chargeEpoque(epoque));
+                        j1->setEpoque(chargeEpoque(epoque),m_chgAge,m_adresse);
                         sauvegarde.getline(c,128); // ICI c'est la base donc pas interessant
                         sauvegarde.getline(c,128);
                         sauvegarde.getline(c,128);
@@ -334,7 +333,7 @@ void Terrain::chargement()
                     {
                         j2 = new IA(nom,pos);
                         j2->ajoutOr(DElor);
-                        j2->setEpoque(chargeEpoque(epoque));
+                        j2->setEpoque(chargeEpoque(epoque),m_chgAge,m_adresse);
                         sauvegarde.getline(c,128);  // ICI c'est la base (le nom Base) donc pas interessant
                         sauvegarde.getline(c,128);
                         sauvegarde.getline(c,128);
@@ -398,7 +397,7 @@ void Terrain::chargement()
                     {
                         j1 = new Joueur(nom,pos);
                         j1->ajoutOr(DElor);
-                        j1->setEpoque(chargeEpoque(epoque));
+                        j1->setEpoque(chargeEpoque(epoque),m_chgAge,m_adresse);
                         sauvegarde.getline(c,128); // ICI c'est la base donc pas interessant
                         sauvegarde.getline(c,128);
                         sauvegarde.getline(c,128);
@@ -461,7 +460,7 @@ void Terrain::chargement()
                     {
                         j2 = new Joueur(nom,pos);
                         j2->ajoutOr(DElor);
-                        j2->setEpoque(chargeEpoque(epoque));
+                        j2->setEpoque(chargeEpoque(epoque),m_chgAge,m_adresse);
                         sauvegarde.getline(c,128);  // ICI c'est la base donc pas interessant
                         sauvegarde.getline(c,128);
                         sauvegarde.getline(c,128);
