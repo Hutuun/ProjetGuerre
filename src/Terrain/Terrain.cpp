@@ -54,6 +54,14 @@ Terrain::Terrain(): m_terrain(TAILLE),j1(nullptr),j2(nullptr)
     this->ajoutBases();
 }
 
+Terrain* Terrain::getInstanTerrain(bool *chgAge,std::string *adresse)
+{
+    m_chgAge=chgAge;
+    m_adresse=adresse;
+    return m_instance;
+}
+
+
 Terrain* Terrain::getInstanTerrain()
 {
     return m_instance;

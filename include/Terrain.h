@@ -29,6 +29,7 @@ class Terrain
         void tue(Batiment* mort);
         void sauvegarde();
         void chargement();
+        Terrain* getInstanTerrain(bool *chgAge,std::string *adresse);
 
     protected:
 
@@ -43,6 +44,8 @@ class Terrain
         Joueur* j2;
         Terrain();
         void ajoutBases();
+        bool *m_chgAge;
+        std::string *m_adresse;
 };
 
 #endif // TERRAIN_H
