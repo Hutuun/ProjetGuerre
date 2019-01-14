@@ -240,8 +240,8 @@ bool Joueur::isIA()
 
 void Joueur::setEpoque(Epoque* epo,bool *chgAge,std::string* adresse)
 {
-    *adresse = epo->getNom();
-    *chgAge = true;
+    //*adresse = epo->getNom();
+    //*chgAge = true;
     m_epoque = epo;
 }
 

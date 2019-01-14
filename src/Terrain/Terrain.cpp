@@ -44,9 +44,10 @@ Terrain::Terrain(): m_terrain(TAILLE),j1(nullptr),j2(nullptr)
     if(c=='o'||c=='O')
     {
         this->chargement();
+    }else{
+        initJoueur(&j1,MIN-1);
+        initJoueur(&j2,MAX+1);
     }
-    initJoueur(&j1,MIN-1);
-    initJoueur(&j2,MAX+1);
     for(unsigned int i=0; i<this->m_terrain.size(); i++)
     {
         m_terrain[i]=new Case();
