@@ -31,6 +31,7 @@ class Terrain
         void chargement();
         static Terrain* getInstanTerrain(bool *chgAge,std::string *adresse);
         static Terrain* init();
+        void ajoutBases(Joueur *j,Base *base);
 
     protected:
 

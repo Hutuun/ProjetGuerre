@@ -1,12 +1,11 @@
 #include "../../include/Terrain.h"
 
-Terrain* Terrain::m_instance=Terrain::init();
+Terrain* Terrain::m_instance=new Terrain();
 std::string* Terrain::m_adresse=nullptr;
 bool* Terrain::m_chgAge=new bool(false);
 
 Terrain* Terrain::init()
 {
-    Terrain* res = new Terrain();
     char c(0);
     while(c!='O'&&c!='o'&&c!='N'&&c!='n')
     {
@@ -91,14 +90,20 @@ void Terrain::affiche()const
     }
 }
 
+void Terrain::ajoutBases(Joueur *j,Base *base)
+{
+    j->ajoutBase(base);
+    m_terrain[base->getPos()]->ajoutOccupant(base);
+}
+
 void Terrain::ajoutBases()
 {
-    Base base1=Base(j1->getNom(),j1->getPos());
-    Base base2=Base(j2->getNom(),j2->getPos());
-    j1->ajoutBase(&base1);
-    j2->ajoutBase(&base2);
-    m_terrain[j1->getPos()]->ajoutOccupant(&base1);
-    m_terrain[j2->getPos()]->ajoutOccupant(&base2);
+    Base *base1 = new Base(j1->getNom(),j1->getPos());
+    Base *base2 = new Base(j2->getNom(),j2->getPos());
+    j1->ajoutBase(base1);
+    j2->ajoutBase(base2);
+    m_terrain[j1->getPos()]->ajoutOccupant(base1);
+    m_terrain[j2->getPos()]->ajoutOccupant(base2);
 }
 
 bool Terrain::fini()
@@ -243,95 +248,82 @@ void Terrain::chargement()
     std::ifstream sauvegarde(tempo.c_str());
     if(sauvegarde)
     {
-        while(1)
-        {
-            char* c =(char *)malloc(128);
-            sauvegarde.getline(c,128);
+        while(1) {
+            char buffer[128];
+            std::string str_buffer;
+            sauvegarde.getline(buffer, 128);
+            str_buffer = buffer;
 
-            std::string str = c;
-
-            if(str.find("$")==0)
+            if(buffer[0] == '$')
             {
+                std::string nom = str_buffer.substr(1);
 
-                std::string nom = str.substr(1);
-                std::string epoque;
-                unsigned int DElor;
+                sauvegarde.getline(buffer, 128);
+                std::string epoque = buffer;
 
-                unsigned int pos;
-                int ia;
+                sauvegarde.getline(buffer, 128);
+                unsigned int DElor = std::atoi(buffer);
 
+                sauvegarde.getline(buffer, 128);
+                unsigned int pos = std::atoi(buffer);
 
+                sauvegarde.getline(buffer, 128);
+                bool ia = (bool) std::atoi(buffer);
 
-                sauvegarde.getline(c,128);
-                epoque = c;
-
-                sauvegarde.getline(c,128);
-                DElor = atoi(c);
-
-                sauvegarde.getline(c,128);
-
-                pos = atoi(c);
-
-                sauvegarde.getline(c,128);
-
-                ia = atoi(c);
-
-                if(ia==0)
-                {
-                    if(pos == 0)
-                    {
-                        j1 = new IA(nom,pos);
+                if(!ia) {
+                    if(pos == 0) {
+                        j1 = new IA(nom, pos);
                         j1->ajoutOr(DElor);
-                        j1->setEpoque(chargeEpoque(epoque),m_chgAge,m_adresse);
-                        sauvegarde.getline(c,128); // ICI c'est la base donc pas interessant
-                        sauvegarde.getline(c,128);
-                        sauvegarde.getline(c,128);
-                        sauvegarde.getline(c,128);
-                        unsigned int pv = atoi(c);
-                        j1->ajoutBase(new Base(nom,pos));
+                        j1->setEpoque(chargeEpoque(epoque), m_chgAge, m_adresse);
+                        sauvegarde.getline(buffer, 128); // ICI c'est la base donc pas interessant
+                        sauvegarde.getline(buffer, 128);
+                        sauvegarde.getline(buffer, 128);
+                        sauvegarde.getline(buffer, 128);
+                        unsigned int pv = std::atoi(buffer);
+                        ajoutBases(j1, new Base(nom, pos));
                         j1->getBase()->setPv(pv);
-                        sauvegarde.getline(c,128);//fin chargement de la base
+                        sauvegarde.getline(buffer, 128);//fin chargement de la base
                         while(1)
                         {
-                            sauvegarde.getline(c,128);
-                            if(*c == '$')
+                            sauvegarde.getline(buffer, 128);
+                            if(buffer[0] == '$')
                             {
                                 break;
                             }
-                            std::string bat = c;
-                            sauvegarde.getline(c,128);
-                            pos = atoi(c);
-                            sauvegarde.getline(c,128);
-                            unsigned int pa = atoi(c);
-                            sauvegarde.getline(c,128);
-                            pv = atoi(c);
-                            sauvegarde.getline(c,128);
-                            unsigned int pp = atoi(c);
+                            std::string bat = buffer;
+                            sauvegarde.getline(buffer,128);
+                            pos = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            unsigned int pa = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            pv = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            unsigned int pp = atoi(buffer);
 
 
                             j1->ajoutBatiment(chargeBatiment(bat,nom,pv,pos,pp,pa));
                         }
                         while(1)
                         {
-                            sauvegarde.getline(c,128);
-                            if(*c == '$')
+                            sauvegarde.getline(buffer,128);
+                            if(buffer[0] == '$')
                             {
                                 break;
                             }
-                            std::string unite = c;
+                            std::string unite = buffer;
 
-                            sauvegarde.getline(c,128);
-                            unsigned int porte = atoi(c);
-                            sauvegarde.getline(c,128);
-                            unsigned int pm = atoi(c);
-                            sauvegarde.getline(c,128);
-                            pos = atoi(c);
-                            sauvegarde.getline(c,128);
-                            unsigned int pa = atoi(c);
-                            sauvegarde.getline(c,128);
-                            pv = atoi(c);
-                            sauvegarde.getline(c,128);
-                            unsigned int pp = atoi(c);
+                            sauvegarde.getline(buffer,128);
+                            unsigned int porte = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            unsigned int pm = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            pos = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            unsigned int pa = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            pv = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            unsigned int pp = atoi(buffer);
 
 
                             j1->ajoutUnite(chargeUnite(unite,nom,pv,pm,porte,pos,pp,pa));
@@ -345,55 +337,55 @@ void Terrain::chargement()
                         j2 = new IA(nom,pos);
                         j2->ajoutOr(DElor);
                         j2->setEpoque(chargeEpoque(epoque),m_chgAge,m_adresse);
-                        sauvegarde.getline(c,128);  // ICI c'est la base (le nom Base) donc pas interessant
-                        sauvegarde.getline(c,128);
-                        sauvegarde.getline(c,128);
-                        sauvegarde.getline(c,128);
-                        int pv = atoi(c);
-                        j2->ajoutBase(new Base(nom,pos));
+                        sauvegarde.getline(buffer,128);  // ICI c'est la base (le nom Base) donc pas interessant
+                        sauvegarde.getline(buffer,128);
+                        sauvegarde.getline(buffer,128);
+                        sauvegarde.getline(buffer,128);
+                        int pv = atoi(buffer);
+                        ajoutBases(j2,new Base(nom,pos));
                         j2->getBase()->setPv(pv);
-                        sauvegarde.getline(c,128);//fin chargement de la base
+                        sauvegarde.getline(buffer,128);//fin chargement de la base
                         while(1)
                         {
-                            sauvegarde.getline(c,128);
-                            if(*c == '$')
+                            sauvegarde.getline(buffer,128);
+                            if(buffer[0] == '$')
                             {
                                 break;
                             }
-                            std::string bat = c;
-                            sauvegarde.getline(c,128);
-                            pos = atoi(c);
-                            sauvegarde.getline(c,128);
-                            unsigned int pa = atoi(c);
-                            sauvegarde.getline(c,128);
-                            pv = atoi(c);
-                            sauvegarde.getline(c,128);
-                            unsigned int pp = atoi(c);
+                            std::string bat = buffer;
+                            sauvegarde.getline(buffer,128);
+                            pos = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            unsigned int pa = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            pv = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            unsigned int pp = atoi(buffer);
 
 
                             j2->ajoutBatiment(chargeBatiment(bat,nom,pv,pos,pp,pa));
                         }
                         while(1)
                         {
-                            sauvegarde.getline(c,128);
-                            if(*c == '$')
+                            sauvegarde.getline(buffer,128);
+                            if(buffer[0] == '$')
                             {
                                 break;
                             }
-                            std::string unite = c;
+                            std::string unite = buffer;
 
-                            sauvegarde.getline(c,128);
-                            unsigned int porte = atoi(c);
-                            sauvegarde.getline(c,128);
-                            unsigned int pm = atoi(c);
-                            sauvegarde.getline(c,128);
-                            pos = atoi(c);
-                            sauvegarde.getline(c,128);
-                            unsigned int pa = atoi(c);
-                            sauvegarde.getline(c,128);
-                            pv = atoi(c);
-                            sauvegarde.getline(c,128);
-                            unsigned int pp = atoi(c);
+                            sauvegarde.getline(buffer,128);
+                            unsigned int porte = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            unsigned int pm = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            pos = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            unsigned int pa = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            pv = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            unsigned int pp = atoi(buffer);
 
 
                             j2->ajoutUnite(chargeUnite(unite,nom,pv,pm,porte,pos,pp,pa));
@@ -409,55 +401,55 @@ void Terrain::chargement()
                         j1 = new Joueur(nom,pos);
                         j1->ajoutOr(DElor);
                         j1->setEpoque(chargeEpoque(epoque),m_chgAge,m_adresse);
-                        sauvegarde.getline(c,128); // ICI c'est la base donc pas interessant
-                        sauvegarde.getline(c,128);
-                        sauvegarde.getline(c,128);
-                        sauvegarde.getline(c,128);
-                        int pv = atoi(c);
-                        j1->ajoutBase(new Base(nom,pos));
+                        sauvegarde.getline(buffer,128); // ICI c'est la base donc pas interessant
+                        sauvegarde.getline(buffer,128);
+                        sauvegarde.getline(buffer,128);
+                        sauvegarde.getline(buffer,128);
+                        int pv = atoi(buffer);
+                        ajoutBases(j1,new Base(nom,pos));
                         j1->getBase()->setPv(pv);
-                        sauvegarde.getline(c,128);//fin chargement de la base
+                        sauvegarde.getline(buffer,128);//fin chargement de la base
                         while(1)
                         {
-                            sauvegarde.getline(c,128);
-                            if(*c == '$')
+                            sauvegarde.getline(buffer,128);
+                            if(buffer[0] == '$')
                             {
                                 break;
                             }
-                            std::string bat = c;
-                            sauvegarde.getline(c,128);
-                            pos = atoi(c);
-                            sauvegarde.getline(c,128);
-                            unsigned int pa = atoi(c);
-                            sauvegarde.getline(c,128);
-                            pv = atoi(c);
-                            sauvegarde.getline(c,128);
-                            unsigned int pp = atoi(c);
+                            std::string bat = buffer;
+                            sauvegarde.getline(buffer,128);
+                            pos = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            unsigned int pa = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            pv = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            unsigned int pp = atoi(buffer);
 
 
                             j1->ajoutBatiment(chargeBatiment(bat,nom,pv,pos,pp,pa));
                         }
                         while(1)
                         {
-                            sauvegarde.getline(c,128);
-                            if(*c == '$')
+                            sauvegarde.getline(buffer,128);
+                            if(buffer[0] == '$')
                             {
                                 break;
                             }
-                            std::string unite = c;
+                            std::string unite = buffer;
 
-                            sauvegarde.getline(c,128);
-                            unsigned int porte = atoi(c);
-                            sauvegarde.getline(c,128);
-                            unsigned int pm = atoi(c);
-                            sauvegarde.getline(c,128);
-                            pos = atoi(c);
-                            sauvegarde.getline(c,128);
-                            unsigned int pa = atoi(c);
-                            sauvegarde.getline(c,128);
-                            pv = atoi(c);
-                            sauvegarde.getline(c,128);
-                            unsigned int pp = atoi(c);
+                            sauvegarde.getline(buffer,128);
+                            unsigned int porte = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            unsigned int pm = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            pos = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            unsigned int pa = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            pv = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            unsigned int pp = atoi(buffer);
 
 
                             j1->ajoutUnite(chargeUnite(unite,nom,pv,pm,porte,pos,pp,pa));
@@ -472,55 +464,55 @@ void Terrain::chargement()
                         j2 = new Joueur(nom,pos);
                         j2->ajoutOr(DElor);
                         j2->setEpoque(chargeEpoque(epoque),m_chgAge,m_adresse);
-                        sauvegarde.getline(c,128);  // ICI c'est la base donc pas interessant
-                        sauvegarde.getline(c,128);
-                        sauvegarde.getline(c,128);
-                        sauvegarde.getline(c,128);
-                        int pv = atoi(c);
-                        j2->ajoutBase(new Base(nom,pos));
+                        sauvegarde.getline(buffer,128);  // ICI c'est la base donc pas interessant
+                        sauvegarde.getline(buffer,128);
+                        sauvegarde.getline(buffer,128);
+                        sauvegarde.getline(buffer,128);
+                        int pv = atoi(buffer);
+                        ajoutBases(j2,new Base(nom,pos));
                         j2->getBase()->setPv(pv);
-                        sauvegarde.getline(c,128); //fin chargement de la base
+                        sauvegarde.getline(buffer,128); //fin chargement de la base
                         while(1)
                         {
-                            sauvegarde.getline(c,128);
-                            if(*c == '$')
+                            sauvegarde.getline(buffer,128);
+                            if(buffer[0] == '$')
                             {
                                 break;
                             }
-                            std::string bat = c;
-                            sauvegarde.getline(c,128);
-                            pos = atoi(c);
-                            sauvegarde.getline(c,128);
-                            unsigned int pa = atoi(c);
-                            sauvegarde.getline(c,128);
-                            pv = atoi(c);
-                            sauvegarde.getline(c,128);
-                            unsigned int pp = atoi(c);
+                            std::string bat = buffer;
+                            sauvegarde.getline(buffer,128);
+                            pos = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            unsigned int pa = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            pv = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            unsigned int pp = atoi(buffer);
 
 
                             j2->ajoutBatiment(chargeBatiment(bat,nom,pv,pos,pp,pa));
                         }
                         while(1)
                         {
-                            sauvegarde.getline(c,128);
-                            if(*c == '$')
+                            sauvegarde.getline(buffer,128);
+                            if(buffer[0] == '$')
                             {
                                 break;
                             }
-                            std::string unite = c;
+                            std::string unite = buffer;
 
-                            sauvegarde.getline(c,128);
-                            unsigned int porte = atoi(c);
-                            sauvegarde.getline(c,128);
-                            unsigned int pm = atoi(c);
-                            sauvegarde.getline(c,128);
-                            pos = atoi(c);
-                            sauvegarde.getline(c,128);
-                            unsigned int pa = atoi(c);
-                            sauvegarde.getline(c,128);
-                            pv = atoi(c);
-                            sauvegarde.getline(c,128);
-                            unsigned int pp = atoi(c);
+                            sauvegarde.getline(buffer,128);
+                            unsigned int porte = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            unsigned int pm = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            pos = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            unsigned int pa = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            pv = atoi(buffer);
+                            sauvegarde.getline(buffer,128);
+                            unsigned int pp = atoi(buffer);
 
 
                             j2->ajoutUnite(chargeUnite(unite,nom,pv,pm,porte,pos,pp,pa));

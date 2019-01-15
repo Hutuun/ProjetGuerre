@@ -261,7 +261,7 @@ std::string Joueur::sauvegarde()
     {
         res += m_batiments[i]->sauvegarde();
     }
-    res += "$";
+    res += "$\n";
     for(unsigned int i=0; i<m_troupes.size(); i++)
     {
         res += m_troupes[i]->sauvegarde();
