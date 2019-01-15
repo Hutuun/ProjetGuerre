@@ -12,7 +12,7 @@ const int SCREEN_HEIGHT = 480;
 void jouer(bool *fin,std::mutex *finMutex,bool *chgAge,std::string *adresse)
 {
     Terrain* centre = Terrain::getInstanTerrain();
-    centre.init();
+    centre->init();
 
     centre->affiche();
 

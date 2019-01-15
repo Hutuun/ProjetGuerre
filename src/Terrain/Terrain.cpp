@@ -4,7 +4,7 @@ Terrain* Terrain::m_instance=new Terrain();
 std::string* Terrain::m_adresse=nullptr;
 bool* Terrain::m_chgAge=new bool(false);
 
-Terrain* Terrain::init()
+void Terrain::init()
 {
     char c(0);
     while(c!='O'&&c!='o'&&c!='N'&&c!='n')
@@ -14,15 +14,14 @@ Terrain* Terrain::init()
     }
     if(c=='o'||c=='O')
     {
-        res->chargement();
+        chargement();
     }
     else
     {
-        res->initJoueur(&res->j1,MIN-1);
-        res->initJoueur(&res->j2,MAX+1);
-        res->ajoutBases();
+        initJoueur(&j1,MIN-1);
+        initJoueur(&j2,MAX+1);
+        ajoutBases();
     }
-    return res;
 }
 
 Terrain::~Terrain()
