@@ -282,13 +282,9 @@ void Terrain::chargement()
                         ajoutBases(j1, new Base(nom, pos));
                         j1->getBase()->setPv(pv);
                         sauvegarde.getline(buffer, 128);//fin chargement de la base
-                        while(1)
+                        sauvegarde.getline(buffer,128);
+                        while(buffer[0]!='$')
                         {
-                            sauvegarde.getline(buffer, 128);
-                            if(buffer[0] == '$')
-                            {
-                                break;
-                            }
                             std::string bat = buffer;
                             sauvegarde.getline(buffer,128);
                             pos = atoi(buffer);
@@ -301,14 +297,11 @@ void Terrain::chargement()
 
 
                             j1->ajoutBatiment(chargeBatiment(bat,nom,pv,pos,pp,pa));
-                        }
-                        while(1)
-                        {
                             sauvegarde.getline(buffer,128);
-                            if(buffer[0] == '$')
-                            {
-                                break;
-                            }
+                        }
+                        sauvegarde.getline(buffer,128);
+                        while(buffer[0]!='$')
+                        {
                             std::string unite = buffer;
 
                             sauvegarde.getline(buffer,128);
@@ -326,6 +319,7 @@ void Terrain::chargement()
 
 
                             j1->ajoutUnite(chargeUnite(unite,nom,pv,pm,porte,pos,pp,pa));
+                            sauvegarde.getline(buffer,128);
                         }
 
 
@@ -344,14 +338,11 @@ void Terrain::chargement()
                         ajoutBases(j2,new Base(nom,pos));
                         j2->getBase()->setPv(pv);
                         sauvegarde.getline(buffer,128);//fin chargement de la base
-                        while(1)
+                        sauvegarde.getline(buffer,128);
+                        while(buffer[0]!='$')
                         {
-                            sauvegarde.getline(buffer,128);
-                            if(buffer[0] == '$')
-                            {
-                                break;
-                            }
                             std::string bat = buffer;
+
                             sauvegarde.getline(buffer,128);
                             pos = atoi(buffer);
                             sauvegarde.getline(buffer,128);
@@ -363,14 +354,11 @@ void Terrain::chargement()
 
 
                             j2->ajoutBatiment(chargeBatiment(bat,nom,pv,pos,pp,pa));
-                        }
-                        while(1)
-                        {
                             sauvegarde.getline(buffer,128);
-                            if(buffer[0] == '$')
-                            {
-                                break;
-                            }
+                        }
+                        sauvegarde.getline(buffer,128);
+                        while(buffer[0]!='$')
+                        {
                             std::string unite = buffer;
 
                             sauvegarde.getline(buffer,128);
@@ -388,6 +376,7 @@ void Terrain::chargement()
 
 
                             j2->ajoutUnite(chargeUnite(unite,nom,pv,pm,porte,pos,pp,pa));
+                            sauvegarde.getline(buffer,128);
                         }
                     }
 
@@ -408,14 +397,11 @@ void Terrain::chargement()
                         ajoutBases(j1,new Base(nom,pos));
                         j1->getBase()->setPv(pv);
                         sauvegarde.getline(buffer,128);//fin chargement de la base
-                        while(1)
+                        sauvegarde.getline(buffer,128);
+                        while(buffer[0]!='$')
                         {
-                            sauvegarde.getline(buffer,128);
-                            if(buffer[0] == '$')
-                            {
-                                break;
-                            }
                             std::string bat = buffer;
+
                             sauvegarde.getline(buffer,128);
                             pos = atoi(buffer);
                             sauvegarde.getline(buffer,128);
@@ -427,14 +413,11 @@ void Terrain::chargement()
 
 
                             j1->ajoutBatiment(chargeBatiment(bat,nom,pv,pos,pp,pa));
-                        }
-                        while(1)
-                        {
                             sauvegarde.getline(buffer,128);
-                            if(buffer[0] == '$')
-                            {
-                                break;
-                            }
+                        }
+                        sauvegarde.getline(buffer,128);
+                        while(buffer[0]!='$')
+                        {
                             std::string unite = buffer;
 
                             sauvegarde.getline(buffer,128);
@@ -452,6 +435,7 @@ void Terrain::chargement()
 
 
                             j1->ajoutUnite(chargeUnite(unite,nom,pv,pm,porte,pos,pp,pa));
+                            sauvegarde.getline(buffer,128);
                         }
 
 
@@ -471,14 +455,11 @@ void Terrain::chargement()
                         ajoutBases(j2,new Base(nom,pos));
                         j2->getBase()->setPv(pv);
                         sauvegarde.getline(buffer,128); //fin chargement de la base
-                        while(1)
+                        sauvegarde.getline(buffer,128);
+                        while(buffer[0]!='$')
                         {
-                            sauvegarde.getline(buffer,128);
-                            if(buffer[0] == '$')
-                            {
-                                break;
-                            }
                             std::string bat = buffer;
+
                             sauvegarde.getline(buffer,128);
                             pos = atoi(buffer);
                             sauvegarde.getline(buffer,128);
@@ -490,14 +471,11 @@ void Terrain::chargement()
 
 
                             j2->ajoutBatiment(chargeBatiment(bat,nom,pv,pos,pp,pa));
-                        }
-                        while(1)
-                        {
                             sauvegarde.getline(buffer,128);
-                            if(buffer[0] == '$')
-                            {
-                                break;
-                            }
+                        }
+                        sauvegarde.getline(buffer,128);
+                        while(buffer[0]!='$')
+                        {
                             std::string unite = buffer;
 
                             sauvegarde.getline(buffer,128);
@@ -515,6 +493,7 @@ void Terrain::chargement()
 
 
                             j2->ajoutUnite(chargeUnite(unite,nom,pv,pm,porte,pos,pp,pa));
+                            sauvegarde.getline(buffer,128);
 
                         }
                     }

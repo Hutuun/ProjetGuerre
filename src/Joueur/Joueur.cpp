@@ -266,6 +266,6 @@ std::string Joueur::sauvegarde()
     {
         res += m_troupes[i]->sauvegarde();
     }
-    res += "\n$";
+    res += "$";
     return res;
 }
