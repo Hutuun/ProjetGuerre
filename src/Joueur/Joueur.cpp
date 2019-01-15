@@ -232,6 +232,8 @@ unsigned int Joueur::getPos()const
 void Joueur::ajoutBase(Base* base)
 {
     m_base=base;
+    Terrain::getInstanTerrain()->getCases();
+    Terrain::getInstanTerrain()->getCases()[m_pos]->ajoutOccupant(base);
 }
 
 bool Joueur::isIA()

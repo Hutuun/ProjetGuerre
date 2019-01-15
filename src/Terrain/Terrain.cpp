@@ -1,6 +1,30 @@
 #include "../../include/Terrain.h"
 
-Terrain* Terrain::m_instance=new Terrain();
+Terrain* Terrain::m_instance=Terrain::init();
+std::string* Terrain::m_adresse=nullptr;
+bool* Terrain::m_chgAge=new bool(false);
+
+Terrain* Terrain::init()
+{
+    Terrain* res = new Terrain();
+    char c(0);
+    while(c!='O'&&c!='o'&&c!='N'&&c!='n')
+    {
+        std::cout << "Voulez-vous charger une sauvegarde ? O/N\n";
+        std::cin >> c;
+    }
+    if(c=='o'||c=='O')
+    {
+        res->chargement();
+    }
+    else
+    {
+        res->initJoueur(&res->j1,MIN-1);
+        res->initJoueur(&res->j2,MAX+1);
+        res->ajoutBases();
+    }
+    return res;
+}
 
 Terrain::~Terrain()
 {
@@ -35,29 +59,9 @@ void Terrain::initJoueur(Joueur** j, unsigned int pos)
 
 Terrain::Terrain(): m_terrain(TAILLE),j1(nullptr),j2(nullptr)
 {
-    char c(0);
-    while(c!='O'&&c!='o'&&c!='N'&&c!='n')
+    for(unsigned int i=0; i<this->m_terrain.size(); i++)
     {
-        std::cout << "Voulez-vous charger une sauvegarde ? O/N\n";
-        std::cin >> c;
-    }
-    if(c=='o'||c=='O')
-    {
-        for(unsigned int i=0; i<this->m_terrain.size(); i++)
-        {
-            m_terrain[i]=new Case();
-        }
-
-        this->chargement();
-    }else{
-        initJoueur(&j1,MIN-1);
-        initJoueur(&j2,MAX+1);
-
-        for(unsigned int i=0; i<this->m_terrain.size(); i++)
-        {
-            m_terrain[i]=new Case();
-        }
-        this->ajoutBases();
+        m_terrain[i]=new Case();
     }
 }
 
@@ -89,12 +93,12 @@ void Terrain::affiche()const
 
 void Terrain::ajoutBases()
 {
-    Base *base1=new Base(j1->getNom(),j1->getPos());
-    Base *base2=new Base(j2->getNom(),j2->getPos());
-    j1->ajoutBase(base1);
-    j2->ajoutBase(base2);
-    m_terrain[0]->ajoutOccupant(base1);
-    m_terrain[m_terrain.size()-1]->ajoutOccupant(base2);
+    Base base1=Base(j1->getNom(),j1->getPos());
+    Base base2=Base(j2->getNom(),j2->getPos());
+    j1->ajoutBase(&base1);
+    j2->ajoutBase(&base2);
+    //m_terrain[0]->ajoutOccupant(base1);
+    //m_terrain[m_terrain.size()-1]->ajoutOccupant(base2);
 }
 
 bool Terrain::fini()
