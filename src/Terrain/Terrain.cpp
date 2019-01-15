@@ -43,16 +43,22 @@ Terrain::Terrain(): m_terrain(TAILLE),j1(nullptr),j2(nullptr)
     }
     if(c=='o'||c=='O')
     {
+        for(unsigned int i=0; i<this->m_terrain.size(); i++)
+        {
+            m_terrain[i]=new Case();
+        }
+
         this->chargement();
     }else{
         initJoueur(&j1,MIN-1);
         initJoueur(&j2,MAX+1);
+
+        for(unsigned int i=0; i<this->m_terrain.size(); i++)
+        {
+            m_terrain[i]=new Case();
+        }
+        this->ajoutBases();
     }
-    for(unsigned int i=0; i<this->m_terrain.size(); i++)
-    {
-        m_terrain[i]=new Case();
-    }
-    this->ajoutBases();
 }
 
 Terrain* Terrain::getInstanTerrain(bool *chgAge,std::string *adresse)
@@ -514,6 +520,7 @@ void Terrain::chargement()
 
 
                             j2->ajoutUnite(chargeUnite(unite,nom,pv,pm,porte,pos,pp,pa));
+
                         }
                     }
 

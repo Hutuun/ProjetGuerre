@@ -6,9 +6,10 @@ Prehistoire
 Base
 0
 0
-100
+50
 0
-$Fantassin
+$
+Fantassin
 0
 1
 5
@@ -22,7 +23,6 @@ Archer
 3
 8
 12
-
 $
 $sa
 Prehistoire

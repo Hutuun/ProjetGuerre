@@ -24,6 +24,7 @@ void Joueur::ajoutUnite(Soldat *troupe)
 {
     if(troupe!=nullptr)
     {
+        std::cout << "Ajout d'une unite"<<std::endl;
         Terrain::getInstanTerrain()->ajoutOccupant(troupe,troupe->getPos());
         m_troupes.push_back(troupe);
     }
