@@ -97,8 +97,8 @@ void Terrain::ajoutBases()
     Base base2=Base(j2->getNom(),j2->getPos());
     j1->ajoutBase(&base1);
     j2->ajoutBase(&base2);
-    //m_terrain[0]->ajoutOccupant(base1);
-    //m_terrain[m_terrain.size()-1]->ajoutOccupant(base2);
+    m_terrain[j1->getPos()]->ajoutOccupant(&base1);
+    m_terrain[j2->getPos()]->ajoutOccupant(&base2);
 }
 
 bool Terrain::fini()
