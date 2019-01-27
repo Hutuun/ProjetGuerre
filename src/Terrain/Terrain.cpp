@@ -167,12 +167,15 @@ void Terrain::ajoutOccupant(Batiment* const occupant,unsigned int pos)
 
 void Terrain::tour()
 {
-    j1->tourJoueur();
-    this->affiche();
-    nbTour++;
-    j2->tourJoueur();
-    this->affiche();
-    nbTour++;
+    for(unsigned int i=0; i<2; i++)
+    {
+        if(nbTour%2==0)
+            j1->tourJoueur();
+        else if(nbTour%2==1)
+            j2->tourJoueur();
+        this->affiche();
+        nbTour++;
+    }
 }
 
 Epoque* Terrain::chargeEpoque(std::string epoque)
@@ -254,7 +257,13 @@ void Terrain::chargement()
     std::ifstream sauvegarde(tempo.c_str());
     if(sauvegarde)
     {
-        do{
+        char buffer[128];
+        std::string str_buffer;
+        sauvegarde.getline(buffer, 128);
+        str_buffer = buffer;
+        nbTour = std::atoi(buffer);
+        do
+        {
             char buffer[128];
             std::string str_buffer;
             sauvegarde.getline(buffer, 128);
@@ -276,8 +285,10 @@ void Terrain::chargement()
                 sauvegarde.getline(buffer, 128);
                 bool ia = (bool) std::atoi(buffer);
 
-                if(!ia) {
-                    if(pos == 0) {
+                if(!ia)
+                {
+                    if(pos == 0)
+                    {
                         j1 = new IA(nom, pos);
                         j1->ajoutOr(DElor);
                         j1->setEpoque(chargeEpoque(epoque), m_chgAge, m_adresse);
@@ -507,7 +518,8 @@ void Terrain::chargement()
 
                 }
             }
-        }while(!sauvegarde.eof());
+        }
+        while(!sauvegarde.eof());
     }
     else
     {
