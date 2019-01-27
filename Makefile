@@ -1,5 +1,5 @@
 CXX=g++
-CXXFLAGS=-Wall -Wextra -Werror -std=c++17 -ISDL2\i686-w64-mingw32\include -ISFML\include -Iinclude -Wall -std=c++1z -fexceptions -g -std=c++14 -ISDL2\i686-w64-mingw32\include -Isrc\Terrain -c -lmingw32 -lSDL2main -lSDL2  SDL2\i686-w64-mingw32\lib\libSDL2.a SDL2\i686-w64-mingw32\lib\libSDL2.dll.a -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+CXXFLAGS=-Wall -Wextra -std=c++17 -ISDL2/i686-w64-mingw32/include -ISFML/include -Iinclude -Wall -std=c++1z -fexceptions -g -std=c++14 -ISDL2/i686-w64-mingw32/include -Isrc/Terrain -c -lmingw32 -lSDL2main -lSDL2  SDL2/i686-w64-mingw32/lib/libSDL2.a SDL2/i686-w64-mingw32/lib/libSDL2.dll.a -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) $< -c -o $@

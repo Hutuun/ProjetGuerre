@@ -34,7 +34,8 @@ Base
 0
 100
 0
-$Fantassin
+$
+Fantassin
 0
 1
 6
@@ -48,5 +49,4 @@ Archer
 3
 8
 12
-
 $
