@@ -4,6 +4,7 @@
 #define TAILLE 12
 #define MAX TAILLE-2
 #define MIN 1
+#define TOURMAX 200
 
 #include <vector>
 #include <dirent.h>
@@ -48,6 +49,7 @@ class Terrain
         void ajoutBases();
         static bool *m_chgAge;
         static std::string *m_adresse;
+        unsigned int nbTour=0;
 };
 
 #endif // TERRAIN_H

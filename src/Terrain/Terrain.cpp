@@ -117,6 +117,11 @@ bool Terrain::fini()
         std::cout << j1->getNom() << " a gagne !" << std::endl;
         return false;
     }
+    else if(nbTour==TOURMAX)
+    {
+        std::cout << "Il y a égalité !" << std::endl;
+        return false;
+    }
     else
         return true;
 }
@@ -164,8 +169,10 @@ void Terrain::tour()
 {
     j1->tourJoueur();
     this->affiche();
+    nbTour++;
     j2->tourJoueur();
     this->affiche();
+    nbTour++;
 }
 
 Epoque* Terrain::chargeEpoque(std::string epoque)
@@ -247,7 +254,7 @@ void Terrain::chargement()
     std::ifstream sauvegarde(tempo.c_str());
     if(sauvegarde)
     {
-        while(1) {
+        do{
             char buffer[128];
             std::string str_buffer;
             sauvegarde.getline(buffer, 128);
@@ -500,12 +507,7 @@ void Terrain::chargement()
 
                 }
             }
-
-            if(sauvegarde.eof())
-            {
-                break;
-            }
-        }
+        }while(!sauvegarde.eof());
     }
     else
     {
@@ -562,7 +564,7 @@ void Terrain::sauvegarde()
     std::ofstream sauvegarde(tempo.c_str());
     if(sauvegarde)
     {
-        sauvegarde << j1->sauvegarde() << "\n" << j2->sauvegarde();
+        sauvegarde << nbTour << "\n" << j1->sauvegarde() << "\n" << j2->sauvegarde();
     }
     else
     {
