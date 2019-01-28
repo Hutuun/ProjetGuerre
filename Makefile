@@ -1,5 +1,5 @@
 CXX=g++
-CXXFLAGS=-Wall -Wextra -std=c++17 -pthread -ISFML/include/SFML-Iinclude -Wall -std=c++1z -fexceptions -g -LSFML/bin -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system
+CXXFLAGS=-Wall -Wextra -std=c++17 -pthread -ISFML/include/SFML -Iinclude -Wall -std=c++1z -fexceptions -g -LSFML/bin -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system
 EXEC = ProjetGuerre
 SRCs = main.cpp src/Autre.cpp src/Musique.cpp src/Joueur/IA.cpp src/Joueur/Joueur.cpp src/Joueur/Unite/Unite.cpp src/Joueur/Unite/Archer.cpp src/Joueur/Unite/Base.cpp src/Joueur/Unite/Batiment.cpp src/Joueur/Unite/Catapulte.cpp src/Joueur/Unite/CorpsACorps.cpp src/Joueur/Unite/Distance.cpp src/Joueur/Unite/Fantassin.cpp src/Joueur/Unite/Soldat.cpp src/Joueur/Epoque/Epoque.cpp src/Joueur/Epoque/Prehistoire.cpp src/Terrain/Case.cpp src/Terrain/Terrain.cpp 
 OBJs = $(subst .cpp,.o,$(SRCs))
