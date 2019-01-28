@@ -21,4 +21,3 @@ $(EXEC):$(OBJs)
 
 clean:
 	rm -rfv $(OBJs)
-	
