@@ -1,13 +1,6 @@
-//Using SDL and standard IO
 #include "Terrain.h"
 #include "Joueur.h"
 #include "Musique.h"
-
-//Screen dimension constants
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
-
-
 
 void jouer(bool *fin,std::mutex *finMutex,bool *chgAge,std::string *adresse)
 {
