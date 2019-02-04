@@ -1,8 +1,8 @@
 #ifndef TERRAIN_H
 #define TERRAIN_H
 
-#define TAILLE 12
-#define MAX TAILLE-2
+#define TAILLE 50
+#define MAX (TAILLE-2)
 #define MIN 1
 #define TOURMAX 200
 
